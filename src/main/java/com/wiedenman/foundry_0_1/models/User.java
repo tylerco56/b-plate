@@ -69,28 +69,28 @@ public class User {
     // required by orm
     public User() {
         this.creationDate = date;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
+//        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+//        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
     }
 
     public User(String email, String password, String verifyPassword) {
         this.creationDate = date;
         this.email = email;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
+        this.password = password;
+        this.verifyPassword = verifyPassword;
     }
 
     public User(String firstName, String lastName,
                 String email, String phoneNumber,
-                String password) {
+                String password, String verifyPassword) {
 //        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.confirmed = false;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.verifyPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = password;
+        this.verifyPassword = verifyPassword;
         this.verificationCode = generateVerificationCode();
         this.creationDate = date;
     }

@@ -9,12 +9,17 @@
         <form method="POST" th:object="${user}">
             <div>
                 <label th:for="username">Username: </label>
-                <input field="username"/>
-                <span errors="username" class="error"></span>
+                <input th:field="${user.username}"/>
+                <span th:errors="${user.username}" class="error"></span>
+            </div>
+            <div>
+                <label th:for="email">Email: </label>
+                <input th:field="${user.email}"/>
+                <span th:errors="${user.email}" class="error"></span>
             </div>
             <div>
                 <label th:for="password">Password: </label>
-                <input th:type="password" field="password"/>
+                <input type="password" th:field="${user.password}"/>
                 <!--<span th:errors="*{password}" class="error"></span>-->
                 <!--<span th:text="${passnullerror}" class="error"></span>-->
             </div>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 // TODO: Make User class persistent
 
@@ -56,11 +57,11 @@ public class UserController {
         model.addAttribute("title", "Add User");
         String newUserEmail = newUser.getEmail();
 //        .equals(userDao.findByEmail(newUser.getEmail());
-        String existingEmail = String.valueOf(userDao.findByEmail(newUserEmail));
+        Optional<User> existingUser = userDao.findByEmail(newUserEmail);
         if (errors.hasErrors()) {
             return "user/add";
 
-        } else if (existingEmail.equals(newUserEmail)) { // TODO: Deal with org.hibernate.exception.ConstraintViolationException
+        } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
             return "user/add";
         }
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
@@ -79,35 +80,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String processLogin(@ModelAttribute @Valid User loginUser,
-                               Errors errors, Model model, @RequestParam String email) {
+    public String processLogin(@ModelAttribute User loginUser,
+                               Errors errors, Model model) {
 
         String candidate = loginUser.getPassword();
-        String hashed = String.valueOf(userDao.findByEmail(email));
+        String hashed = userDao.findByEmail(loginUser.getEmail()).get().getPassword();
 
         if (BCrypt.checkpw(candidate, hashed)) {
-            System.out.println("It matches");
+            System.out.println("It matches"); // TODO: create the user session
             return "user/logged-in";
         }
 
-        System.out.println("It does not match");
+        System.out.println("It does not match");  // TODO: create error for failed login and pass to view
         return "user/login";
     }
 }
-
-
-
-
-//    // Hash a password for the first time
-//    String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-//
-//    // gensalt's log_rounds parameter determines the complexity
-//// the work factor is 2**log_rounds, and the default is 10
-//    String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-//
-//// Check that an unencrypted password matches one that has
-//// previously been hashed
-//if (BCrypt.checkpw(candidate, hashed))
-//        System.out.println("It matches");
-//        else
-//        System.out.println("It does not match");
