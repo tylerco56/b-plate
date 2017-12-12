@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<section class="Lrow">
+    <div class="Lcol">
+        <h1 th:text="${title}">Default Title</h1>
+        <hr/>
+        <p th:unless="${users} and ${users.size()}">
+            No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/user/add">Add a user now.</a>
+        </p>
+        <ul th:each="user : ${users}">
+            <a th:href="'/user/' + ${user.id}"><h3 th:text="${user.username}"></h3></a>
+            <hr/>
+        </ul>
+    </div>
+</section>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Default Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" />
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+</head>
+<body>
+    <header th:fragment="navigation">
+        <div class="main-header">
+        <!--<a href="#"><img th:src="@{/images/cheesey.png}" class="logo"/></a>-->
+        <!--<nav class="main-nav">-->
+            <!--<a href="/cheese" class="menu-item">List Cheeses</a>-->
+            <!--<a href="/cheese/add" class="menu-item">Add Cheese</a>-->
+            <!--<a href="/cheese/remove" class="menu-item">Remove Cheese</a>-->
+            <!--<a href="/user/index" class="menu-item">All Users</a>-->
+            <!--<a href="/user/add" class="menu-item">Add User</a>-->
+        <!--</nav>-->
+        </div>
+    </header>
+    <footer th:fragment="footer">Copyright &copy; 2017 Landon Wiedenman</footer>
+</body>
+</html>

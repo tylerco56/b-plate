@@ -16,7 +16,12 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.Random;
 import java.util.UUID;
 
@@ -27,18 +32,19 @@ public class User {
     private static final int MIN_VERIFICATION_CODE = 999999;
 
     @Id
-    private String id;
+    @GeneratedValue
+    private int id;
 
     @Column(name = "USERNAME")
     @NotBlank(message= "Username may not be blank ")
     private String username;
 
     @Column(name = "FIRST_NAME")
-    @NotBlank(message = "First Name may not be blank ")
+//    @NotBlank(message = "First Name may not be blank ")
     private String firstName;
 
     @Column(name = "LAST_NAME")
-    @NotBlank(message = "Last Name may not be blank ")
+//    @NotBlank(message = "Last Name may not be blank ")
     private String lastName;
 
     @Column(name = "EMAIL", unique = true)
@@ -50,7 +56,11 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    @NotBlank(message = "Phone Number may not be blank ")
+    @NotNull(message="Passwords do not match. ")
+    @Size(min=6, message="Passwords do not match. ")
+    private String verifyPassword;
+
+//    @NotBlank(message = "Phone Number may not be blank ")
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
@@ -63,22 +73,28 @@ public class User {
 //    @Column(name = "USER_LEVEL")
 //    private UserLevel level;
 
+    private final LocalDate creationDate;
+
+    public static LocalDate date = LocalDate.now();
 
     // required by orm
     public User() {
+        this.creationDate = date;
     }
 
     public User(final String firstName, final String lastName,
                 final String email, final String phoneNumber,
                 final String password) {
-        this.id = UUID.randomUUID().toString();
+//        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.confirmed = false;
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.verifyPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         this.verificationCode = generateVerificationCode();
+        this.creationDate = date;
     }
 
     static String generateVerificationCode() {
@@ -103,7 +119,7 @@ public class User {
         return BCrypt.checkpw(password, this.password);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -121,5 +137,93 @@ public class User {
 
     public boolean isConfirmed() {
         return confirmed;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public static int getMaxVerificationCode() {
+        return MAX_VERIFICATION_CODE;
+    }
+
+    public static int getMinVerificationCode() {
+        return MIN_VERIFICATION_CODE;
+    }
+
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public static LocalDate getDate() {
+        return date;
+    }
+
+    public static void setDate(LocalDate date) {
+        User.date = date;
+    }
+
+    private void checkPassword() {
+        /**If password and verifyPassword are not null and they do not match, reset verifyPassword to null.*/
+
+        if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
+            verifyPassword = null;
+        }
     }
 }
