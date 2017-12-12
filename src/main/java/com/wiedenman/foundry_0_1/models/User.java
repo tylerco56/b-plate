@@ -1,19 +1,9 @@
 package com.wiedenman.foundry_0_1.models;
 
-//import com.wiedenman.foundry.exception.WrongVerificationCodeException;
-//import org.hibernate.validator.constraints.Email;
-//import org.hibernate.validator.constraints.NotBlank;
 import com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-//
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import org.dom4j.Entity;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +11,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.util.Random;
 import java.util.UUID;
 
@@ -54,11 +43,11 @@ public class User {
 
     @NotBlank(message = "Password may not be blank ")
     @Column(name = "PASSWORD")
-    private String password;
+    private String password;  // TODO: Hash this before storage
 
     @NotNull(message="Passwords do not match. ")
     @Size(min=6, message="Passwords do not match. ")
-    private String verifyPassword;
+    private String verifyPassword;  // TODO: Hash before storage
 
 //    @NotBlank(message = "Phone Number may not be blank ")
     @Column(name = "PHONE_NUMBER")
@@ -80,11 +69,20 @@ public class User {
     // required by orm
     public User() {
         this.creationDate = date;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
     }
 
-    public User(final String firstName, final String lastName,
-                final String email, final String phoneNumber,
-                final String password) {
+    public User(String email, String password, String verifyPassword) {
+        this.creationDate = date;
+        this.email = email;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
+    }
+
+    public User(String firstName, String lastName,
+                String email, String phoneNumber,
+                String password) {
 //        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
