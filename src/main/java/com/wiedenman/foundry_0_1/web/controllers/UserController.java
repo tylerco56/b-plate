@@ -1,9 +1,8 @@
-package com.wiedenman.foundry_0_1.controllers;
+package com.wiedenman.foundry_0_1.web.controllers;
 
 import com.wiedenman.foundry_0_1.models.*;
 import com.wiedenman.foundry_0_1.models.data.RoleDao;
 import com.wiedenman.foundry_0_1.models.data.UserDao;
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 //import sun.misc.Request;
 
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.time.format.DateTimeFormatter;
@@ -43,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public String singleUser(Model model, @PathVariable int id) {
+    public String singleUser(Model model, @PathVariable long id) {
 
         User user = userDao.findOne(id);
         String formattedDate = user.getCreationDate().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));

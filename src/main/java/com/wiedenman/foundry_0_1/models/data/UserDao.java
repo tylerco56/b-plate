@@ -9,9 +9,10 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface UserDao extends CrudRepository<User, Integer> {
+public interface UserDao extends CrudRepository<User, Long> {
 
-    Optional<User> findByEmail(String email);  // TODO: create findByEmail method
+    Optional<User> findByEmail(String email);
+    User findByUsername(String username);
 
 
 }

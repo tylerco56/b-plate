@@ -1,25 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:fragment="head">
+<head th:fragment="head" lang="en">
     <meta charset="UTF-8"/>
-    <title th:text="${title}">Default Title</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" />
-    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+
+    <title>TodoToday</title>
 </head>
 <body>
-    <header th:fragment="navigation">
-        <div class="main-header">
-        <!--<a href="#"><img th:src="@{/images/cheesey.png}" class="logo"/></a>-->
-        <!--<nav class="main-nav">-->
-            <!--<a href="/cheese" class="menu-item">List Cheeses</a>-->
-            <!--<a href="/cheese/add" class="menu-item">Add Cheese</a>-->
-            <!--<a href="/cheese/remove" class="menu-item">Remove Cheese</a>-->
-            <!--<a href="/user/index" class="menu-item">All Users</a>-->
-            <!--<a href="/user/add" class="menu-item">Add User</a>-->
-        <!--</nav>-->
+<nav th:fragment="nav">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">TodoToday</a>
+            <ul class="right">
+                <li sec:authentication="name"></li>
+                <li>
+                    <form class="logout inline" th:action="@{/logout}" method="post">
+                        <button type="submit"><i class="material-icons">power_settings_new</i></button>
+                    </form>
+                </li>
+            </ul>
         </div>
-    </header>
-    <footer th:fragment="footer">Copyright &copy; 2017 Landon Wiedenman</footer>
+    </div>
+</nav>
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <div class="message">
+        <i class="right material-icons" data-close="">close</i>
+        <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+    </div>
+</div>
+<div th:fragment="scripts">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript" th:src="@{/assets/js/app.js}"></script>
+</div>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--<head th:fragment="head">-->
+    <!--<meta charset="UTF-8"/>-->
+    <!--<title th:text="${title}">Default Title</title>-->
+    <!--<link rel="stylesheet" th:href="@{/css/styles.css}" />-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" />-->
+    <!--<script type="text/javascript" th:src="@{/js/script.js}"></script>-->
+<!--</head>-->
+<!--<body>-->
+    <!--<header th:fragment="navigation">-->
+        <!--<div class="main-header">-->
+            <!--&lt;!&ndash; TODO: ADD logo and menu to html fragments &ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#"><img th:src="@{/images/cheesey.png}" class="logo"/></a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<nav class="main-nav">&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="/cheese" class="menu-item">List Cheeses</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="/cheese/add" class="menu-item">Add Cheese</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="/cheese/remove" class="menu-item">Remove Cheese</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="/user/index" class="menu-item">All Users</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="/user/add" class="menu-item">Add User</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</nav>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</header>-->
+    <!--<div th:fragment="flash" th:if="${flash != null}" class="container">-->
+        <!--<div class="message">-->
+            <!--&lt;!&ndash;<i class="right material-icons" data-close="">close</i>&ndash;&gt;-->
+            <!--<div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<footer th:fragment="footer">Copyright &copy; 2017 Landon Wiedenman</footer>-->
+<!--</body>-->
+<!--</html>-->

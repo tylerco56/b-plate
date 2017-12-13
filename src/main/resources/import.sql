@@ -1,8 +1,8 @@
 -- Insert roles
-insert into role (name) values ('ADMIN');
-insert into role (name) values ('MEMBER');
+insert into role (name) values ('ROLE_USER');
+# insert into role (name) values ('MEMBER');
 
 
 -- Insert two users (passwords are both 'password')
-insert into user (username,enabled,password,verify_password,email,role_id) values ('user',true,'$2a$08$wgwoMKfYl5AUE9QtP4OjheNkkSDoqDmFGjjPE2XTPLDe9xso/hy7u','$2a$08$wgwoMKfYl5AUE9QtP4OjheNkkSDoqDmFGjjPE2XTPLDe9xso/hy7u','landonwiedenman@gmail.com',1);
-insert into user (username,enabled,password,verify_password,email,role_id) values ('user2',true,'$2a$08$wgwoMKfYl5AUE9QtP4OjheNkkSDoqDmFGjjPE2XTPLDe9xso/hy7u','$2a$08$wgwoMKfYl5AUE9QtP4OjheNkkSDoqDmFGjjPE2XTPLDe9xso/hy7u','someemail@what.com',1);
+insert into user (confirmed,username,enabled,password,verify_password,email,role_id) values (1,'user',true,'password','password','landonwiedenman@gmail.com',1);
+insert into user (confirmed,username,enabled,password,verify_password,email,role_id) values (1,'user2',true,'password','password','someemail@what.com',1);

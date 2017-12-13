@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <div class="card">
+                <div class="card-image">
+                    <!--<img th:src="@{/assets/images/desktop-computer.svg}" alt="desktop computer" />-->
+                </div>
+                <div class="card-content">
+                    <div th:replace="fragments :: flash"></div>
+                    <form th:action="@{/login}" th:object="${user}" method="post" class="login">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                        <div class="row">
+                            <div class="col s12">
+                                <input th:field="${user.username}" placeholder="username"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <input type="password" th:field="${user.password}" placeholder="password"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
