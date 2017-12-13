@@ -1,28 +1,31 @@
 package com.wiedenman.foundry_0_1.models;
 
 import com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 @Entity
-public class User {
+public class User implements UserDetails {
 
     private static final int MAX_VERIFICATION_CODE = 100000;
     private static final int MIN_VERIFICATION_CODE = 999999;
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Column(name = "USERNAME")
     @NotBlank(message= "Username may not be blank ")
@@ -42,10 +45,11 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password may not be blank ")
-    @Column(name = "PASSWORD")
+    @Column(length = 100, name = "PASSWORD")
     private String password;  // TODO: Hash this before storage
 
     @NotNull(message="Passwords do not match. ")
+    @Column(length = 100)
     @Size(min=6, message="Passwords do not match. ")
     private String verifyPassword;  // TODO: Hash before storage
 
@@ -61,6 +65,13 @@ public class User {
 
 //    @Column(name = "USER_LEVEL")
 //    private UserLevel level;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    @Column(nullable = false)
+    private boolean enabled;
 
     private final LocalDate creationDate;
 
@@ -117,7 +128,7 @@ public class User {
         return BCrypt.checkpw(password, this.password);
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -157,6 +168,26 @@ public class User {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -179,6 +210,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Adds new granted authority
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(role.getName()));
+        return authorities;
     }
 
     public String getPassword() {
@@ -223,5 +262,21 @@ public class User {
         if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
             verifyPassword = null;
         }
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

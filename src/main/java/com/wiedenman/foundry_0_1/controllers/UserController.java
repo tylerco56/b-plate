@@ -1,7 +1,9 @@
 package com.wiedenman.foundry_0_1.controllers;
 
 import com.wiedenman.foundry_0_1.models.*;
+import com.wiedenman.foundry_0_1.models.data.RoleDao;
 import com.wiedenman.foundry_0_1.models.data.UserDao;
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -9,9 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+//import org.thymeleaf.context.WebContext;
+//import sun.misc.Request;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -23,6 +30,9 @@ public class UserController {
 
     @Autowired
     UserDao userDao;
+
+    @Autowired
+    RoleDao roleDao;
 
     @RequestMapping(value = "index")
     public String index(Model model) {
@@ -64,6 +74,10 @@ public class UserController {
         } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
             return "user/add";
         }
+
+//            newUser.setRole();  // TODO: Deal with this; move to sensible place
+
+
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
         newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
         userDao.save(newUser);
@@ -81,13 +95,17 @@ public class UserController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String processLogin(@ModelAttribute User loginUser,
-                               Errors errors, Model model) {
+                               Errors errors, Model model, Principal principal) {
+
+        // principal.getName(); returns username of currently authenticated user
+
 
         String candidate = loginUser.getPassword();
         String hashed = userDao.findByEmail(loginUser.getEmail()).get().getPassword();
 
         if (BCrypt.checkpw(candidate, hashed)) {
-            System.out.println("It matches"); // TODO: create the user session
+            // TODO: create the user session
+
             return "user/logged-in";
         }
 
