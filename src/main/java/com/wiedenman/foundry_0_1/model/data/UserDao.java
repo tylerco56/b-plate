@@ -1,6 +1,6 @@
-package com.wiedenman.foundry_0_1.models.data;
+package com.wiedenman.foundry_0_1.model.data;
 
-import com.wiedenman.foundry_0_1.models.User;
+import com.wiedenman.foundry_0_1.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

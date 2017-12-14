@@ -1,6 +1,6 @@
 package com.wiedenman.foundry_0_1.service;
 
-import com.wiedenman.foundry_0_1.models.Task;
+import com.wiedenman.foundry_0_1.model.Task;
 
 public interface TaskService {
     Iterable<Task> findAll();

@@ -1,8 +1,7 @@
 package com.wiedenman.foundry_0_1.web.controllers;
 
-import com.wiedenman.foundry_0_1.models.Page;
-import com.wiedenman.foundry_0_1.models.User;
-import com.wiedenman.foundry_0_1.models.data.PageDao;
+import com.wiedenman.foundry_0_1.model.Page;
+import com.wiedenman.foundry_0_1.model.User;
 import com.wiedenman.foundry_0_1.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
-import java.time.format.DateTimeFormatter;
 
 @Controller
 @RequestMapping("page")

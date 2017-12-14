@@ -1,7 +1,7 @@
 package com.wiedenman.foundry_0_1.service;
 
-import com.wiedenman.foundry_0_1.models.Task;
-import com.wiedenman.foundry_0_1.models.data.TaskDao;
+import com.wiedenman.foundry_0_1.model.Task;
+import com.wiedenman.foundry_0_1.model.data.TaskDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

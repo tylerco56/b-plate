@@ -1,13 +1,11 @@
 package com.wiedenman.foundry_0_1.service;
 
-import com.wiedenman.foundry_0_1.models.User;
-import com.wiedenman.foundry_0_1.models.data.UserDao;
+import com.wiedenman.foundry_0_1.model.User;
+import com.wiedenman.foundry_0_1.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {

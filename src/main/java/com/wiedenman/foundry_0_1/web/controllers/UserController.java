@@ -1,8 +1,8 @@
 package com.wiedenman.foundry_0_1.web.controllers;
 
-import com.wiedenman.foundry_0_1.models.*;
-import com.wiedenman.foundry_0_1.models.data.RoleDao;
-import com.wiedenman.foundry_0_1.models.data.UserDao;
+import com.wiedenman.foundry_0_1.model.*;
+import com.wiedenman.foundry_0_1.model.data.RoleDao;
+import com.wiedenman.foundry_0_1.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCrypt;

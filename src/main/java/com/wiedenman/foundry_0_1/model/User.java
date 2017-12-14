@@ -1,4 +1,4 @@
-package com.wiedenman.foundry_0_1.models;
+package com.wiedenman.foundry_0_1.model;
 
 import com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException;
 import org.springframework.security.core.GrantedAuthority;

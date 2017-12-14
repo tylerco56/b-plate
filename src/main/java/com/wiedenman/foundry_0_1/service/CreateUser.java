@@ -5,8 +5,8 @@ package com.wiedenman.foundry_0_1.service;
 //import com.google.inject.persist.Transactional;
 //import com.twilio.sms2fa.domain.model.User;
 //import com.twilio.sms2fa.domain.repository.UserRepository;
-import com.wiedenman.foundry_0_1.models.User;
-import com.wiedenman.foundry_0_1.models.data.UserDao;
+import com.wiedenman.foundry_0_1.model.User;
+import com.wiedenman.foundry_0_1.model.data.UserDao;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;

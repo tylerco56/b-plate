@@ -1,7 +1,7 @@
 package com.wiedenman.foundry_0_1.web.controllers;
 
-import com.wiedenman.foundry_0_1.models.Task;
-import com.wiedenman.foundry_0_1.models.User;
+import com.wiedenman.foundry_0_1.model.Task;
+import com.wiedenman.foundry_0_1.model.User;
 import com.wiedenman.foundry_0_1.service.TaskService;
 import com.wiedenman.foundry_0_1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class TaskController {
 
     @RequestMapping(path = "/tasks", method = RequestMethod.POST)
     public String addTask(@ModelAttribute Task task, Principal principal) {
-        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
+        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();  // TODO: move to Dao?
         task.setUser(user);
         taskService.save(task);
         return "redirect:/";

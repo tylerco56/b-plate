@@ -1,6 +1,6 @@
 package com.wiedenman.foundry_0_1.web.controllers;
 
-import com.wiedenman.foundry_0_1.models.User;
+import com.wiedenman.foundry_0_1.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

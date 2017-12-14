@@ -1,7 +1,7 @@
 package com.wiedenman.foundry_0_1.service;
 
-import com.wiedenman.foundry_0_1.models.Page;
-import com.wiedenman.foundry_0_1.models.data.PageDao;
+import com.wiedenman.foundry_0_1.model.Page;
+import com.wiedenman.foundry_0_1.model.data.PageDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

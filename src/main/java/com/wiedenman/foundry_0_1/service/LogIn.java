@@ -7,8 +7,8 @@
 ////import com.twilio.sms2fa.domain.repository.UserRepository;
 ////import com.wiedenman.foundry_0_1.exception.WrongUserPasswordException;
 //import com.wiedenman.foundry_0_1.exception.WrongUserPasswordException;
-//import com.wiedenman.foundry_0_1.models.User;
-//import com.wiedenman.foundry_0_1.models.data.UserDao;
+//import com.wiedenman.foundry_0_1.model.User;
+//import com.wiedenman.foundry_0_1.model.data.UserDao;
 //
 //import javax.transaction.Transactional;
 //import java.util.Optional;

@@ -1,15 +1,11 @@
-package com.wiedenman.foundry_0_1.models.data;
+package com.wiedenman.foundry_0_1.model.data;
 
-import com.wiedenman.foundry_0_1.models.Page;
-import com.wiedenman.foundry_0_1.models.User;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.Query;
+import com.wiedenman.foundry_0_1.model.Page;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @Transactional
