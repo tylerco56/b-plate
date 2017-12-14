@@ -47,15 +47,15 @@ public class UserController {
         return "user/single"; // TODO: create html user/single
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.GET)  // Displays form
+    @RequestMapping(value = "register", method = RequestMethod.GET)  // Displays form
     public String displayAddUser(Model model) {
         model.addAttribute("title", "Add User");
         model.addAttribute(new User());
 
-        return "user/add";
+        return "user/register";
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.POST) // Process form
+    @RequestMapping(value = "register", method = RequestMethod.POST) // Process form
     public String processAddUser(@ModelAttribute @Valid User newUser,
                                  Errors errors, Model model) {
 
@@ -64,10 +64,10 @@ public class UserController {
 //        .equals(userDao.findByEmail(newUser.getEmail());
         Optional<User> existingUser = userDao.findByEmail(newUserEmail);
         if (errors.hasErrors()) {
-            return "user/add";
+            return "user/register";
 
         } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
-            return "user/add";
+            return "user/register";
         }
 
 //            newUser.setRole();  // TODO: Deal with this; move to sensible place
@@ -78,33 +78,33 @@ public class UserController {
         userDao.save(newUser);
         return "redirect:index";
     }
-
-    @RequestMapping(value = "login", method = RequestMethod.GET) // Display login form
-    public String displayLogin(Model model) {
-        model.addAttribute("title", "Login");
-
-        User loginUser = new User();
-        model.addAttribute(loginUser);
-        return "user/login";
-    }
-
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String processLogin(@ModelAttribute User loginUser,
-                               Errors errors, Model model, Principal principal) {
-
-        // principal.getName(); returns username of currently authenticated user
-
-
-        String candidate = loginUser.getPassword();
-        String hashed = userDao.findByEmail(loginUser.getEmail()).get().getPassword();
-
-        if (BCrypt.checkpw(candidate, hashed)) {
-            // TODO: create the user session
-
-            return "user/logged-in";
-        }
-
-        System.out.println("It does not match");  // TODO: create error for failed login and pass to view
-        return "user/login";
-    }
+//
+//    @RequestMapping(value = "login", method = RequestMethod.GET) // Display login form
+//    public String displayLogin(Model model) {
+//        model.addAttribute("title", "Login");
+//
+//        User loginUser = new User();
+//        model.addAttribute(loginUser);
+//        return "user/login";
+//    }
+//
+//    @RequestMapping(value = "login", method = RequestMethod.POST)
+//    public String processLogin(@ModelAttribute User loginUser,
+//                               Errors errors, Model model, Principal principal) {
+//
+//        // principal.getName(); returns username of currently authenticated user
+//
+//
+//        String candidate = loginUser.getPassword();
+//        String hashed = userDao.findByEmail(loginUser.getEmail()).get().getPassword();
+//
+//        if (BCrypt.checkpw(candidate, hashed)) {
+//            // TODO: create the user session
+//
+//            return "user/logged-in";
+//        }
+//
+//        System.out.println("It does not match");  // TODO: create error for failed login and pass to view
+//        return "user/login";
+//    }
 }

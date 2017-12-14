@@ -25,6 +25,19 @@ nav .nav-wrapper .brand-logo {
     color: snow;
 }
 
+/*a {*/
+    /*color: #8e1c1c;*/
+/*}*/
+
+/*.btn, btn-large {*/
+    /*background-color: #8e1c1c;*/
+/*}*/
+
+/*.btn:hover {*/
+    /*background-color: #8e1c1c;*/
+    /*opacity: 0.75;*/
+/*}*/
+
 .Lheader-item {
     font-size: 1rem;
     font-weight: 100;
@@ -50,9 +63,9 @@ form.login button[type=submit] {
     height: initial;
 }
 
-form.login button[type=submit], form.login button[type=submit]:hover {
-    background: #117FC4;
-}
+/*form.login button[type=submit], form.login button[type=submit]:hover {*/
+    /*background: #8e1c1c;*/
+/*}*/
 
 ul li {
     margin-bottom: 6px;
@@ -65,7 +78,7 @@ ul li {
 }
 
 #login-image {
-    max-width: 150px;
+    max-width: 250px;
 }
 
 

@@ -15,7 +15,7 @@
 <nav th:fragment="navigation" style="background: #3a3a3a;">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">FOUNDRY</a>
+            <a href="/" class="brand-logo">FOUNDRY</a>
             <ul class="right" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
                 <li>
                     <span th:case="${false}"></span>

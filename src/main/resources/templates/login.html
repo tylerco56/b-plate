@@ -7,8 +7,9 @@
     <div class="row vert-center page-body">
         <div class="col s12 m6 offset-m3">
             <div class="card">
-                <div class="card-image">
-                    <img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" id="login-image"/>
+                <div class="card-image" style="text-align: center; padding-top:50px;">
+                    <!--<img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" id="login-image"/>-->
+                    <h4>LOGIN</h4>
                 </div>
                 <div class="card-content">
                     <div th:replace="fragments :: flash"></div>
@@ -31,6 +32,11 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div style="text-align: center;">
+                <a th:href="'/user/register'"><span th:text="register"></span></a>
+                <span>   |   </span>
+                <a th:href="'/user/forgot-password'"><span th:text="'forgot password? '"></span></a>
             </div>
         </div>
     </div>
