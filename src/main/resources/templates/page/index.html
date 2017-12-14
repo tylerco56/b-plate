@@ -2,16 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<nav th:replace="fragments :: navigation"></nav>
-<section class="Lrow">
-    <div class="Lcol container">
-        <h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav><section>
+    <div class="page-body"></div>
+    <div class="gap"></div>
+    <div class="container">
+        <h3 th:text="${title}">Default Title</h3>
         <hr/>
         <p th:unless="${pages} and ${pages.size()}">
             No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/page/add">Add a page now.</a>
         </p>
         <ul th:each="page : ${pages}">
-            <a th:href="'/page/' + ${page.id}"><h3 th:text="${page.name}"></h3></a>
+            <a th:href="'/page/' + ${page.id}"><h5 th:text="${page.name}"></h5></a>
             <hr/>
         </ul>
     </div>

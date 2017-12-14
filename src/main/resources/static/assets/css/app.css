@@ -1,3 +1,4 @@
+/*@import url(reset.css);*/
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 * {
@@ -10,13 +11,32 @@
 
 nav {
     background: #3a3a3a;
+    position: fixed;
+    top: 0;
+    z-index: 99;
 }
 
 nav .nav-wrapper .brand-logo {
     left: initial;
     -webkit-transform: none;
     transform: none;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: snow;
+}
+
+.Lheader-item {
+    font-size: 1rem;
+    font-weight: 100;
+
+}
+
+.page-body {
+    margin-top: 65px;
+}
+
+.gap {
+    height: 1px;
 }
 
 .card .card-image img {
@@ -37,6 +57,17 @@ form.login button[type=submit], form.login button[type=submit]:hover {
 ul li {
     margin-bottom: 6px;
 }
+
+.vert-center {
+    /*margin: auto;*/
+    position: relative;
+    top: 20px; left: 0; bottom: 0; right: 0;
+}
+
+#login-image {
+    max-width: 150px;
+}
+
 
 /*[type="checkbox"]+label::before {*/
     /*border-color: #dad7de;*/
@@ -114,3 +145,21 @@ ul li {
 /*.new-item input[type=text]::-webkit-input-placeholder {*/
     /*color: rgba(131,140,199,0.4);*/
 /*}*/
+
+/**
+*
+*  MEDIA QUERIES
+*
+*/
+
+
+/*@media only screen and (min-width: 601px)*/
+/*materialize.min.css:6*/
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    font-size: 1.2rem;
+}

@@ -16,17 +16,34 @@
     <div class="container">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">FOUNDRY</a>
-            <ul class="right">
-                <li sec:authentication="name"></li>
+            <ul class="right" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                <li>
+                    <span th:case="${false}"></span>
+                    <span th:case="${true}"><li sec:authentication="name" class="Lheader-item"></li></span>
+                </li>
                 <li>
                     <form class="logout inline" th:action="@{/logout}" method="post">
-                        <button type="submit" style="background: none; border: none;"><i class="material-icons">power_settings_new</i></button>
+                        <button type="submit" style="background: none; border: none;">
+                            <i class="material-icons">power_settings_new</i>
+                        </button>
                     </form>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<section th:fragment="page-body" class="container">
+    <div class="page-body"></div>
+    <div class="gap"></div>
+    <div>
+        <h3 th:text="${title}">Default Title</h3>
+        <hr/>
+        <p th:unless="${page}">
+            Page not found.&nbsp;&nbsp;:(
+        </p>
+        <div th:text="${page.body}"></div>
+    </div>
+</section>
 <div th:fragment="flash" th:if="${flash != null}" class="container">
     <div class="message">
         <i class="right material-icons" data-close="">close</i>

@@ -4,11 +4,11 @@
 <body>
 <nav th:replace="fragments :: navigation"></nav>
 <div class="container">
-    <div class="row">
+    <div class="row vert-center page-body">
         <div class="col s12 m6 offset-m3">
             <div class="card">
                 <div class="card-image">
-                    <img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" style="max-width: 200px;"/>
+                    <img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" id="login-image"/>
                 </div>
                 <div class="card-content">
                     <div th:replace="fragments :: flash"></div>
