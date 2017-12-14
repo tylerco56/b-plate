@@ -44,6 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
+        http.authorizeRequests().antMatchers("/page/*").permitAll();
+
+        http.authorizeRequests().antMatchers("/user/add").permitAll();
+
+
         http
             .authorizeRequests()
                 .anyRequest().hasRole("USER")
