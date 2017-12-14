@@ -4,8 +4,8 @@ insert into role (name) values ('ROLE_USER');
 
 
 -- Insert two users (passwords are both 'password')
-insert into user (confirmed, username, enabled, password, verify_password, email, role_id) values (1, 'user', true, 'password', 'password', 'landonwiedenman@gmail.com', 1);
-insert into user (confirmed, username, enabled, password, verify_password, email, role_id) values (1, 'user2', true, 'password', 'password', 'someemail@what.com', 1);
+insert into user (confirmed, username, enabled, password, verify_password, email, role_id) values (1, 'user', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'landonwiedenman@gmail.com', 1);
+insert into user (confirmed, username, enabled, password, verify_password, email, role_id) values (1, 'user2', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'someemail@what.com', 1);
 
 
 -- Insert home page and contact page

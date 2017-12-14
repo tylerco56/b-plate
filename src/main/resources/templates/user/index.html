@@ -4,7 +4,7 @@
 <body>
 <nav th:replace="fragments :: navigation"></nav>
 <section class="Lrow">
-    <div class="Lcol">
+    <div class="Lcol container">
         <h1 th:text="${title}">Default Title</h1>
         <hr/>
         <p th:unless="${users} and ${users.size()}">

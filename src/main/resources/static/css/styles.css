@@ -204,6 +204,11 @@ button {
     border-radius: 4px;
 }
 
+.power-button {
+    background: none !important;
+    border: none !important;
+}
+
 /* footer */
 
 footer {

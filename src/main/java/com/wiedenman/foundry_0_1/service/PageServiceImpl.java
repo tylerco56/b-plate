@@ -19,4 +19,9 @@ public class PageServiceImpl implements PageService {
     public Page findOne(long id) {
         return pageDao.findOne(id);
     }
+
+    @Override
+    public void save(Page page) {
+
+    }
 }

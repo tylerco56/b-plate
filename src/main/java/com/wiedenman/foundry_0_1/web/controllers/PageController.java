@@ -47,7 +47,7 @@ public class PageController {
     public String addTask(@ModelAttribute Page page, Principal principal) {
         User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
         page.setPrivateUser(user.getId());
-//        pageService.(task);
+        pageService.save(page);
         return "page/single";
     }
 }
