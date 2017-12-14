@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<section class="Lrow">
+    <div class="Lcol container">
+        <h1 th:text="${title}">Default Title</h1>
+        <hr/>
+        <p th:unless="${page}">
+             Page not found.&nbsp;&nbsp;:(
+        </p>
+    </div>
+</section>
+<section th:text="${page.body}" class="container"></section>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
