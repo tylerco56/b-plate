@@ -25,4 +25,7 @@ nbdist/
 .nb-gradle/
 
 ### Images ###
-/src/main/resources/static/assets/images*
+# /src/main/resources/static/assets/images*
+
+### Secret ###
+src/main/java/com/wiedenman/foundry_0_1/secret/

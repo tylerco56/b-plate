@@ -1,4 +1,4 @@
-package com.wiedenman.foundry_0_1.service;
+package com.wiedenman.foundry_0_1.service.twilio;
 
 import com.wiedenman.foundry_0_1.model.User;
 
