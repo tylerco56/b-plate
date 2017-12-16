@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -29,5 +31,20 @@ public class UserServiceImpl implements UserService {
 
         // Return user object
         return user;
+    }
+
+    @Override
+    public Optional<User> findUserByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> findUserByResetToken(String resetToken) {
+        return userDao.findByResetToken(resetToken);
+    }
+
+    @Override
+    public void save(User user) {
+        userDao.save(user);
     }
 }

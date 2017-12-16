@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserDao extends CrudRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
+    Optional<User> findUserByEmail(String email);
     User findByUsername(String username);
-
-
+    Optional<User> findByResetToken(String resetToken);
 }

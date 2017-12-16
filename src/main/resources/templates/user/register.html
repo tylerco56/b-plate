@@ -6,7 +6,9 @@
 <div class="page-body"></div>
 <section class="Lrow">
     <div class="Lcol container">
-        <h1 th:text="${title}">Default Title</h1>
+        <div class="gap">
+        </div>
+        <h3 th:text="${title}">Default Title</h3>
         <form method="POST" th:object="${user}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <div>

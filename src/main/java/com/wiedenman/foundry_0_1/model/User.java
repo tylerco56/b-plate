@@ -63,17 +63,21 @@ public class User implements UserDetails {
     @Column(name = "CONFIRMED")
     private boolean confirmed;
 
-//    @Column(name = "USER_LEVEL")
-//    private UserLevel level;
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "ROLE_ID")
     private Role role;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "ENABLED")
     private boolean enabled;
 
+    @Column(name="CREATION_DATE")
     private final LocalDate creationDate;
+
+    @Column(name = "last_login")
+    private LocalDate lastLogin;
+
+    @Column(name = "reset_token")
+    private String resetToken;
 
     public static LocalDate date = LocalDate.now();
 
@@ -93,7 +97,8 @@ public class User implements UserDetails {
 
     public User(String firstName, String lastName,
                 String email, String phoneNumber,
-                String password, String verifyPassword) {
+                String password, String verifyPassword,
+                LocalDate lastLogin, boolean enabled) {
 //        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -104,6 +109,9 @@ public class User implements UserDetails {
         this.verifyPassword = verifyPassword;
         this.verificationCode = generateVerificationCode();
         this.creationDate = date;
+        this.lastLogin = lastLogin;
+        this.enabled = enabled;
+
     }
 
     static String generateVerificationCode() {
@@ -278,5 +286,21 @@ public class User implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public LocalDate getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDate lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
     }
 }
