@@ -20,7 +20,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Configuration
 @EnableWebSecurity
@@ -45,12 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
 
 
         http.authorizeRequests().antMatchers("/page/*").permitAll()
                                 .antMatchers("/user/register").permitAll()
-                                .antMatchers("/forgot*").permitAll();  // TODO: allow post submissions to fix error on submit
+                                .antMatchers("/forgot*").permitAll();
 
         http
             .authorizeRequests()
