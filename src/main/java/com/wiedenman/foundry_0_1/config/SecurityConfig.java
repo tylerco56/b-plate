@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.query.spi.EvaluationContextExtension;
 import org.springframework.data.repository.query.spi.EvaluationContextExtensionSupport;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -44,12 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
-        http.authorizeRequests().antMatchers("/page/*").permitAll();
 
-        http.authorizeRequests().antMatchers("/user/register").permitAll();
 
-        http.authorizeRequests().antMatchers("/forgot").permitAll();
-
+        http.authorizeRequests().antMatchers("/page/*").permitAll()
+                                .antMatchers("/user/register").permitAll()
+                                .antMatchers("/forgot*").permitAll();
 
         http
             .authorizeRequests()
