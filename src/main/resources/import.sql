@@ -11,3 +11,5 @@ insert into user (confirmed, username, enabled, password, verify_password, email
 -- Insert home page and contact page
 insert into page (publish, name, author_id, writer_id, body, private_user_id) values (1, 'home', 1, 1, 'html content goes in here. ', 1);
 insert into page (publish, name, author_id, writer_id, body, private_user_id) values (1, 'contact', 1, 1, 'This is a default contact page. ', 1);
+
+-- Insert tasks
