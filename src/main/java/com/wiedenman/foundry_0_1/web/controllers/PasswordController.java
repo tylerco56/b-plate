@@ -62,11 +62,11 @@ public class PasswordController {
 
             // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-            passwordResetEmail.setFrom("support@demo.com");
+            passwordResetEmail.setFrom("donotreply@foundrydemo.com");
             passwordResetEmail.setTo(user.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
-                    + "/reset?token=" + user.getResetToken());
+                    + ":8080/reset?token=" + user.getResetToken());
 
             emailService.sendEmail(passwordResetEmail);
 
@@ -99,9 +99,6 @@ public class PasswordController {
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
     public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, @RequestParam String token, RedirectAttributes redir) {
 
-//        // Make token into String
-//        requestParams.get("token")
-
         // Find the user associated with the reset token
         Optional<User> user = userDao.findByResetToken(token);
 
@@ -119,8 +116,7 @@ public class PasswordController {
             // Save user
             userDao.save(resetUser);
 
-            // In order to set a model attribute on a redirect, we must use
-            // RedirectAttributes
+            // TODO: make redirect attribute show up on flash in login.html
             redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");
 
             modelAndView.setViewName("redirect:login");
