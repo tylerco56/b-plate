@@ -1,6 +1,6 @@
-#b-plate
+# b-plate
 
-####The java boiler you've been looking for.
+#### The java boiler you've been looking for.
 
 B-plate is full-stack Java web-application boilerplate for the most common use cases. It is meant as a starting point to allow developers to focus their time on unique functionality and speed up development.
 
@@ -16,18 +16,18 @@ The following features are provided by b-plate "out-of-the-box" in and MVC patte
 
 
 
-#####Back-end:
+##### Back-end:
 - Spring
 - Gradle
 - JPA with MySQL
 - Spring Security
 - Thymeleaf
 
-#####Front-end:
+##### Front-end:
 - Materialize
 
 
-##Installation
+## Installation
 1. Fork the repository, and clone to your workspace, install in your chosen IDE.
 
 2. Create a MySQL database on your local installation.
@@ -71,7 +71,7 @@ spring.mail.protocol = smtp
 
 
 
-##License & Usage
+## License & Usage
 You may use b-plate freely for personal, non-commercial purposes only. Please contact me on Linkedin to discuss commercial use.
 
 
