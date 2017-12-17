@@ -4,20 +4,30 @@ import com.wiedenman.b_plate.model.*;
 import com.wiedenman.b_plate.model.data.RoleDao;
 import com.wiedenman.b_plate.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-//import org.thymeleaf.context.WebContext;
-//import sun.misc.Request;
-
-
 import javax.validation.Valid;
-import java.security.Principal;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+
+/**
+ *   _                       _         _
+ *  | |                     | |       | |
+ *  | |__    ______   _ __  | |  __ _ | |_  ___
+ *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
+ *  | |_) |          | |_) || || (_| || |_|  __/
+ *  |_.__/           | .__/ |_| \__,_| \__|\___|
+ *      	         | |
+ *  			     |_|
+ *
+ * @author by Landon Wiedenman - github.com/landongw/b-plate
+ *
+ * License: for personal non-commercial use only.  Please contact me for commercial uses.
+ *
+ * */
 
 @Controller
 @RequestMapping("user")
@@ -61,7 +71,6 @@ public class UserController {
 
         model.addAttribute("title", "Add User");
         String newUserEmail = newUser.getEmail();
-//        .equals(userDao.findByEmail(newUser.getEmail());
         Optional<User> existingUser = userDao.findByEmail(newUserEmail);
         if (errors.hasErrors()) {
             return "user/register";

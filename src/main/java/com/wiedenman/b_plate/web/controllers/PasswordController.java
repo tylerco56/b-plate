@@ -3,9 +3,7 @@ package com.wiedenman.b_plate.web.controllers;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-
 import javax.servlet.http.HttpServletRequest;
-
 import com.wiedenman.b_plate.model.User;
 import com.wiedenman.b_plate.model.data.UserDao;
 import com.wiedenman.b_plate.service.EmailService;
@@ -20,6 +18,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+/**
+ *   _                       _         _
+ *  | |                     | |       | |
+ *  | |__    ______   _ __  | |  __ _ | |_  ___
+ *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
+ *  | |_) |          | |_) || || (_| || |_|  __/
+ *  |_.__/           | .__/ |_| \__,_| \__|\___|
+ *      	         | |
+ *  			     |_|
+ *
+ * @author by Landon Wiedenman - github.com/landongw/b-plate
+ *
+ * License: for personal non-commercial use only.  Please contact me for commercial uses.
+ *
+ * */
 
 @Controller
 public class PasswordController {

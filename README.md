@@ -1,16 +1,6 @@
+#b-plate
 
-   __                       ___             __             
-  /\ \                     /\_ \           /\ \__          
-  \ \ \____           _____\//\ \      __  \ \ ,_\    __   
-   \ \ '__`\  _______/\ '__`\\ \ \   /'__`\ \ \ \/  /'__`\ 
-    \ \ \L\ \/\______\ \ \L\ \\_\ \_/\ \L\.\_\ \ \_/\  __/ 
-     \ \_,__/\/______/\ \ ,__//\____\ \__/.\_\\ \__\ \____\
-      \/___/           \ \ \/ \/____/\/__/\/_/ \/__/\/____/
-                      \ \_\                              
-                       \/_/                              
-
-
-##The java boiler you've been looking for.
+####The java boiler you've been looking for.
 
 B-plate is full-stack Java web-application boilerplate for the most common use cases. It is meant as a starting point to allow developers to focus their time on unique functionality and speed up development.
 

@@ -4,13 +4,26 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
-
 import java.util.Properties;
-
 import static com.wiedenman.b_plate.secret.SimpleMailCredentials.SMTP_AUTH_PWD;
 import static com.wiedenman.b_plate.secret.SimpleMailCredentials.SMTP_AUTH_USER;
 import static com.wiedenman.b_plate.secret.SimpleMailCredentials.SMTP_HOST_NAME;
 
+/**
+ *   _                       _         _
+ *  | |                     | |       | |
+ *  | |__    ______   _ __  | |  __ _ | |_  ___
+ *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
+ *  | |_) |          | |_) || || (_| || |_|  __/
+ *  |_.__/           | .__/ |_| \__,_| \__|\___|
+ *      	         | |
+ *  			     |_|
+ *
+ * @author by Landon Wiedenman - github.com/landongw/b-plate
+ *
+ * License: for personal non-commercial use only.  Please contact me for commercial uses.
+ *
+ * */
 
 public class SimpleMail {
 
@@ -26,7 +39,7 @@ public class SimpleMail {
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(props, auth);
-        // uncomment for debugging infos to stdout
+        // uncomment for debugging info to stdout
         // mailSession.setDebug(true);
         Transport transport = mailSession.getTransport();
 

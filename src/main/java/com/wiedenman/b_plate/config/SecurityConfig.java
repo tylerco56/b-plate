@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.query.spi.EvaluationContextExtension;
 import org.springframework.data.repository.query.spi.EvaluationContextExtensionSupport;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +19,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+/**
+ *   _                       _         _
+ *  | |                     | |       | |
+ *  | |__    ______   _ __  | |  __ _ | |_  ___
+ *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
+ *  | |_) |          | |_) || || (_| || |_|  __/
+ *  |_.__/           | .__/ |_| \__,_| \__|\___|
+ *      	         | |
+ *  			     |_|
+ *
+ * @author by Landon Wiedenman - github.com/landongw/b-plate
+ *
+ * License: for personal non-commercial use only.  Please contact me for commercial uses.
+ *
+ * */
 
 @Configuration
 @EnableWebSecurity

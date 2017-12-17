@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -16,6 +15,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
+
+/**
+ *   _                       _         _
+ *  | |                     | |       | |
+ *  | |__    ______   _ __  | |  __ _ | |_  ___
+ *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
+ *  | |_) |          | |_) || || (_| || |_|  __/
+ *  |_.__/           | .__/ |_| \__,_| \__|\___|
+ *      	         | |
+ *  			     |_|
+ *
+ * @author by Landon Wiedenman - github.com/landongw/b-plate
+ *
+ * License: for personal non-commercial use only.  Please contact me for commercial uses.
+ *
+ * */
 
 @Entity
 public class User implements UserDetails {
