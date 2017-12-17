@@ -1,17 +1,13 @@
 /*@import url(reset.css);*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* ---------------------
+   BASE ELEMENT STYLES
+------------------------*/
 
 * {
     font-family: 'roboto';
-}
-
-nav ul a {
-    padding: 0px 5px;
-}
-
-.inline {
-    display: inline-block;
-    width: 100%;
 }
 
 nav {
@@ -30,6 +26,35 @@ nav .nav-wrapper .brand-logo {
     color: snow;
 }
 
+nav ul a {
+    padding: 0px 5px;
+}
+
+ul li {
+    margin-bottom: 6px;
+}
+
+
+
+
+/* ---------------------
+   BASE LAYOUT STYLES
+------------------------*/
+
+
+/* navigation */
+
+/*@media only screen and (min-width: 601px)*/
+/*materialize.min.css:6*/
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    font-size: 1.2rem;
+}
+
 .Lheader-item {
     font-size: 1rem;
     font-weight: 100;
@@ -37,23 +62,36 @@ nav .nav-wrapper .brand-logo {
 
 }
 
-.page-body {
-    margin-top: 65px;
+
+/* layout containers */
+
+.inline {
+    display: inline-block;
+    width: 100%;
 }
 
 .gap {
     height: 1px;
 }
 
+/* TODO: fix this vert center css or remove/replace*/
+.vert-center {
+    position: relative;
+    top: 20px; left: 0; bottom: 0; right: 0;
+}
+
+/* page elements */
+
+.page-body {
+    margin-top: 65px;
+}
+
+
+/* Form styles */
+
 .card .card-image img {
     padding: 20px;
     margin: auto;
-}
-
-form.login button[type=submit] {
-    width: 100%;
-    padding: 10px;
-    height: initial;
 }
 
 [type="checkbox"]+label:before {
@@ -70,14 +108,10 @@ form.login button[type=submit] {
     transition: .05s;
 }
 
-ul li {
-    margin-bottom: 6px;
-}
-
-.vert-center {
-    /*margin: auto;*/
-    position: relative;
-    top: 20px; left: 0; bottom: 0; right: 0;
+form.login button[type=submit] {
+    width: 100%;
+    padding: 10px;
+    height: initial;
 }
 
 #login-image {
@@ -91,13 +125,12 @@ ul li {
 }
 
 
-/*@media only screen and (min-width: 601px)*/
-/*materialize.min.css:6*/
-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 40px;
-    line-height: 40px;
-}
+/* footer */
 
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-    font-size: 1.2rem;
-}
+
+
+
+
+/* ---------------------
+   MEDIA QUERIES
+------------------------*/
