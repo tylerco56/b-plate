@@ -1,117 +1,118 @@
 /*@import url(reset.css);*/
-@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);
+/*@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);*/
+@import url(../sass/materialize.css);
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-/* ---------------------
-   BASE ELEMENT STYLES
-------------------------*/
+/*!* ---------------------*/
+   /*BASE ELEMENT STYLES*/
+/*------------------------*!*/
 
-* {
-    font-family: 'roboto';
-}
+/** {*/
+    /*font-family: 'roboto';*/
+/*}*/
 
-nav {
-    background: #3a3a3a;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-}
+/*!*nav {*!*/
+    /*!*background: #3a3a3a;*!*/
+    /*!*position: fixed;*!*/
+    /*!*top: 0;*!*/
+    /*!*z-index: 99;*!*/
+/*!*}*!*/
 
-nav .nav-wrapper .brand-logo {
-    left: initial;
-    -webkit-transform: none;
-    transform: none;
-    font-weight: 400;
-    font-size: 1.2rem;
-    color: snow;
-}
+/*nav .nav-wrapper .brand-logo {*/
+    /*left: initial;*/
+    /*-webkit-transform: none;*/
+    /*transform: none;*/
+    /*font-weight: 400;*/
+    /*font-size: 1.2rem;*/
+    /*color: snow;*/
+/*}*/
 
-nav ul a {
-    padding: 0px 5px;
-}
+/*!*nav ul a {*!*/
+    /*!*padding: 0px 5px;*!*/
+/*!*}*!*/
 
-ul li {
-    margin-bottom: 6px;
-}
-
-
+/*ul li {*/
+    /*margin-bottom: 6px;*/
+/*}*/
 
 
-/* ---------------------
-   BASE LAYOUT STYLES
-------------------------*/
 
 
-/* navigation */
-
-.brand-logo {
-    letter-spacing: 1px;
-}
-
-/*@media only screen and (min-width: 601px)*/
-/*materialize.min.css:6*/
-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 40px;
-    line-height: 40px;
-}
-
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-    font-size: 1.2rem;
-}
-
-.Lheader-item {
-    font-size: 1rem;
-    font-weight: 100;
-    /*padding: 0px 5px;*/
-
-}
+/*!* ---------------------*/
+   /*BASE LAYOUT STYLES*/
+/*------------------------*!*/
 
 
-/* layout containers */
+/*!* navigation *!*/
 
-.inline {
-    display: inline-block;
-    width: 100%;
-}
+/*.brand-logo {*/
+    /*letter-spacing: 1px;*/
+/*}*/
+
+/*!*@media only screen and (min-width: 601px)*!*/
+/*!*materialize.min.css:6*!*/
+/*nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {*/
+    /*height: 40px;*/
+    /*line-height: 40px;*/
+/*}*/
+
+/*nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {*/
+    /*font-size: 1.2rem;*/
+/*}*/
+
+/*.Lheader-item {*/
+    /*font-size: 1rem;*/
+    /*font-weight: 100;*/
+    /*!*padding: 0px 5px;*!*/
+
+/*}*/
+
+
+/*!* layout containers *!*/
+
+/*!*.inline {*!*/
+    /*!*display: inline-block;*!*/
+    /*!*width: 100%;*!*/
+/*!*}*!*/
 
 .gap {
-    height: 1px;
+    height: 25px;
 }
 
-/* TODO: fix this vert center css or remove/replace*/
-.vert-center {
-    position: relative;
-    top: 20px; left: 0; bottom: 0; right: 0;
-}
+/*!*!* TODO: fix this vert center css or remove/replace*!*!*/
+/*!*.vert-center {*!*/
+    /*!*position: relative;*!*/
+    /*!*top: 20px; left: 0; bottom: 0; right: 0;*!*/
+/*!*}*!*/
 
-/* page elements */
+/*!* page elements *!*/
 
 .page-body {
     margin-top: 65px;
 }
 
 
-/* Form styles */
+/*!*!* Form styles *!*!*/
 
-.card .card-image img {
-    padding: 20px;
-    margin: auto;
-}
+/*!*.card .card-image img {*!*/
+    /*!*padding: 20px;*!*/
+    /*!*margin: auto;*!*/
+/*!*}*!*/
 
-[type="checkbox"]+label:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 18px;
-    height: 18px;
-    z-index: 0;
-    border: 2px solid #5a5a5a;
-    border-radius: 1px;
-    margin-top: 2px;
-    transition: .05s;
-}
+/*!*[type="checkbox"]+label:before {*!*/
+    /*!*content: '';*!*/
+    /*!*position: absolute;*!*/
+    /*!*top: 0;*!*/
+    /*!*left: 0;*!*/
+    /*!*width: 18px;*!*/
+    /*!*height: 18px;*!*/
+    /*!*z-index: 0;*!*/
+    /*!*border: 2px solid #5a5a5a;*!*/
+    /*!*border-radius: 1px;*!*/
+    /*!*margin-top: 2px;*!*/
+    /*!*transition: .05s;*!*/
+/*!*}*!*/
 
 form.login button[type=submit] {
     width: 100%;
@@ -119,25 +120,25 @@ form.login button[type=submit] {
     height: initial;
 }
 
-#login-image {
-    max-width: 250px;
-}
+/*!*#login-image {*!*/
+    /*!*max-width: 250px;*!*/
+/*!*}*!*/
 
-.logout button {
-    border: none;
-    background: transparent;
-    padding-right: 0px;
-}
-
-
-/* footer */
+/*!*.logout button {*!*/
+    /*!*border: none;*!*/
+    /*!*background: transparent;*!*/
+    /*!*padding-right: 0px;*!*/
+/*!*}*!*/
 
 
+/*!* footer *!*/
 
 
 
-/* ---------------------
-   MEDIA QUERIES
-------------------------*/
 
-/* TODO: make mobile menu */
+
+/*!* ---------------------*/
+   /*MEDIA QUERIES*/
+/*------------------------*!*/
+
+/*!* TODO: make mobile menu *!*/
