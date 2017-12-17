@@ -69,10 +69,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/page/*").permitAll()
-                .antMatchers("/user/register").permitAll()
+                .antMatchers("/pages").permitAll()
+                .antMatchers("/user-register").permitAll()
                 .antMatchers("/forgot*").permitAll()
                 .antMatchers("/reset*").permitAll()
-                .antMatchers("/user/index").hasRole("ADMIN")
+                .antMatchers("/user-index").hasRole("ADMIN")
             .and()
             .authorizeRequests()
                 .anyRequest().authenticated()

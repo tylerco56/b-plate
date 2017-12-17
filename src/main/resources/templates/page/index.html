@@ -12,11 +12,12 @@
             No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/page/add">Add a page now.</a>
         </p>
         <ul th:each="page : ${pages}">
-            <a th:href="'/page/' + ${page.id}"><h5 th:text="${page.name}"></h5></a>
+            <a th:href="'/page-' + ${page.id}"><h5 th:text="${page.name}"></h5></a>
             <hr/>
         </ul>
     </div>
 </section>
+<div th:replace="fragments :: scripts"></div>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

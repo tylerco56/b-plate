@@ -35,7 +35,6 @@ import java.util.Optional;
  */
 
 @Controller
-@RequestMapping("user")
 public class UserController {
 
     @Autowired
@@ -44,7 +43,7 @@ public class UserController {
     @Autowired
     RoleDao roleDao;
 
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "user-index")
     public String index(Model model) {
         model.addAttribute("users", userDao.findAll());
         model.addAttribute("title", "Users");
@@ -52,7 +51,7 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user-{id}", method = RequestMethod.GET)
     public String singleUser(Model model, @PathVariable long id) {
 
         User user = userDao.findOne(id);

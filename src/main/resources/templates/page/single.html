@@ -2,8 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<nav th:replace="fragments :: navigation"></nav>
-<section th:replace="fragments :: page-body"></section>
-<footer th:replace="fragments :: footer"></footer>
+    <nav th:replace="fragments :: navigation"></nav>
+    <div th:replace="fragments :: flash"></div>
+    <section th:replace="fragments :: page-body"></section>
+    <div th:replace="fragments :: scripts"></div>
+    <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

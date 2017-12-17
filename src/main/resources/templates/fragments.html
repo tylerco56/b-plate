@@ -7,7 +7,48 @@
     <title>b-plate</title>
 </head>
 <body>
-<nav th:fragment="navigation" class="navbar-fixed">
+
+
+<nav th:fragment="navigation" class="dark-grey" role="navigation">
+    <div class="nav-wrapper container">
+        <div style="display: inline">
+            <a id="logo-container" href="/" class="brand-logo">b-plate</a>
+        </div>
+        <div>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" class="thin">link</a></li>
+                <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                    <span th:case="${false}"></span>
+                    <span th:case="${true}"><a sec:authentication="name" class="Lheader-item"></a></span></li>
+                <li>
+                    <form class="logout inline" th:action="@{/logout}" method="post">
+                        <button type="submit" style="background: none; border: none;">
+                            <i class="material-icons">power_settings_new</i>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Navbar Link</a></li>
+            <li><a href="#">Navbar Link</a></li>
+            <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                <span th:case="${false}"></span>
+                <span th:case="${true}"><a sec:authentication="name" class="Lheader-item"></a></span></li>
+            <li>
+                <form class="logout inline" th:action="@{/logout}" method="post">
+                    <button type="submit" style="background: none; border: none;">
+                        <i class="material-icons">power_settings_new</i>
+                    </button>
+                </form>
+            </li>
+
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<nav th:fragment="oldnav" class="navbar-fixed">
     <div class="container">
         <div class="nav-wrapper">
             <div style="display: inline">
@@ -43,6 +84,7 @@
         </div>
     </div>
 </nav>
+
 <section th:fragment="page-body" class="container">
     <div class="page-body"></div>
     <div class="gap"></div>
@@ -65,7 +107,8 @@
 </div>
 <div th:fragment="scripts">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript" th:src="@{/assets/js/init.js}"></script>
+    <script type="text/javascript" th:src="@{assets/js/materialize.js}"></script>
     <script type="text/javascript" th:src="@{/assets/js/app.js}"></script>
 </div>
 </body>

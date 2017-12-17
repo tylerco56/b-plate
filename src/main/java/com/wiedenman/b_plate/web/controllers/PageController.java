@@ -36,7 +36,6 @@ import java.security.Principal;
  */
 
 @Controller
-@RequestMapping("page")
 public class PageController {
 
     @Autowired
@@ -46,7 +45,7 @@ public class PageController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "pages")
     public String index(Model model, Principal principal) {
         Iterable<Page> pages = pageService.findAll();
         model.addAttribute("pages", pages);
@@ -55,7 +54,7 @@ public class PageController {
         return "page/index";
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "page-{id}", method = RequestMethod.GET)
     public String singlePage(Model model, @PathVariable long id, Principal principal) {
 
         Page page = pageService.findOne(id);
@@ -65,11 +64,11 @@ public class PageController {
         return "page/single";
     }
 
-    @RequestMapping(path = "private-page", method = RequestMethod.POST)
-    public String addTask(@ModelAttribute Page page, Principal principal) {
-        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
-        page.setPrivateUser(user.getId());
-        pageService.save(page);
-        return "page/single";
-    }
+//    @RequestMapping(path = "page/private-page", method = RequestMethod.POST)
+//    public String addTask(@ModelAttribute Page page, Principal principal) {
+//        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
+//        page.setPrivateUser(user.getId());
+//        pageService.save(page);
+//        return "page/single";
+//    }
 }
