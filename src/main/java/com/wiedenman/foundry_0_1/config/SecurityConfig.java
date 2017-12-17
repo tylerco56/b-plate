@@ -46,18 +46,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
 
-//        http.authorizeRequests().antMatchers("/page/*").permitAll()
-//                                .antMatchers("/user/register").permitAll()
-//                                .antMatchers("/forgot*").permitAll();
+        http.authorizeRequests().antMatchers("/page/*").permitAll()
+                                .antMatchers("/user/register").permitAll()
+                                .antMatchers("/forgot*").permitAll()
+                                .antMatchers("/reset*").permitAll()
 
+//        http
+//                .authorizeRequests()
+//                .anyRequest().permitAll()
 
-        http
-                .authorizeRequests()
-                .anyRequest().permitAll()
-
-//        .and()
-//            .authorizeRequests()
-//                .anyRequest().hasRole("USER")
+        .and()
+            .authorizeRequests()
+                .anyRequest().hasRole("USER")
                 .and()
                 .formLogin()
                 .loginPage("/login")

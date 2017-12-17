@@ -124,7 +124,7 @@ public class PasswordController {
             return modelAndView;
 
         } else {
-            modelAndView.addObject("errorMessage", "Oops!  This is an invalid password reset link.");
+            modelAndView.addObject("errorMessage", "Oops!  This is an invalid password reset link.  That's weird.");
             modelAndView.setViewName("resetPassword");
         }
 
