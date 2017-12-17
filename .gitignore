@@ -30,3 +30,4 @@ nbdist/
 ### Secret ###
 src/main/java/com/wiedenman/foundry_0_1/secret/
 /src/main/resources/application.properties
+
