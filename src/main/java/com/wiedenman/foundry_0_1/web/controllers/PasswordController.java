@@ -97,10 +97,13 @@ public class PasswordController {
 
     // Process reset password form
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
-    public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, RedirectAttributes redir) {
+    public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, @RequestParam String token, RedirectAttributes redir) {
+
+//        // Make token into String
+//        requestParams.get("token")
 
         // Find the user associated with the reset token
-        Optional<User> user = userDao.findByResetToken(requestParams.get("token"));
+        Optional<User> user = userDao.findByResetToken(token);
 
         // This should always be non-null but we check just in case
         if (user.isPresent()) {
