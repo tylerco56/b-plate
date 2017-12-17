@@ -46,26 +46,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
 
+//        http.authorizeRequests().antMatchers("/page/*").permitAll()
+//                                .antMatchers("/user/register").permitAll()
+//                                .antMatchers("/forgot*").permitAll();
 
-        http.authorizeRequests().antMatchers("/page/*").permitAll()
-                                .antMatchers("/user/register").permitAll()
-                                .antMatchers("/forgot*").permitAll();
 
         http
-            .authorizeRequests()
-                .anyRequest().hasRole("USER")
+                .authorizeRequests()
+                .anyRequest().permitAll()
+
+//        .and()
+//            .authorizeRequests()
+//                .anyRequest().hasRole("USER")
                 .and()
-            .formLogin()
+                .formLogin()
                 .loginPage("/login")
                 .permitAll()
                 .successHandler(loginSuccessHandler())
                 .failureHandler(loginFailureHandler())
                 .and()
-            .logout()
+                .logout()
                 .permitAll()
                 .logoutSuccessUrl("/login")
                 .and()
-            .csrf();
+                .csrf();
     }
 
     public AuthenticationSuccessHandler loginSuccessHandler() {
