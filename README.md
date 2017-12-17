@@ -4,7 +4,7 @@
 
 B-plate is full-stack Java web-application boilerplate for the most common use cases. It is meant as a starting point to allow developers to focus their time on unique functionality and speed up development.
 
-The following features are provided by b-plate "out-of-the-box" in and MVC pattern:
+The following features are provided by b-plate "out-of-the-box" in a MVC pattern:
 - User authentication with SMS 2-factor
 - User roles & permissions
 - Account management (registration, password reset, etc.)
@@ -16,14 +16,12 @@ The following features are provided by b-plate "out-of-the-box" in and MVC patte
 
 
 
-##### Back-end:
+##### Major Components:
 - Spring
 - Gradle
 - JPA with MySQL
 - Spring Security
 - Thymeleaf
-
-##### Front-end:
 - Materialize
 
 
@@ -72,7 +70,7 @@ spring.mail.protocol = smtp
 
 
 ## License & Usage
-You may use b-plate freely for personal, non-commercial purposes only. Please contact me on Linkedin to discuss commercial use.
+You may use b-plate freely for personal, non-commercial purposes only. Please contact me to discuss commercial use.
 
 
 
