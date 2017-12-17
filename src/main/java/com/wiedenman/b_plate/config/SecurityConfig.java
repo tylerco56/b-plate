@@ -34,10 +34,11 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
  *                    888
  *
  *
- * @author by Landon Wiedenman - github.com/landongw/b-plate
+ * @author Landon Wiedenman
+ * github.com/landongw/b-plate
+ * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * License: for personal non-commercial use only.  Please contact me for commercial uses.
- *
+ * Copyright (c) 2017. Landon Wiedenman.
  */
 
 @Configuration
@@ -65,29 +66,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
 
-        http.authorizeRequests().antMatchers("/page/*").permitAll()
-                                .antMatchers("/user/register").permitAll()
-                                .antMatchers("/forgot*").permitAll()
-                                .antMatchers("/reset*").permitAll()
-
-//        http
-//                .authorizeRequests()
-//                .anyRequest().permitAll()
-
-        .and()
+        http
             .authorizeRequests()
-                .anyRequest().hasRole("USER")
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .successHandler(loginSuccessHandler())
-                .failureHandler(loginFailureHandler())
-                .and()
-                .logout()
-                .permitAll()
+                .antMatchers("/page/*").permitAll()
+                .antMatchers("/user/register").permitAll()
+                .antMatchers("/forgot*").permitAll()
+                .antMatchers("/reset*").permitAll()
+                .antMatchers("/user/index").hasRole("ADMIN")
+            .and()
+            .authorizeRequests()
+                .anyRequest().authenticated()
+            .and()
+            .formLogin()
+                .loginPage("/login").permitAll()
+                    .successHandler(loginSuccessHandler())
+                    .failureHandler(loginFailureHandler())
+            .and()
+            .logout().permitAll()
                 .logoutSuccessUrl("/login")
-                .and()
+            .and()
                 .csrf();
     }
 

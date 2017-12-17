@@ -1,6 +1,8 @@
 -- Insert roles
 insert into role (name) values ('ROLE_USER');
-# insert into role (name) values ('MEMBER');
+insert into role (name) values ('ROLE_PUBLISHER');
+insert into role (name) values ('ROLE_ADMIN');
+
 
 
 -- Insert two users (passwords are both 'password')

@@ -17,10 +17,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *                    888
  *
  *
- * @author by Landon Wiedenman - github.com/landongw/b-plate
+ * @author Landon Wiedenman
+ * github.com/landongw/b-plate
+ * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * License: for personal non-commercial use only.  Please contact me for commercial uses.
- *
+ * Copyright (c) 2017. Landon Wiedenman.
  */
 
 @SpringBootApplication

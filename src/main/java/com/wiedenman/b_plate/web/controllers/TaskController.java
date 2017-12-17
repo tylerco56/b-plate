@@ -29,10 +29,11 @@ import java.security.Principal;
  *                    888
  *
  *
- * @author by Landon Wiedenman - github.com/landongw/b-plate
+ * @author Landon Wiedenman
+ * github.com/landongw/b-plate
+ * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * License: for personal non-commercial use only.  Please contact me for commercial uses.
- *
+ * Copyright (c) 2017. Landon Wiedenman.
  */
 
 @Controller
@@ -48,7 +49,7 @@ public class TaskController {
         Iterable<Task> tasks = taskService.findAll();
         model.addAttribute("tasks",tasks);
         model.addAttribute("newTask", new Task());
-        return "todo";
+        return "/task/todo";
     }
 
     @RequestMapping(path = "/mark", method = RequestMethod.POST)
