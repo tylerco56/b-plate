@@ -27,8 +27,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
  *  | '_ \| |______| | '_ \ | | / _` || __|/ _ \
  *  | |_) |          | |_) || || (_| || |_|  __/
  *  |_.__/           | .__/ |_| \__,_| \__|\___|
- *      	         | |
- *  			     |_|
+ *                   | |
+ *                   |_|
  *
  * @author by Landon Wiedenman - github.com/landongw/b-plate
  *
