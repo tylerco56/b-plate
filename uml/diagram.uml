@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1967.8958333333333" y="123.0">com.wiedenman.foundry_0_1.model.Role</node>
+    <node x="1633.4630683940243" y="1838.0">com.wiedenman.foundry_0_1.web.controllers.TaskController</node>
+    <node x="3775.609953314659" y="1324.0">com.wiedenman.foundry_0_1.model.data.RoleDao</node>
+    <node x="82.75" y="1601.0">com.wiedenman.foundry_0_1.model.data.PageDao</node>
+    <node x="1516.2930024509797" y="1601.0">com.wiedenman.foundry_0_1.model.data.TaskDao</node>
+    <node x="3658.395833333333" y="1871.0">com.wiedenman.foundry_0_1.service.EmailServiceImpl</node>
+    <node x="165.625" y="2056.0">com.wiedenman.foundry_0_1.secret.EmailCredentials</node>
+    <node x="102.5" y="1849.0">com.wiedenman.foundry_0_1.service.PageServiceImpl</node>
+    <node x="684.6875" y="1578.5">com.wiedenman.foundry_0_1.web.FlashMessage</node>
+    <node x="1377.4630683940243" y="1838.0">com.wiedenman.foundry_0_1.service.TaskServiceImpl</node>
+    <node x="805.0416666666665" y="1805.0">com.wiedenman.foundry_0_1.config.SecurityConfig</node>
+    <node x="446.625" y="2056.0">com.wiedenman.foundry_0_1.config.TemplateConfig</node>
+    <node x="2314.8458333333333" y="1601.0">com.wiedenman.foundry_0_1.service.twilio.MessageSender</node>
+    <node x="2695.145833333333" y="1805.0">com.wiedenman.foundry_0_1.web.controllers.PasswordController</node>
+    <node x="2770.895833333333" y="156.5">com.wiedenman.foundry_0_1.exception.MessageSenderException</node>
+    <node x="2366.145833333333" y="1848.5">com.wiedenman.foundry_0_1.service.twilio.CreateUser</node>
+    <node x="2959.272592203548" y="1568.0">com.wiedenman.foundry_0_1.model.data.UserDao</node>
+    <node x="922.3541666666665" y="1313.0">com.wiedenman.foundry_0_1.web.controllers.LoginController</node>
+    <node x="0.0" y="1191.0">com.wiedenman.foundry_0_1.model.Page</node>
+    <node x="1725.2930024509797" y="1568.0">com.wiedenman.foundry_0_1.service.TaskService</node>
+    <node x="2476.895833333333" y="156.5">com.wiedenman.foundry_0_1.exception.WrongUserPasswordException</node>
+    <node x="0.0" y="2268.0">com.wiedenman.foundry_0_1.service.SimpleMail.SMTPAuthenticator</node>
+    <node x="2132.895833333333" y="156.5">com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException</node>
+    <node x="1989.1458333333333" y="1827.0">com.wiedenman.foundry_0_1.service.UserServiceImpl</node>
+    <node x="2466.395833333333" y="0.0">com.wiedenman.foundry_0_1.exception.DomainException</node>
+    <node x="291.75" y="1579.0">com.wiedenman.foundry_0_1.service.PageService</node>
+    <node x="3409.395833333333" y="1859.5">com.wiedenman.foundry_0_1.service.twilio.ConfirmUser</node>
+    <node x="883.625" y="2056.0">com.wiedenman.foundry_0_1.Foundry01Application</node>
+    <node x="1918.6458333333333" y="301.0">com.wiedenman.foundry_0_1.model.User</node>
+    <node x="418.4375" y="1838.0">com.wiedenman.foundry_0_1.web.controllers.PageController</node>
+    <node x="804.3541666666665" y="1302.0">com.wiedenman.foundry_0_1.web.FlashMessage.Status</node>
+    <node x="3966.395833333333" y="1827.0">com.wiedenman.foundry_0_1.web.controllers.UserController</node>
+    <node x="3444.609953314659" y="1601.0">com.wiedenman.foundry_0_1.service.EmailService</node>
+    <node x="176.5" y="2369.0">com.wiedenman.foundry_0_1.service.SimpleMail</node>
+    <node x="1730.2964017273575" y="1279.5">com.wiedenman.foundry_0_1.model.Task</node>
+    <node x="1139.2930024509797" y="1568.0">com.wiedenman.foundry_0_1.service.UserService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.wiedenman.foundry_0_1.service.SimpleMail.SMTPAuthenticator" target="com.wiedenman.foundry_0_1.service.SimpleMail">
+      <point x="89.5" y="25.5" />
+      <point x="0.0" y="-36.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.FlashMessage.Status" target="com.wiedenman.foundry_0_1.web.FlashMessage">
+      <point x="12.25" y="47.5" />
+      <point x="865.6041666666665" y="1548.0" />
+      <point x="895.520833333333" y="1548.0" />
+      <point x="84.33333333333303" y="-48.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PageController" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="39.625" y="-70.0" />
+      <point x="616.5625" y="1785.0" />
+      <point x="585.5" y="1785.0" />
+      <point x="585.5" y="1121.0" />
+      <point x="1991.88112745098" y="1121.0" />
+      <point x="-175.76470588235316" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.exception.MessageSenderException" target="com.wiedenman.foundry_0_1.exception.DomainException">
+      <point x="86.5" y="-25.5" />
+      <point x="3030.395833333333" y="93.0" />
+      <point x="2736.8125" y="93.0" />
+      <point x="122.91666666666652" y="36.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.Task" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="-40.5" y="-70.0" />
+      <point x="1770.7964017273575" y="1151.0" />
+      <point x="2079.7634803921565" y="1151.0" />
+      <point x="-87.88235294117658" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.User" target="com.wiedenman.foundry_0_1.model.Role">
+      <point x="-166.0" y="-390.0" />
+      <point x="2001.6458333333333" y="281.0" />
+      <point x="2040.3958333333333" y="281.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.UserServiceImpl" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.TaskController" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="104.0" y="-70.0" />
+      <point x="1867.4630683940243" y="1785.0" />
+      <point x="2041.2096691176464" y="1785.0" />
+      <point x="2041.2096691176464" y="1171.0" />
+      <point x="2138.3517156862745" y="1171.0" />
+      <point x="-29.294117647058556" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.CreateUser" target="com.wiedenman.foundry_0_1.service.twilio.MessageSender">
+      <point x="-61.799999999999955" y="-59.5" />
+      <point x="2458.8458333333333" y="1745.0" />
+      <point x="2481.3458333333333" y="1745.0" />
+      <point x="55.5" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.EmailServiceImpl" target="com.wiedenman.foundry_0_1.service.EmailService">
+      <point x="0.0" y="-37.0" />
+      <point x="3802.395833333333" y="1775.0" />
+      <point x="3660.609953314659" y="1775.0" />
+      <point x="72.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.UserServiceImpl" target="com.wiedenman.foundry_0_1.model.data.UserDao">
+      <point x="119.0" y="-81.0" />
+      <point x="2286.645833333333" y="1755.0" />
+      <point x="2982.7011636321195" y="1755.0" />
+      <point x="-140.57142857142844" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.data.PageDao" target="com.wiedenman.foundry_0_1.model.Page">
+      <point x="0.0" y="-25.5" />
+      <point x="177.25" y="1548.0" />
+      <point x="215.625" y="1548.0" />
+      <point x="-71.875" y="158.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.FlashMessage" target="com.wiedenman.foundry_0_1.web.FlashMessage.Status">
+      <point x="0.0" y="-48.0" />
+      <point x="811.1875" y="1548.0" />
+      <point x="841.1041666666665" y="1548.0" />
+      <point x="-12.25" y="47.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.SimpleMail" target="com.wiedenman.foundry_0_1.secret.EmailCredentials">
+      <point x="61.33333333333334" y="-36.5" />
+      <point x="329.83333333333337" y="2344.0" />
+      <point x="368.5" y="2344.0" />
+      <point x="368.5" y="2243.0" />
+      <point x="342.625" y="2243.0" />
+      <point x="59.0" y="81.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.CreateUser" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-59.5" />
+      <point x="2520.645833333333" y="1745.0" />
+      <point x="2547.3458333333333" y="1745.0" />
+      <point x="2547.3458333333333" y="1161.0" />
+      <point x="2226.234068627451" y="1161.0" />
+      <point x="58.58823529411757" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.data.UserDao" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-58.5" />
+      <point x="3123.272592203548" y="1141.0" />
+      <point x="2284.822303921569" y="1141.0" />
+      <point x="117.17647058823559" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.PageServiceImpl" target="com.wiedenman.foundry_0_1.model.data.PageDao">
+      <point x="0.0" y="-59.0" />
+      <point x="208.5" y="1785.0" />
+      <point x="177.25" y="1785.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PasswordController" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="-222.33333333333337" y="-103.0" />
+      <point x="2806.3125" y="1745.0" />
+      <point x="2815.126335784313" y="1745.0" />
+      <point x="2815.126335784313" y="1151.0" />
+      <point x="2255.5281862745096" y="1151.0" />
+      <point x="87.88235294117658" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.UserServiceImpl" target="com.wiedenman.foundry_0_1.service.UserService">
+      <point x="-119.0" y="-81.0" />
+      <point x="2048.645833333333" y="1705.0" />
+      <point x="1451.6680024509797" y="1705.0" />
+      <point x="133.875" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PasswordController" target="com.wiedenman.foundry_0_1.service.EmailService">
+      <point x="222.33333333333337" y="-103.0" />
+      <point x="3250.9791666666665" y="1785.0" />
+      <point x="3516.609953314659" y="1785.0" />
+      <point x="-72.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.User" target="com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException">
+      <point x="166.0" y="-390.0" />
+      <point x="2333.645833333333" y="281.0" />
+      <point x="2294.895833333333" y="281.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.TaskServiceImpl" target="com.wiedenman.foundry_0_1.model.Task">
+      <point x="0.0" y="-70.0" />
+      <point x="1495.4630683940243" y="1735.0" />
+      <point x="1714.7930024509797" y="1735.0" />
+      <point x="1714.7930024509797" y="1548.0" />
+      <point x="1778.8964017273574" y="1548.0" />
+      <point x="-32.40000000000009" y="70.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.config.SecurityConfig" target="com.wiedenman.foundry_0_1.web.FlashMessage">
+      <point x="-150.375" y="-103.0" />
+      <point x="855.1666666666665" y="1765.0" />
+      <point x="747.9375" y="1765.0" />
+      <point x="-63.25" y="48.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.Page" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="215.625" y="-158.5" />
+      <point x="503.125" y="1111.0" />
+      <point x="1962.5870098039215" y="1111.0" />
+      <point x="-205.0588235294117" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.UserController" target="com.wiedenman.foundry_0_1.model.data.RoleDao">
+      <point x="-42.75" y="-81.0" />
+      <point x="4094.645833333333" y="1745.0" />
+      <point x="3915.109953314659" y="1745.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.SimpleMail" target="com.wiedenman.foundry_0_1.service.SimpleMail.SMTPAuthenticator">
+      <point x="-61.33333333333334" y="-36.5" />
+      <point x="207.16666666666666" y="2344.0" />
+      <point x="89.5" y="2344.0" />
+      <point x="-89.5" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.exception.WrongVerificationCodeException" target="com.wiedenman.foundry_0_1.exception.DomainException">
+      <point x="-81.0" y="-25.5" />
+      <point x="2213.895833333333" y="93.0" />
+      <point x="2490.979166666667" y="93.0" />
+      <point x="-122.91666666666652" y="36.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.PageServiceImpl" target="com.wiedenman.foundry_0_1.model.Page">
+      <point x="-70.66666666666652" y="-59.0" />
+      <point x="137.83333333333348" y="1785.0" />
+      <point x="72.25" y="1785.0" />
+      <point x="-215.625" y="158.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.TaskController" target="com.wiedenman.foundry_0_1.model.Task">
+      <point x="0.0" y="-70.0" />
+      <point x="1763.4630683940243" y="1765.0" />
+      <point x="2019.2096691176464" y="1765.0" />
+      <point x="2019.2096691176464" y="1538.0" />
+      <point x="1843.6964017273576" y="1538.0" />
+      <point x="32.40000000000009" y="70.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.SimpleMail.SMTPAuthenticator" target="com.wiedenman.foundry_0_1.secret.EmailCredentials">
+      <point x="0.0" y="-25.5" />
+      <point x="179.0" y="2243.0" />
+      <point x="224.625" y="2243.0" />
+      <point x="-59.0" y="81.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PageController" target="com.wiedenman.foundry_0_1.model.Page">
+      <point x="-39.625" y="-70.0" />
+      <point x="537.3125" y="1785.0" />
+      <point x="563.5625" y="1785.0" />
+      <point x="563.5625" y="1548.0" />
+      <point x="503.125" y="1548.0" />
+      <point x="215.625" y="158.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.PageService" target="com.wiedenman.foundry_0_1.model.Page">
+      <point x="0.0" y="-47.5" />
+      <point x="397.75" y="1548.0" />
+      <point x="359.375" y="1548.0" />
+      <point x="71.875" y="158.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.TaskService" target="com.wiedenman.foundry_0_1.model.Task">
+      <point x="0.0" y="-58.5" />
+      <point x="1843.2930024509797" y="1548.0" />
+      <point x="1811.2964017273575" y="1548.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.data.RoleDao" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="-69.75" y="-25.5" />
+      <point x="3845.359953314659" y="1131.0" />
+      <point x="2314.1164215686276" y="1131.0" />
+      <point x="146.47058823529414" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PasswordController" target="com.wiedenman.foundry_0_1.model.data.UserDao">
+      <point x="0.0" y="-103.0" />
+      <point x="3028.645833333333" y="1785.0" />
+      <point x="3123.272592203548" y="1785.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PageController" target="com.wiedenman.foundry_0_1.service.UserService">
+      <point x="118.875" y="-70.0" />
+      <point x="695.8125" y="1775.0" />
+      <point x="1183.9180024509797" y="1775.0" />
+      <point x="-133.875" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.CreateUser" target="com.wiedenman.foundry_0_1.model.data.UserDao">
+      <point x="123.59999999999991" y="-59.5" />
+      <point x="2644.2458333333334" y="1775.0" />
+      <point x="3076.4154493464052" y="1775.0" />
+      <point x="-46.85714285714289" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.TaskController" target="com.wiedenman.foundry_0_1.service.TaskService">
+      <point x="-52.0" y="-70.0" />
+      <point x="1711.4630683940243" y="1755.0" />
+      <point x="1902.2930024509797" y="1755.0" />
+      <point x="59.0" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.ConfirmUser" target="com.wiedenman.foundry_0_1.model.data.UserDao">
+      <point x="-76.33333333333326" y="-48.5" />
+      <point x="3447.5625" y="1775.0" />
+      <point x="3170.129735060691" y="1775.0" />
+      <point x="46.85714285714289" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.TaskController" target="com.wiedenman.foundry_0_1.service.UserService">
+      <point x="-104.0" y="-70.0" />
+      <point x="1659.4630683940243" y="1715.0" />
+      <point x="1362.4180024509797" y="1715.0" />
+      <point x="44.625" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.data.TaskDao" target="com.wiedenman.foundry_0_1.model.Task">
+      <point x="0.0" y="-25.5" />
+      <point x="1610.2930024509797" y="1538.0" />
+      <point x="1746.4964017273574" y="1538.0" />
+      <point x="-64.80000000000018" y="70.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.TaskServiceImpl" target="com.wiedenman.foundry_0_1.model.data.TaskDao">
+      <point x="-78.66666666666652" y="-70.0" />
+      <point x="1416.7964017273578" y="1725.0" />
+      <point x="1610.2930024509797" y="1725.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.PageController" target="com.wiedenman.foundry_0_1.service.PageService">
+      <point x="-118.875" y="-70.0" />
+      <point x="458.0625" y="1785.0" />
+      <point x="450.75" y="1785.0" />
+      <point x="53.0" y="47.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.UserController" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="128.24999999999977" y="-81.0" />
+      <point x="4266.145833333333" y="1101.0" />
+      <point x="2401.998774509804" y="1101.0" />
+      <point x="234.35294117647072" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.PageServiceImpl" target="com.wiedenman.foundry_0_1.service.PageService">
+      <point x="70.66666666666652" y="-59.0" />
+      <point x="279.1666666666665" y="1785.0" />
+      <point x="344.75" y="1785.0" />
+      <point x="-53.0" y="47.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.MessageSender" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-25.5" />
+      <point x="2425.8458333333333" y="1171.0" />
+      <point x="2196.9399509803925" y="1171.0" />
+      <point x="29.29411764705901" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.exception.WrongUserPasswordException" target="com.wiedenman.foundry_0_1.exception.DomainException">
+      <point x="68.5" y="-25.5" />
+      <point x="2682.395833333333" y="103.0" />
+      <point x="2638.479166666667" y="103.0" />
+      <point x="24.583333333333485" y="36.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.UserController" target="com.wiedenman.foundry_0_1.model.data.UserDao">
+      <point x="-128.25" y="-81.0" />
+      <point x="4009.145833333333" y="1755.0" />
+      <point x="3263.8440207749763" y="1755.0" />
+      <point x="140.57142857142844" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.web.controllers.LoginController" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-36.5" />
+      <point x="1094.8541666666665" y="1131.0" />
+      <point x="2021.175245098039" y="1131.0" />
+      <point x="-146.47058823529414" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.Page" target="com.wiedenman.foundry_0_1.model.Role">
+      <point x="-71.875" y="-158.5" />
+      <point x="215.625" y="1171.0" />
+      <point x="149.25" y="1171.0" />
+      <point x="149.25" y="271.0" />
+      <point x="2011.3958333333333" y="271.0" />
+      <point x="-29.0" y="59.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.config.SecurityConfig" target="com.wiedenman.foundry_0_1.web.FlashMessage.Status">
+      <point x="50.125" y="-103.0" />
+      <point x="1055.6666666666665" y="1765.0" />
+      <point x="1033.4791666666665" y="1765.0" />
+      <point x="1033.4791666666665" y="1538.0" />
+      <point x="890.1041666666665" y="1538.0" />
+      <point x="36.75" y="47.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.model.data.RoleDao" target="com.wiedenman.foundry_0_1.model.Role">
+      <point x="69.75" y="-25.5" />
+      <point x="3984.859953314659" y="1171.0" />
+      <point x="4048.558482726424" y="1171.0" />
+      <point x="4048.558482726424" y="271.0" />
+      <point x="2098.395833333333" y="271.0" />
+      <point x="58.0" y="59.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.config.SecurityConfig" target="com.wiedenman.foundry_0_1.service.UserService">
+      <point x="150.375" y="-103.0" />
+      <point x="1155.9166666666665" y="1785.0" />
+      <point x="1273.1680024509797" y="1785.0" />
+      <point x="-44.625" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.twilio.ConfirmUser" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="76.33333333333326" y="-48.5" />
+      <point x="3600.2291666666665" y="1785.0" />
+      <point x="4065.109953314659" y="1785.0" />
+      <point x="4065.109953314659" y="1121.0" />
+      <point x="2343.410539215686" y="1121.0" />
+      <point x="175.76470588235316" y="390.0" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.TaskServiceImpl" target="com.wiedenman.foundry_0_1.service.TaskService">
+      <point x="78.66666666666652" y="-70.0" />
+      <point x="1574.1297350606908" y="1745.0" />
+      <point x="1784.2930024509797" y="1745.0" />
+      <point x="-59.0" y="58.5" />
+    </edge>
+    <edge source="com.wiedenman.foundry_0_1.service.UserService" target="com.wiedenman.foundry_0_1.model.User">
+      <point x="0.0" y="-58.5" />
+      <point x="1317.7930024509797" y="1141.0" />
+      <point x="2050.469362745098" y="1141.0" />
+      <point x="-117.17647058823513" y="390.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4509744605854325" x="1214.4224352533126" y="1366.0838885639214" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
