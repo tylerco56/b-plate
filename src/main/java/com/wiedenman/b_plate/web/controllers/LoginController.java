@@ -31,9 +31,4 @@ public class LoginController {
         return "access_denied";
     }
 
-//    @RequestMapping("/forgot-password")
-//    public String forgotPassword() {
-//        // TODO: make this real
-//
-//    }
 }

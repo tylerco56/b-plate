@@ -5,11 +5,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Optional;
 
-//import java.util.Optional;
-
 public interface UserService extends UserDetailsService{
-    public User findByUsername(String username);
-    public Optional<User> findUserByEmail(String email);
-    public Optional<User> findUserByResetToken(String resetToken);
-    public void save(User user);
+    User findByUsername(String username);
+    Optional<User> findUserByEmail(String email);
+    Optional<User> findUserByResetToken(String resetToken);
+    void save(User user);
 }

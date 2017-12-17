@@ -31,10 +31,6 @@ public class PageController {
         Iterable<Page> pages = pageService.findAll();
         model.addAttribute("pages", pages);
         model.addAttribute("title", "pages");
-//        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
-        //        user.setUsername("");
-//        model.addAttribute("user", new User());
-
 
         return "page/index";
     }
@@ -43,14 +39,8 @@ public class PageController {
     public String singlePage(Model model, @PathVariable long id, Principal principal) {
 
         Page page = pageService.findOne(id);
-//        String formattedDate = page.getPublished().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));
         model.addAttribute("page", page);
         model.addAttribute("title", page.getName());
-
-//        model.addAttribute("formattedDate", formattedDate);
-//        model.addAttribute("user", new User());
-//        user.setUsername("");
-//        model.addAttribute("user", user);
 
         return "page/single";
     }

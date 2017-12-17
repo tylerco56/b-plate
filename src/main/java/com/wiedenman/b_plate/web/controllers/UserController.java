@@ -70,7 +70,7 @@ public class UserController {
             return "user/register";
         }
 
-//            newUser.setRole();  // TODO: Deal with this; move to sensible place
+//            newUser.setRole();  // TODO: Deal with this; move to sensible place?
 
 
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
@@ -78,33 +78,4 @@ public class UserController {
         userDao.save(newUser);
         return "redirect:index";
     }
-//
-//    @RequestMapping(value = "login", method = RequestMethod.GET) // Display login form
-//    public String displayLogin(Model model) {
-//        model.addAttribute("title", "Login");
-//
-//        User loginUser = new User();
-//        model.addAttribute(loginUser);
-//        return "user/login";
-//    }
-//
-//    @RequestMapping(value = "login", method = RequestMethod.POST)
-//    public String processLogin(@ModelAttribute User loginUser,
-//                               Errors errors, Model model, Principal principal) {
-//
-//        // principal.getName(); returns username of currently authenticated user
-//
-//
-//        String candidate = loginUser.getPassword();
-//        String hashed = userDao.findByEmail(loginUser.getEmail()).get().getPassword();
-//
-//        if (BCrypt.checkpw(candidate, hashed)) {
-//            // TODO: create the user session
-//
-//            return "user/logged-in";
-//        }
-//
-//        System.out.println("It does not match");  // TODO: create error for failed login and pass to view
-//        return "user/login";
-//    }
 }

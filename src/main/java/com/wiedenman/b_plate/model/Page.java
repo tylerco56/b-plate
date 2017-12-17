@@ -149,4 +149,5 @@ public class Page {
     public void setPrivateUser(long privateUserId) {
         this.privateUser = privateUser;
     }
+
 }

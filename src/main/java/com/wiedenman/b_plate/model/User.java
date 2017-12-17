@@ -84,8 +84,6 @@ public class User implements UserDetails {
     // required by orm
     public User() {
         this.creationDate = date;
-//        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-//        this.verifyPassword = BCrypt.hashpw(verifyPassword, BCrypt.gensalt());
     }
 
     public User(String email, String password, String verifyPassword) {
@@ -99,7 +97,6 @@ public class User implements UserDetails {
                 String email, String phoneNumber,
                 String password, String verifyPassword,
                 LocalDate lastLogin, boolean enabled) {
-//        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
