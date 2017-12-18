@@ -83,8 +83,10 @@ public class UserController {
             return "user/register";
         }
 
-//            newUser.setRole();  // TODO: Deal with this; move to sensible place?
-
+        Role userRole = new Role();
+        userRole.setName("ROLE_USER");
+        newUser.setRole(userRole);  // TODO: Deal with this; move to sensible place?
+        newUser.setEnabled(true);
 
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
         newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));

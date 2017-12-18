@@ -1,4 +1,6 @@
 /*@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);*/
+/*@import url(boostrap_less/dist/css/bootstrap.min.css);*/
+/*@import url(boostrap_less/dist/css/bootstrap-theme.min.css);*/
 @import url(materialize_sass/materialize.css);
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
@@ -30,6 +32,48 @@ p {
 /*i.right {*/
     /*display: none;*/
 /*}*/
+
+
+
+
+/* NAVIGATION */
+
+nav {
+    line-height: 43px;
+}
+
+nav .brand-logo {
+    text-decoration: none;
+}
+
+nav ul a,
+nav .brand-logo {
+    color: snow;
+}
+
+nav ul a {
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #fff;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    top: -1px;
+    position: relative;
+    font-weight: 100;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    display: block;
+    font-size: 20px;
+    height: 44px;
+    line-height: 41px;
+}
+
+.Lheader-item {
+    font-weight: 200;
+}
+
 
 
 /* PAGE CONTAINERS */
@@ -72,42 +116,6 @@ p {
 .icon-block .material-icons {
     font-size: inherit;
 }
-
-
-/* NAVIGATION */
-
-nav {
-    line-height: 43px;
-}
-
-nav ul a,
-nav .brand-logo {
-    color: snow;
-}
-
-nav ul a {
-    transition: background-color .3s;
-    font-size: 1rem;
-    color: #fff;
-    display: block;
-    padding: 0 15px;
-    cursor: pointer;
-    top: -1px;
-    position: relative;
-    font-weight: 100;
-}
-
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-    display: block;
-    font-size: 20px;
-    height: 44px;
-    line-height: 41px;
-}
-
-.Lheader-item {
-    font-weight: 200;
-}
-
 
 /* FORM ELEMENTS*/
 
@@ -152,6 +160,11 @@ footer.page-footer {
         color: black;
         padding-left: 25px;
 
+    }
+
+    a.button-collapse {
+        position: relative;
+        top: -3px;
     }
 
 }
