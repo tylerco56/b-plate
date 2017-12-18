@@ -28,12 +28,13 @@
             <ul th:case="true">
                 <!-- TODO: make this visible to admin and publisher from front end only-->
                 <!--<li><a href="#">edit this page</a></li>-->
+                <li><a th:href="@{/todo}">tasks</a></li>
                 <!-- TODO: make this visible to admin and publisher only-->
-                <li><a href="#">pages</a></li>
+                <li><a th:href="@{/pages}">pages</a></li>
                 <!-- TODO: make this visible to admin and publisher only-->
                 <li><a href="#">images</a></li>
                 <!-- TODO: make this visible to admin and publisher only-->
-                <li><a href="#">users</a></li>
+                <li><a th:href="@{user-index}">users</a></li>
                 <li>
                     <a sec:authentication="name" class="Lheader-item"></a>
                 </li>
@@ -54,11 +55,17 @@
             </ul>
             <ul th:case="${true}">
                 <li><a  sec:authentication="name" class="Lheader-item"></a></li>
-                <li><a href="/todo">Tasks</a></li>
+                <li><a th:href="@{/todo}">tasks</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a th:href="@{/pages}">pages</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a href="#">images</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a th:href="@{user-index}">users</a></li>
                 <li>
                     <form class="logout inline logout-mobile" th:action="@{/logout}" method="post">
                         <button type="submit" style="background: none; border: none;">
-                            <span>Logout</span>
+                            <span>logout</span>
                         </button>
                     </form>
                 </li>

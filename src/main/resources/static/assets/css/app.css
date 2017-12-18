@@ -1,5 +1,5 @@
 /*@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);*/
-@import url(sass/materialize.css);
+@import url(materialize_sass/materialize.css);
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
@@ -92,7 +92,7 @@ nav ul a {
     display: block;
     padding: 0 15px;
     cursor: pointer;
-    top: 2px;
+    top: -1px;
     position: relative;
     font-weight: 100;
 }
@@ -101,7 +101,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: block;
     font-size: 20px;
     height: 44px;
-    line-height: 44px;
+    line-height: 41px;
 }
 
 .Lheader-item {
