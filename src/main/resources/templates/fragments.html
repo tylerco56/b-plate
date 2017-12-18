@@ -8,18 +8,34 @@
 </head>
 <body>
 
-
 <nav th:fragment="navigation" class="dark-grey" role="navigation">
     <div class="nav-wrapper container">
         <div style="display: inline">
             <a id="logo-container" href="/" class="brand-logo">b-plate</a>
         </div>
-        <div>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#" class="thin">link</a></li>
-                <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-                    <span th:case="${false}"></span>
-                    <span th:case="${true}"><a sec:authentication="name" class="Lheader-item"></a></span></li>
+        <div class="right hide-on-med-and-down" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+            <ul th:case="${false}">
+                <!--<li><a href="#" class="thin">link</a></li>-->
+                <li>
+                    <form class="logout inline" th:action="@{/logout}" method="post">
+                        <button type="submit" style="background: none; border: none;">
+                            <i class="material-icons">power_settings_new</i>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+            <ul th:case="true">
+                <!-- TODO: make this visible to admin and publisher from from end only-->
+                <li><a href="#">edit this page</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a href="#">pages</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a href="#">images</a></li>
+                <!-- TODO: make this visible to admin and publisher only-->
+                <li><a href="#">users</a></li>
+                <li>
+                    <a sec:authentication="name" class="Lheader-item"></a>
+                </li>
                 <li>
                     <form class="logout inline" th:action="@{/logout}" method="post">
                         <button type="submit" style="background: none; border: none;">
@@ -29,59 +45,26 @@
                 </li>
             </ul>
         </div>
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Navbar Link</a></li>
-            <li><a href="#">Navbar Link</a></li>
-            <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-                <span th:case="${false}"></span>
-                <span th:case="${true}"><a sec:authentication="name" class="Lheader-item"></a></span></li>
-            <li>
-                <form class="logout inline" th:action="@{/logout}" method="post">
-                    <button type="submit" style="background: none; border: none;">
-                        <i class="material-icons">power_settings_new</i>
-                    </button>
-                </form>
-            </li>
 
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
+        <div id="nav-mobile" class="side-nav" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+            <ul th:case="${false}">
+                <!--<li><a href="/todo">Tasks</a></li>-->
+                <li><a href="/login">Login</a></li>
+            </ul>
+            <ul th:case="${true}">
+                <li><a  sec:authentication="name" class="Lheader-item"></a></li>
+                <li><a href="/todo">Tasks</a></li>
+                <li>
+                    <form class="logout inline logout-mobile" th:action="@{/logout}" method="post">
+                        <button type="submit" style="background: none; border: none;">
+                            <span>Logout</span>
+                        </button>
+                    </form>
+                </li>
 
-<nav th:fragment="oldnav" class="navbar-fixed">
-    <div class="container">
-        <div class="nav-wrapper">
-            <div style="display: inline">
-                <a href="/" class="brand-logo left">b-plate</a>
-            </div>
-            <div style="display: inline" class="right">
-                <ul class="left" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-                    <li>
-                        <span th:case="${false}"></span>
-                        <span th:case="${true}">
-                    <!-- TODO: Add role permissions to menu items and make loop here for items -->
-                    <!--<li class="Lheader-item"><a href="/page/index">pages</a></li>-->
-                    <!--<li class="Lheader-item"><a href="/images/index">images</a></li>-->
-                    <!--<li class="Lheader-item"><a href="/user/index">users</a></li>-->
-                    <!--<li class="Lheader-item"><a href="/page/edit/idGoesHereLater">edit this page</a></li>-->
-                        </span>
-                    </li>
-                </ul>
-                <ul class="right" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-                    <li>
-                        <span th:case="${false}"></span>
-                        <span th:case="${true}"><li sec:authentication="name" class="Lheader-item"></li></span>
-                    </li>
-                    <li>
-                        <form class="logout inline" th:action="@{/logout}" method="post">
-                            <button type="submit" style="background: none; border: none;">
-                                <i class="material-icons">power_settings_new</i>
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+            </ul>
         </div>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
 
@@ -97,6 +80,7 @@
         <div th:utext="${page.body}"></div>
     </div>
 </section>
+
 <div th:fragment="flash" th:if="${flash != null}" class="container">
     <div class="message">
         <i class="right material-icons" data-close="">close</i>
@@ -105,6 +89,7 @@
         <!--<div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.successMessage}" class="flash"></div>-->
     </div>
 </div>
+
 <div th:fragment="scripts">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" th:src="@{/assets/js/init.js}"></script>

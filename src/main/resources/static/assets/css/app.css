@@ -3,12 +3,31 @@
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-.gap {
+/* Custom Stylesheet */
+
+/**
+ * Use this file to override Materialize css so you can update
+ * core Materialize files in the future
+ */
+
+.small-gap {
     height: 25px;
+}
+
+.large-gap {
+    height: 75px;
 }
 
 .page-body {
     margin-top: 65px;
+}
+
+.error, .failure{
+    color: crimson;
+}
+
+.Lheader-item {
+    font-weight: 200;
 }
 
 form.login button[type=submit] {
@@ -16,16 +35,6 @@ form.login button[type=submit] {
     padding: 10px;
     height: initial;
 }
-
-/** TODO: make mobile menu *!*/
-
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
 
 nav ul a,
 nav .brand-logo {
@@ -41,6 +50,7 @@ nav ul a {
     cursor: pointer;
     top: 2px;
     position: relative;
+    font-weight: 100;
 }
 
 p {
@@ -54,8 +64,8 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     line-height: 44px;
 }
 
-.button-collapse {
-    color: #26a69a;
+i.right {
+    display: none;
 }
 
 .parallax-container {
@@ -76,7 +86,19 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     #index-banner .section {
         top: 10%;
     }
+    .side-nav a {
+        padding: 0 16px;
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 500;
+    }
+    .logout-mobile {
+        color: black;
+        padding-left: 25px;
+
+    }
 }
+
+    /** TODO: make mobile menu *!*/
 
 @media only screen and (max-width : 600px) {
     #index-banner .section {

@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/page/*").permitAll()
                 .antMatchers("/pages").permitAll()
-                .antMatchers("/user-register").permitAll()
+                .antMatchers("/register").permitAll()
                 .antMatchers("/forgot*").permitAll()
                 .antMatchers("/reset*").permitAll()
                 .antMatchers("/user-index").hasRole("ADMIN")
@@ -96,7 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public AuthenticationFailureHandler loginFailureHandler() {
         return (request, response, exception) -> {
-            request.getSession().setAttribute("flash", new FlashMessage("Incorrect username or password. Please try again.", FlashMessage.Status.FAILURE));
+            request.getSession().setAttribute("flash", new FlashMessage("Incorrect username or password.", FlashMessage.Status.FAILURE));
             response.sendRedirect("/login");
         };
     }
