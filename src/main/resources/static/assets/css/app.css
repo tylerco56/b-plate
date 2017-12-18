@@ -10,6 +10,8 @@
  * core Materialize files in the future
  */
 
+
+/* BASE ELEMENTS */
 body {
     display: flex;
     min-height: 100vh;
@@ -21,6 +23,17 @@ main {
     flex: 1 0 auto;
 }
 
+p {
+    line-height: 2rem;
+}
+
+/*i.right {*/
+    /*display: none;*/
+/*}*/
+
+
+/* PAGE CONTAINERS */
+
 .small-gap {
     height: 25px;
 }
@@ -28,6 +41,21 @@ main {
 .large-gap {
     height: 75px;
 }
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    /*height: auto;*/
+    color: rgba(255,255,255,.9);
+    width: 100%;
+}
+
+.parallax-container .section {
+    width: 100%;
+}
+
+
+/* OTHER PAGE ELEMENTS */
 
 .page-body {
     margin-top: 65px;
@@ -37,15 +65,16 @@ main {
     color: crimson;
 }
 
-.Lheader-item {
-    font-weight: 200;
+.icon-block {
+    padding: 0 15px;
 }
 
-form.login button[type=submit] {
-    width: 100%;
-    padding: 10px;
-    height: initial;
+.icon-block .material-icons {
+    font-size: inherit;
 }
+
+
+/* NAVIGATION */
 
 nav {
     line-height: 43px;
@@ -75,37 +104,25 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     line-height: 44px;
 }
 
-p {
-    line-height: 2rem;
+.Lheader-item {
+    font-weight: 200;
 }
 
-i.right {
-    display: none;
-}
 
-.parallax-container {
-    min-height: 380px;
-    line-height: 0;
-    /*height: auto;*/
-    color: rgba(255,255,255,.9);
+/* FORM ELEMENTS*/
+
+form.login button[type=submit] {
     width: 100%;
-}
-
-.parallax-container .section {
-    width: 100%;
+    padding: 10px;
+    height: initial;
 }
 
 input:not([type]), input[type="password"]:not(.browser-default) {
     font-size: 1.1rem;
 }
 
-.icon-block {
-    padding: 0 15px;
-}
 
-.icon-block .material-icons {
-    font-size: inherit;
-}
+/* FOOTER */
 
 footer.page-footer {
     margin: 0;
@@ -114,6 +131,9 @@ footer.page-footer {
 .footer-copyright {
     background-color: #353535 !important;
 }
+
+
+/* MEDIA QUERIES */
 
 @media only screen and (max-width : 992px) {
     .parallax-container .section {
