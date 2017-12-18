@@ -1,11 +1,9 @@
 /*@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);*/
-/*@import url(boostrap_less/dist/css/bootstrap.min.css);*/
-/*@import url(boostrap_less/dist/css/bootstrap-theme.min.css);*/
 @import url(materialize_sass/materialize.css);
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-/* Custom Stylesheet */
+/* CUSTOM STYLESHEET */
 
 /**
  * Use this file to override Materialize css so you can update

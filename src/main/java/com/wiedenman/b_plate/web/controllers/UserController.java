@@ -82,10 +82,7 @@ public class UserController {
         } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
             return "user/register";
         }
-
-        Role userRole = new Role();
-        userRole.setName("ROLE_USER");
-        newUser.setRole(userRole);  // TODO: Deal with this; move to sensible place?
+//        newUser.setRole(userRole);  // TODO: make role setting
         newUser.setEnabled(true);
 
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
