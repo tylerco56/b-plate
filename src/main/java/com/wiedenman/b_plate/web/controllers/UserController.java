@@ -63,7 +63,7 @@ public class UserController {
 
     @RequestMapping(value = "register", method = RequestMethod.GET)  // Displays form
     public String displayAddUser(Model model) {
-        model.addAttribute("title", "Add User");
+        model.addAttribute("title", "Register");
         model.addAttribute(new User());
 
         return "user/register";

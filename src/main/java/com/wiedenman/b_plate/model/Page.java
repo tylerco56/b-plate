@@ -1,5 +1,6 @@
 package com.wiedenman.b_plate.model;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -55,6 +56,7 @@ public class Page {
 
     private String url;
 
+    @Lob
     private String body; // TODO: pick appropriate type for html body
 
     @ManyToOne

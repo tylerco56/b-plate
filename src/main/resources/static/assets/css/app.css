@@ -1,5 +1,5 @@
 /*@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css);*/
-@import url(../sass/materialize.css);
+@import url(sass/materialize.css);
 @import url(http://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
@@ -14,6 +14,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 main {
@@ -46,6 +47,10 @@ form.login button[type=submit] {
     height: initial;
 }
 
+nav {
+    line-height: 43px;
+}
+
 nav ul a,
 nav .brand-logo {
     color: snow;
@@ -63,15 +68,15 @@ nav ul a {
     font-weight: 100;
 }
 
-p {
-    line-height: 2rem;
-}
-
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: block;
     font-size: 20px;
     height: 44px;
     line-height: 44px;
+}
+
+p {
+    line-height: 2rem;
 }
 
 i.right {
@@ -81,17 +86,34 @@ i.right {
 .parallax-container {
     min-height: 380px;
     line-height: 0;
-    height: auto;
+    /*height: auto;*/
     color: rgba(255,255,255,.9);
+    width: 100%;
 }
+
 .parallax-container .section {
     width: 100%;
+}
+
+input:not([type]), input[type="password"]:not(.browser-default) {
+    font-size: 1.1rem;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
 }
 
 .footer-copyright {
     background-color: #353535 !important;
 }
-
 
 @media only screen and (max-width : 992px) {
     .parallax-container .section {
@@ -111,23 +133,15 @@ i.right {
         padding-left: 25px;
 
     }
-}
 
-    /** TODO: make mobile menu *!*/
+}
 
 @media only screen and (max-width : 600px) {
     #index-banner .section {
         top: 0;
     }
-}
 
-.icon-block {
-    padding: 0 15px;
-}
-.icon-block .material-icons {
-    font-size: inherit;
-}
-
-footer.page-footer {
-    margin: 0;
+    nav {
+        line-height: 43px;
+    }
 }
