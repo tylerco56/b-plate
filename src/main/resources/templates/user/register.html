@@ -3,43 +3,43 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <nav th:replace="fragments :: navigation"></nav>
-<div class="page-body"></div>
-<section class="Lrow">
-    <div class="Lcol container">
-        <div class="gap">
-        </div>
-        <h3 th:text="${title}">Default Title</h3>
-        <form method="POST" th:object="${user}">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <div>
-                <label th:for="username">Username: </label>
-                <input th:field="*{username}"/>
-                <span th:errors="*{username}" class="error"></span>
+<main>
+<div class="small-gap"></div>
+        <section class="container">
+            <div class="gap">
             </div>
-            <div>
-                <label th:for="email">Email: </label>
-                <input th:type="email" th:field="*{email}"/>
-                <span th:errors="*{email}" class="error"></span>
-            </div>
-            <div>
-                <label th:for="password">Password: </label>
-                <input th:type="password" th:field="*{password}"/>
-                <span th:errors="*{password}" class="error"></span>
-                <span th:text="${passnullerror}" class="error"></span>
-            </div>
-            <div>
-                <label th:for="verify">Verify Password: </label>
-                <input th:type="password" th:field="*{verifyPassword}"/>
-                <span th:errors="*{verifyPassword}" class="error"></span>
-            </div>
-            <br />
-            <br />
-            <button type="submit" value="Add User" class="btn">Add User</button>
-        </form>
-        <div style="height: 50px;"></div>
-    </div>
-</section>
-<div th:replace="fragments :: scripts"></div>
+            <h3 th:text="${title}">Default Title</h3>
+            <form method="POST" th:object="${user}">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <div>
+                    <label th:for="username">Username: </label>
+                    <input th:field="*{username}"/>
+                    <span th:errors="*{username}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="email">Email: </label>
+                    <input th:type="email" th:field="*{email}"/>
+                    <span th:errors="*{email}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="password">Password: </label>
+                    <input th:type="password" th:field="*{password}"/>
+                    <span th:errors="*{password}" class="error"></span>
+                    <span th:text="${passnullerror}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="verify">Verify Password: </label>
+                    <input th:type="password" th:field="*{verifyPassword}"/>
+                    <span th:errors="*{verifyPassword}" class="error"></span>
+                </div>
+                <br />
+                <br />
+                <button type="submit" value="Add User" class="btn-large waves-effect">Register</button>
+            </form>
+            <div style="height: 50px;"></div>
+        </section>
+</main>
 <footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
 </body>
 </html>

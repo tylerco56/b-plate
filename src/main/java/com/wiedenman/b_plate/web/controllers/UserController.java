@@ -73,7 +73,7 @@ public class UserController {
     public String processAddUser(@ModelAttribute @Valid User newUser,
                                  Errors errors, Model model) {
 
-        model.addAttribute("title", "Add User");
+        model.addAttribute("title", "Register");
         String newUserEmail = newUser.getEmail();
         Optional<User> existingUser = userDao.findByEmail(newUserEmail);
         if (errors.hasErrors()) {
