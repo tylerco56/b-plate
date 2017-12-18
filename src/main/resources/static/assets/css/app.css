@@ -10,6 +10,16 @@
  * core Materialize files in the future
  */
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .small-gap {
     height: 25px;
 }
@@ -77,6 +87,11 @@ i.right {
 .parallax-container .section {
     width: 100%;
 }
+
+.footer-copyright {
+    background-color: #353535 !important;
+}
+
 
 @media only screen and (max-width : 992px) {
     .parallax-container .section {

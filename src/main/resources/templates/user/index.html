@@ -2,24 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<nav th:replace="fragments :: navigation"></nav>
-<div class="page-body"></div>
-<!--<div class="gap"></div>-->
-<section class="Lrow">
-    <div class="Lcol container">
-        <h3 th:text="${title}">Default Title</h3>
-        <hr/>
-        <p th:unless="${users} and ${users.size()}">
-            No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/user/add">Add a user now.</a>
-        </p>
-        <ul th:each="user : ${users}">
-            <a th:href="'/user/' + ${user.id}"><h5 th:text="${user.username}"></h5></a>
-            <hr/>
-        </ul>
-    </div>
-</section>
-<div th:replace="fragments :: scripts"></div>
-<footer th:replace="fragments :: footer"></footer>
+    <main>
+        <nav th:replace="fragments :: navigation"></nav>
+        <div class="small-gap"></div>
+            <div class="container">
+                <h3 th:text="${title}">Default Title</h3>
+                <hr/>
+                <p th:unless="${users} and ${users.size()}">
+                    No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/user/add">Add a user now.</a>
+                </p>
+                <ul th:each="user : ${users}">
+                    <a th:href="'/user/' + ${user.id}"><h5 th:text="${user.username}"></h5></a>
+                    <hr/>
+                </ul>
+            </div>
+    </main>
+    <footer th:replace="fragments :: footer"></footer>
+    <div th:replace="fragments :: scripts"></div>
 </body>
 </html>
-<!-- TODO: Get rid of the controller pointing here? -->
