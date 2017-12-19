@@ -3,12 +3,18 @@ package com.wiedenman.b_plate.web.controllers;
 import com.wiedenman.b_plate.model.*;
 import com.wiedenman.b_plate.model.data.RoleDao;
 import com.wiedenman.b_plate.model.data.UserDao;
+import com.wiedenman.b_plate.service.UserService;
+import com.wiedenman.b_plate.validation.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -43,6 +49,9 @@ public class UserController {
     @Autowired
     RoleDao roleDao;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "user-index")
     public String index(Model model) {
         model.addAttribute("users", userDao.findAll());
@@ -71,23 +80,29 @@ public class UserController {
 
     @RequestMapping(value = "register", method = RequestMethod.POST) // Process form
     public String processAddUser(@ModelAttribute @Valid User newUser,
+                                 final BindingResult result,
                                  Errors errors, Model model) {
 
         model.addAttribute("title", "Register");
         String newUserEmail = newUser.getEmail();
         Optional<User> existingUser = userDao.findByEmail(newUserEmail);
+
         if (errors.hasErrors()) {
             return "user/register";
 
-        } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
-            return "user/register";
         }
+//        else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
+//            return "user/register";
+//        }
 //        newUser.setRole(userRole);  // TODO: make role setting
-        newUser.setEnabled(true);
+        try {
+            userService.registerNewUser(newUser);
+        } catch (EmailExistsException e) {
+            result.addError(new FieldError("user", "email", e.getMessage()));
+            model.addAttribute("user", newUser);
+            return "register";
+        }
 
-        newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-        newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-        userDao.save(newUser);
         return "redirect:index";
     }
 }

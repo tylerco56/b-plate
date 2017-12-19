@@ -1,6 +1,9 @@
 package com.wiedenman.b_plate.model.data;
 
+import com.wiedenman.b_plate.model.PasswordResetToken;
 import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.model.VerificationToken;
+import com.wiedenman.b_plate.validation.EmailExistsException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
@@ -35,4 +38,5 @@ public interface UserDao extends CrudRepository<User, Long> {
     Optional<User> findUserByEmail(String email);
     User findByUsername(String username);
     Optional<User> findByResetToken(String resetToken);
+
 }

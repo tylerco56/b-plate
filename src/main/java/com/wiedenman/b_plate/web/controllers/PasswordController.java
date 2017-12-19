@@ -134,7 +134,7 @@ public class PasswordController {
             // Save user
             userDao.save(resetUser);
 
-            // TODO: make redirect attribute show up on flash in login.html
+            // TODO: make redirect attribute show up on flash in loginPage.html
             redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");
 
             modelAndView.setViewName("redirect:login");

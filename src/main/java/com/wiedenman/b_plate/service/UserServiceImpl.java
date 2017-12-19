@@ -1,7 +1,13 @@
 package com.wiedenman.b_plate.service;
 
+import com.wiedenman.b_plate.model.PasswordResetToken;
 import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.model.VerificationToken;
+import com.wiedenman.b_plate.model.data.PasswordResetTokenDao;
 import com.wiedenman.b_plate.model.data.UserDao;
+import com.wiedenman.b_plate.model.data.VerificationTokenDao;
+import com.wiedenman.b_plate.validation.EmailExistsException;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,6 +41,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private VerificationTokenDao verificationTokenDao;
+
+    @Autowired
+    private PasswordResetTokenDao passwordTokenDao;
+
     @Override
     public User findByUsername(String username) {
         return userDao.findByUsername(username);
@@ -64,7 +76,57 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
+    public User registerNewUser(final User user) throws EmailExistsException {
+        if (emailExist(user.getEmail())) {
+            throw new EmailExistsException("There is an account with that email address: " + user.getEmail());
+        }
+        return userDao.save(user);
+    }
+
+    @Override
+    public void createPasswordResetTokenForUser(User user, String token) {
+        final PasswordResetToken myToken = new PasswordResetToken(token, user);
+        passwordTokenDao.save(myToken);
+    }
+
+
+    @Override
+    public PasswordResetToken getPasswordResetToken(String token) {
+        return null;
+    }
+
+    @Override
+    public void createVerificationTokenForUser(User user, String token) {
+
+    }
+
+    @Override
+    public VerificationToken getVerificationToken(String token) {
+        return null;
+    }
+
+    @Override
+    public void saveRegisteredUser(User user) {
+
+    }
+
+    @Override
+    public void save(User user) throws EmailExistsException {
+        if (emailExist(user.getEmail())) {
+            throw new EmailExistsException("There is already an account with registered to " + user.getEmail());
+        }
         userDao.save(user);
     }
+
+    private boolean emailExist(final String email) {
+        final Optional<User> user = userDao.findByEmail(email);
+        return user != null;
+    }
+
+    @Override
+    public void changeUserPassword(User user, String password) {
+
+    }
+
+
 }

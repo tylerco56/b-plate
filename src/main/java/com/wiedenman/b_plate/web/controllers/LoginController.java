@@ -43,7 +43,7 @@ public class LoginController {
         } catch (Exception ex) {
             // "flash" session attribute must not exist...proceed
         }
-        return "login";
+        return "loginPage";
     }
 
     @RequestMapping("/access_denied")

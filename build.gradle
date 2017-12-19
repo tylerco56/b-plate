@@ -37,6 +37,8 @@ dependencies {
     compile('mysql:mysql-connector-java')
 	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE')
 	compile('javax.mail:mail:1.4.7')
+	compile('org.passay:passay:1.0')
+	compile('com.google.guava:guava:23.5-jre')
     runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
