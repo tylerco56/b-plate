@@ -115,6 +115,23 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     font-size: inherit;
 }
 
+.card-avatar .waves-effect {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card-avatar img {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    margin-top: 20px;
+}
+
+.card-avatar .card-content {
+    text-align: center;
+}
+
+
 /* FORM ELEMENTS*/
 
 form.login button[type=submit] {

@@ -18,12 +18,18 @@
                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                         <div class="row">
                             <div class="col s12">
-                                <input th:field="*{username}" placeholder="username"/>
+                                <div class="input-field">
+                                    <label th:for="username">Username</label>
+                                    <input type="text" th:field="*{username}"/>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <input type="password" th:field="*{password}" placeholder="password"/>
+                                <div class="input-field">
+                                    <label th:for="password">Password</label>
+                                    <input th:type="password" th:field="*{password}"/>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
