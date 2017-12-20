@@ -35,7 +35,7 @@ The following features are provided by b-plate "out-of-the-box" in a MVC pattern
 
 ```
 # Database connection settings
-spring.datasource.url = jdbc:mysql://localhost:8889/databasename
+spring.datasource.url = jdbc:mysql://localhost:8889/b-plate
 spring.datasource.username = username
 spring.datasource.password = password
 
@@ -59,10 +59,11 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
 # Turn off security protocol requiring login to run app
 security.basic.enabled=false
 
+# Sendgrid makes this easier to setup, true story
 spring.mail.host = smtp.sendgrid.net
 spring.mail.port = 25 
-spring.mail.username = apikey
-spring.mail.password = 
+spring.mail.username = yourusername
+spring.mail.password = yourpassword
 spring.mail.protocol = smtp
 #spring.mail.defaultEncoding = UTF-8
 ``` 
@@ -70,7 +71,7 @@ spring.mail.protocol = smtp
 
 
 ## License & Usage
-You may use b-plate freely for personal, non-commercial purposes only. Please contact me to discuss commercial use.
+You may use b-plate freely for personal, non-commercial purposes. Please contact me to discuss commercial use.
 
 
 
