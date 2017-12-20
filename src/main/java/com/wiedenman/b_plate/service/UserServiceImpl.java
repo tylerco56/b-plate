@@ -2,7 +2,9 @@ package com.wiedenman.b_plate.service;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
 import com.wiedenman.b_plate.web.model.User;
+import com.wiedenman.b_plate.web.model.VerificationToken;
 import com.wiedenman.b_plate.web.model.data.UserDao;
+import com.wiedenman.b_plate.web.model.data.VerificationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -39,6 +41,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private VerificationDao verificationDao;
 
     @Override
     public User findByUsername(String username) {
@@ -78,6 +83,22 @@ public class UserServiceImpl implements UserService {
             newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
             return userDao.save(newUser);
         }
+    }
+
+    @Override
+    public void createVerificationTokenForUser(User user, String token) {
+        final VerificationToken myToken = new VerificationToken(token, user);
+        verificationDao.save(myToken);
+    }
+
+    @Override
+    public VerificationToken getVerificationToken(String token) {
+        return null;
+    }
+
+    @Override
+    public void saveRegisteredUser(User user) {
+
     }
 
     private boolean emailExists(String email) {

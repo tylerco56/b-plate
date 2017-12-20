@@ -22,10 +22,13 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Calendar;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -79,7 +82,7 @@ public class RegistrationController {
             passwordResetEmail.setTo(newUser.getEmail());
             passwordResetEmail.setSubject("Verify your b-plate account");
             passwordResetEmail.setText("To verify your account, click the link:\n" + appUrl
-                    + "/reset?verification_token=" + vToken.getToken());
+                    + "/verify?verification_token=" + vToken.getToken());
             emailService.sendEmail(passwordResetEmail);
             // Add success message to view
 //            modelAndView.addObject("successMessage", "A password reset link has been sent to " + userEmail);
@@ -89,5 +92,26 @@ public class RegistrationController {
             return "registrationPage";
         }
         return "redirect:/login";
+    }
+
+    @RequestMapping(value = "/verify")
+    public ModelAndView confirmRegistration(final Model model, @RequestParam("token") final String token, final RedirectAttributes redirectAttributes) {
+        final VerificationToken verificationToken = userService.getVerificationToken(token);
+        if (verificationToken == null) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Invalid account confirmation token.");
+            return new ModelAndView("redirect:/login");
+        }
+
+        final User user = verificationToken.getUser();
+        final Calendar cal = Calendar.getInstance();
+        if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Your registration token has expired. Please register again.");
+            return new ModelAndView("redirect:/login");
+        }
+
+        user.setEnabled(true);
+        userService.saveRegisteredUser(user);
+        redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick!");
+        return new ModelAndView("redirect:/login");
     }
 }
