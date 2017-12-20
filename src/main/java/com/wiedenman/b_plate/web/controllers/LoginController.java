@@ -1,6 +1,6 @@
 package com.wiedenman.b_plate.web.controllers;
 
-import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.web.model.User;
 //import com.wiedenman.b_plate.service.SimpleMail;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

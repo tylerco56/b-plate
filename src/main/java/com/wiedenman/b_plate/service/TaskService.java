@@ -1,6 +1,6 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.model.Task;
+import com.wiedenman.b_plate.web.model.Task;
 
 /**
  *    888                      888          888

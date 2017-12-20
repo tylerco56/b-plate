@@ -1,10 +1,11 @@
-package com.wiedenman.b_plate.model.data;
+package com.wiedenman.b_plate.web.model.data;
 
-import com.wiedenman.b_plate.model.Page;
+import com.wiedenman.b_plate.web.model.Role;
+import com.wiedenman.b_plate.web.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.Optional;
 
 /**
  *    888                      888          888
@@ -29,11 +30,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface PageDao extends CrudRepository<Page, Long> {
-
-// TODO: create finders for PageDao
-
-//    @Query("select p from Page p where p.page.id=:#{principal.id}")
-    List<Page> findAll();
+public interface RoleDao extends CrudRepository<User, Integer> {
+    Optional<Role> findByRole(String role);
 }
 

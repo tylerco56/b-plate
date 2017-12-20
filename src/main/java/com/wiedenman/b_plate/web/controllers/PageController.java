@@ -1,14 +1,11 @@
 package com.wiedenman.b_plate.web.controllers;
 
-import com.wiedenman.b_plate.model.Page;
-import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.service.PageService;
 import com.wiedenman.b_plate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

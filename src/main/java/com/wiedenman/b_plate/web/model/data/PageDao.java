@@ -1,9 +1,9 @@
-package com.wiedenman.b_plate.model.data;
+package com.wiedenman.b_plate.web.model.data;
 
-import com.wiedenman.b_plate.model.Task;
-import org.springframework.data.jpa.repository.Query;
+import com.wiedenman.b_plate.web.model.Page;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -28,7 +28,12 @@ import java.util.List;
  */
 
 @Repository
-public interface TaskDao extends CrudRepository<Task, Long> {
-    @Query("select t from Task t where t.user.id=:#{principal.id}")
-    List<Task> findAll();
+@Transactional
+public interface PageDao extends CrudRepository<Page, Long> {
+
+// TODO: create finders for PageDao
+
+//    @Query("select p from Page p where p.page.id=:#{principal.id}")
+    List<Page> findAll();
 }
+

@@ -1,6 +1,6 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.model.Page;
+import com.wiedenman.b_plate.web.model.Page;
 
 /**
  *    888                      888          888

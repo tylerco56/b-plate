@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.model;
+package com.wiedenman.b_plate.web.model;
 
 import javax.persistence.*;
 

@@ -1,11 +1,15 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.model.User;
-import com.wiedenman.b_plate.model.data.UserDao;
+import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.web.model.User;
+import com.wiedenman.b_plate.web.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 
 /**
@@ -30,6 +34,7 @@ import java.util.Optional;
  */
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -54,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return userDao.findByEmail(email);
     }
 
@@ -64,7 +69,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
-        userDao.save(user);
+    public User registerNewUser(final User newUser) throws EmailExistsException {
+        if (emailExists(newUser.getEmail())) {  // TODO: registration does not pass this point when user does not already exist
+            throw new EmailExistsException("There is an account with that email address: " + newUser.getEmail());
+        } else {
+            newUser.setEnabled(true);
+            newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
+            newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
+            return userDao.save(newUser);
+        }
     }
+
+    private boolean emailExists(String email) {
+        final User user = userDao.findByEmail(email);
+        return user != null;  // TODO: This is the key
+    }
+
+//    @Override
+//    public void save(User user) {
+//        userDao.save(user);
+//    }
 }

@@ -1,7 +1,7 @@
 package com.wiedenman.b_plate.web.controllers;
 
-import com.wiedenman.b_plate.model.Task;
-import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.web.model.Task;
+import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.service.TaskService;
 import com.wiedenman.b_plate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +41,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @Autowired
-    private UserService userService;
-
-    @RequestMapping({"/", "/todo"})
+    @RequestMapping(value = "/todo")
     public String taskList(Model model) {
         Iterable<Task> tasks = taskService.findAll();
         model.addAttribute("tasks",tasks);

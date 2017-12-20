@@ -1,6 +1,7 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.web.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Optional;
@@ -28,7 +29,8 @@ import java.util.Optional;
 
 public interface UserService extends UserDetailsService{
     User findByUsername(String username);
-    Optional<User> findUserByEmail(String email);
+    User findUserByEmail(String email);
     Optional<User> findUserByResetToken(String resetToken);
-    void save(User user);
+    User registerNewUser(User user) throws EmailExistsException;
+//    void save(User user);
 }

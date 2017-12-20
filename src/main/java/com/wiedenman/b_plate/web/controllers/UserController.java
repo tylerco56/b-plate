@@ -1,8 +1,8 @@
 package com.wiedenman.b_plate.web.controllers;
 
-import com.wiedenman.b_plate.model.*;
-import com.wiedenman.b_plate.model.data.RoleDao;
-import com.wiedenman.b_plate.model.data.UserDao;
+import com.wiedenman.b_plate.web.model.*;
+import com.wiedenman.b_plate.web.model.data.RoleDao;
+import com.wiedenman.b_plate.web.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
@@ -35,6 +35,7 @@ import java.util.Optional;
  */
 
 @Controller
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
@@ -43,7 +44,7 @@ public class UserController {
     @Autowired
     RoleDao roleDao;
 
-    @RequestMapping(value = "user-index")
+    @RequestMapping(value = "index")
     public String index(Model model) {
         model.addAttribute("users", userDao.findAll());
         model.addAttribute("title", "Users");
@@ -51,7 +52,7 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping(value = "user-{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public String singleUser(Model model, @PathVariable long id) {
 
         User user = userDao.findOne(id);
@@ -59,35 +60,5 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("formattedDate", formattedDate);
         return "user/single"; // TODO: create html user/single
-    }
-
-    @RequestMapping(value = "register", method = RequestMethod.GET)  // Displays form
-    public String displayAddUser(Model model) {
-        model.addAttribute("title", "Register");
-        model.addAttribute(new User());
-
-        return "user/register";
-    }
-
-    @RequestMapping(value = "register", method = RequestMethod.POST) // Process form
-    public String processAddUser(@ModelAttribute @Valid User newUser,
-                                 Errors errors, Model model) {
-
-        model.addAttribute("title", "Register");
-        String newUserEmail = newUser.getEmail();
-        Optional<User> existingUser = userDao.findByEmail(newUserEmail);
-        if (errors.hasErrors()) {
-            return "user/register";
-
-        } else if (existingUser.isPresent()) { // TODO: Add error as Error for existing user, pass to view
-            return "user/register";
-        }
-//        newUser.setRole(userRole);  // TODO: make role setting
-        newUser.setEnabled(true);
-
-        newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-        newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-        userDao.save(newUser);
-        return "redirect:index";
     }
 }

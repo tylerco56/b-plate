@@ -1,6 +1,5 @@
-package com.wiedenman.b_plate.model;
+package com.wiedenman.b_plate.web.model;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import java.time.LocalDate;

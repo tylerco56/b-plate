@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.model;
+package com.wiedenman.b_plate.web.model;
 
 import com.wiedenman.b_plate.exception.WrongVerificationCodeException;
 import org.springframework.security.core.GrantedAuthority;

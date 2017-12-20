@@ -1,7 +1,7 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.model.Task;
-import com.wiedenman.b_plate.model.data.TaskDao;
+import com.wiedenman.b_plate.web.model.Task;
+import com.wiedenman.b_plate.web.model.data.TaskDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

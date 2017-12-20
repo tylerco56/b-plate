@@ -1,10 +1,10 @@
-package com.wiedenman.b_plate.model.data;
+package com.wiedenman.b_plate.web.model.data;
 
-import com.wiedenman.b_plate.model.User;
+import com.wiedenman.b_plate.web.model.Task;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import javax.transaction.Transactional;
-import java.util.Optional;
+import java.util.List;
 
 /**
  *    888                      888          888
@@ -28,11 +28,7 @@ import java.util.Optional;
  */
 
 @Repository
-@Transactional
-public interface UserDao extends CrudRepository<User, Long> {
-
-    Optional<User> findByEmail(String email);
-    Optional<User> findUserByEmail(String email);
-    User findByUsername(String username);
-    Optional<User> findByResetToken(String resetToken);
+public interface TaskDao extends CrudRepository<Task, Long> {
+    @Query("select t from Task t where t.user.id=:#{principal.id}")
+    List<Task> findAll();
 }
