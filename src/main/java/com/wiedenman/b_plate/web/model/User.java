@@ -104,6 +104,7 @@ public class User implements UserDetails {
     // required by orm
     public User() {
         this.creationDate = date;
+        this.enabled = false;
     }
 
     public User(String email, String password, String verifyPassword) {
@@ -116,7 +117,8 @@ public class User implements UserDetails {
     public User(String firstName, String lastName,
                 String email, String phoneNumber,
                 String password, String verifyPassword,
-                LocalDate lastLogin, boolean enabled) {
+                LocalDate lastLogin, boolean enabled,
+                Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -128,10 +130,11 @@ public class User implements UserDetails {
         this.creationDate = date;
         this.lastLogin = lastLogin;
         this.enabled = enabled;
+        this.role = role;
 
     }
 
-    static String generateVerificationCode() {
+    private static String generateVerificationCode() {
         Random rand = new Random();
         Integer code = rand.nextInt(MIN_VERIFICATION_CODE
                 - MAX_VERIFICATION_CODE + 1) + MAX_VERIFICATION_CODE;
