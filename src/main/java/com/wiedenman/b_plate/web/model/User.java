@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Random;
 
 /**
  *    888                      888          888
@@ -32,7 +31,7 @@ import java.util.Random;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017 Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Entity
