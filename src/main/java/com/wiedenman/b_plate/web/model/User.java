@@ -38,9 +38,6 @@ import java.util.Random;
 @Entity
 public class User implements UserDetails {
 
-    private static final int MAX_VERIFICATION_CODE = 100000;
-    private static final int MIN_VERIFICATION_CODE = 999999;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -121,13 +118,6 @@ public class User implements UserDetails {
         this.enabled = enabled;
         this.role = role;
 
-    }
-
-    private static String generateVerificationCode() {
-        Random rand = new Random();
-        Integer code = rand.nextInt(MIN_VERIFICATION_CODE
-                - MAX_VERIFICATION_CODE + 1) + MAX_VERIFICATION_CODE;
-        return code.toString();
     }
 
     public long getId() {
