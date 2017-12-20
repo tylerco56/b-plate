@@ -81,7 +81,7 @@ public class RegistrationController {
             passwordResetEmail.setFrom("donotreply@b-plate.com");  // TODO: change email message for production
             passwordResetEmail.setTo(newUser.getEmail());
             passwordResetEmail.setSubject("Verify your b-plate account");
-            passwordResetEmail.setText("To verify your account, click the link and login:\n" + appUrl
+            passwordResetEmail.setText("To verify your account click the link and login:\n" + appUrl
                     + "/verify?verification_token=" + vToken.getToken());
             emailService.sendEmail(passwordResetEmail);
             // Add success message to view
