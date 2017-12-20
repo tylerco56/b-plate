@@ -37,11 +37,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Controller
-public class PasswordController {
+public class ForgotController {
 
     @Autowired
     private UserDao userDao;
@@ -66,10 +66,11 @@ public class PasswordController {
         Optional<User> optional = userDao.findUserByEmail(userEmail);
 
         if (!optional.isPresent()) {
+            // TODO: pass this error to the view
             modelAndView.addObject("errorMessage", "We didn't find an account for that e-mail address.");
         } else {
 
-            // Generate random 36-character string token for reset password
+            // Generate random token to reset password
             User user = optional.get();
             user.setResetToken(UUID.randomUUID().toString());
 
@@ -134,7 +135,7 @@ public class PasswordController {
             // Save user
             userDao.save(resetUser);
 
-            // TODO: make redirect attribute show up on flash in login.html
+            // TODO: make redirect attribute show up on flash in loginPage.html
             redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");
 
             modelAndView.setViewName("redirect:login");
@@ -148,7 +149,7 @@ public class PasswordController {
         return modelAndView;
     }
 
-    // Going to reset page without a token redirects to login page
+    // Attempt to visit reset page without a token redirects to login page
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
         return new ModelAndView("redirect:login");

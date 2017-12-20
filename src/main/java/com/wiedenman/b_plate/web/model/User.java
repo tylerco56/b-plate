@@ -1,10 +1,8 @@
 package com.wiedenman.b_plate.web.model;
 
-import com.wiedenman.b_plate.exception.WrongVerificationCodeException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
@@ -34,7 +32,7 @@ import java.util.Random;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman.
  */
 
 @Entity
@@ -60,31 +58,25 @@ public class User implements UserDetails {
     private String lastName;
 
     @Column(name = "EMAIL", unique = true)
-    @NotBlank(message = "Email may not be blank ")
-    @Email(message = "Email format does not match ")
+    @NotBlank(message = "Email may not be blank. ")
+    @Email(message = "Email format does not match. ")
     private String email;
 
-    @NotBlank(message = "Password may not be blank ")
-    @Column(length = 100, name = "PASSWORD")
-    private String password;  // TODO: Hash this before storage
+    @Column( name = "PASSWORD", length = 100)
+    @NotBlank(message = "Password may not be blank. ")
+    private String password;
 
-    @NotNull(message="Passwords do not match. ")
-    @Column(length = 100)
+    @Column(name = "VERIFY_PASSWORD", length = 100)
+    @NotNull(message="Verify may not be blank. ")
     @Size(min=6, message="Passwords do not match. ")
-    private String verifyPassword;  // TODO: Hash before storage
+    private String verifyPassword;
 
-//    @NotBlank(message = "Phone Number may not be blank ")
     @Column(name = "PHONE_NUMBER")
+//    @NotBlank(message = "Phone Number may not be blank ")
     private String phoneNumber;
 
-    @Column(name = "VERIFICATION_CODE")
-    private String verificationCode;
-
-    @Column(name = "CONFIRMED")
-    private boolean confirmed;
-
-    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ROLE_ID")
+    @OneToOne(cascade = CascadeType.ALL)
     private Role role;
 
     @Column(nullable = false, name = "ENABLED")
@@ -93,15 +85,14 @@ public class User implements UserDetails {
     @Column(name="CREATION_DATE")
     private final LocalDate creationDate;
 
-    @Column(name = "last_login")
+    @Column(name = "LAST_LOGIN")
     private LocalDate lastLogin;
 
-    @Column(name = "reset_token")
+    @Column(name = "RESET_TOKEN")
     private String resetToken;
 
     public static LocalDate date = LocalDate.now();
 
-    // required by orm
     public User() {
         this.creationDate = date;
         this.enabled = false;
@@ -123,10 +114,8 @@ public class User implements UserDetails {
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.confirmed = false;
         this.password = password;
         this.verifyPassword = verifyPassword;
-        this.verificationCode = generateVerificationCode();
         this.creationDate = date;
         this.lastLogin = lastLogin;
         this.enabled = enabled;
@@ -141,56 +130,21 @@ public class User implements UserDetails {
         return code.toString();
     }
 
-    public void confirm(final String verificationCode) {
-        if (!this.verificationCode.equals(verificationCode)) {
-            throw new WrongVerificationCodeException(verificationCode);
-        }
-        confirmed = true;
-    }
-
-    public void generateNewVerificationCode() {
-        this.verificationCode = generateVerificationCode();
-    }
-
-    public boolean authenticate(final String password) {
-        return BCrypt.checkpw(password, this.password);
-    }
-
     public long getId() {
         return id;
-    }
-
-    public String getVerificationCode() {
-        return verificationCode;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public boolean isConfirmed() {
-        return confirmed;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public LocalDate getCreationDate() {
         return creationDate;
     }
-
-    public static int getMaxVerificationCode() {
-        return MAX_VERIFICATION_CODE;
-    }
-
-    public static int getMinVerificationCode() {
-        return MIN_VERIFICATION_CODE;
-    }
-
-//    public void setId(String id) {
-//        this.id = id;
-//    }
 
     public String getUsername() {
         return username;
@@ -209,6 +163,10 @@ public class User implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -236,10 +194,6 @@ public class User implements UserDetails {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // Adds new granted authority
@@ -264,16 +218,12 @@ public class User implements UserDetails {
         this.verifyPassword = verifyPassword;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
-    }
-
-    public void setConfirmed(boolean confirmed) {
-        this.confirmed = confirmed;
     }
 
     public static LocalDate getDate() {
@@ -282,14 +232,6 @@ public class User implements UserDetails {
 
     public static void setDate(LocalDate date) {
         User.date = date;
-    }
-
-    private void checkPassword() {
-        /**If password and verifyPassword are not null and they do not match, reset verifyPassword to null.*/
-
-        if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
-            verifyPassword = null;
-        }
     }
 
     public void setId(long id) {
@@ -304,10 +246,7 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    // TODO: implement last login
     public LocalDate getLastLogin() {
         return lastLogin;
     }
