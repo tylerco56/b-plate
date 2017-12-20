@@ -2,7 +2,6 @@ package com.wiedenman.b_plate.web.controllers;
 
 import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.service.PageService;
-import com.wiedenman.b_plate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +28,7 @@ import java.security.Principal;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Controller
@@ -37,10 +36,6 @@ public class PageController {
 
     @Autowired
     private PageService pageService;
-
-
-    @Autowired
-    private UserService userService;
 
     @RequestMapping(value = "pages")
     public String index(Model model, Principal principal) {
@@ -60,12 +55,4 @@ public class PageController {
 
         return "page/single";
     }
-
-//    @RequestMapping(path = "page/private-page", method = RequestMethod.POST)
-//    public String addTask(@ModelAttribute Page page, Principal principal) {
-//        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
-//        page.setPrivateUser(user.getId());
-//        pageService.save(page);
-//        return "page/single";
-//    }
 }

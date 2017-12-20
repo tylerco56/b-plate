@@ -20,11 +20,15 @@ import com.wiedenman.b_plate.web.model.Page;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 public interface PageService {
+
     Iterable<Page> findAll();
+
     Page findOne(long id);
+
     void save(Page page);
+
 }

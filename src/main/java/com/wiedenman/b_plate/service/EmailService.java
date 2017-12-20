@@ -20,9 +20,11 @@ import org.springframework.mail.SimpleMailMessage;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 public interface EmailService {
+
     void sendEmail(SimpleMailMessage email);
+
 }

@@ -25,12 +25,12 @@ import java.util.Optional;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Repository
 @Transactional
 public interface RoleDao extends CrudRepository<User, Integer> {
-    Optional<Role> findByRole(String role);
+    Optional<Role> findByRole(String role);  // TODO: this seems odd
 }
 

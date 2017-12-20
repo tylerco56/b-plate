@@ -4,14 +4,10 @@ import com.wiedenman.b_plate.web.model.*;
 import com.wiedenman.b_plate.web.model.data.RoleDao;
 import com.wiedenman.b_plate.web.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
 
 /**
  *    888                      888          888
@@ -31,7 +27,7 @@ import java.util.Optional;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Controller

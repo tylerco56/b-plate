@@ -1,7 +1,6 @@
 package com.wiedenman.b_plate.web.controllers;
 
 import com.wiedenman.b_plate.web.model.User;
-//import com.wiedenman.b_plate.service.SimpleMail;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Controller

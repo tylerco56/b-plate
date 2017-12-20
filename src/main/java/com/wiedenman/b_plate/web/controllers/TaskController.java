@@ -3,7 +3,6 @@ package com.wiedenman.b_plate.web.controllers;
 import com.wiedenman.b_plate.web.model.Task;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.service.TaskService;
-import com.wiedenman.b_plate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
@@ -33,7 +32,7 @@ import java.security.Principal;
  * github.com/landongw/b-plate
  * Usage: or personal non-commercial use only.  Please contact me for commercial uses.
  *
- * Copyright (c) 2017. Landon Wiedenman.
+ * Copyright (c) 2017 Landon Wiedenman
  */
 
 @Controller
