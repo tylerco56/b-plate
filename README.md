@@ -69,7 +69,6 @@ spring.mail.protocol = smtp
 ``` 
 
 
-
 ## License & Use
 You may use b-plate freely for personal, non-commercial purposes. Please contact me to discuss commercial use.
 
