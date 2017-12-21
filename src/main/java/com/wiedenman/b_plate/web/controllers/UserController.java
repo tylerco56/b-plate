@@ -30,21 +30,21 @@ import java.time.format.DateTimeFormatter;
  */
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping
 public class UserController {
 
     @Autowired
     UserDao userDao;
 
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "users")
     public String index(Model model) {
         model.addAttribute("users", userDao.findAll());
-        model.addAttribute("title", "Users");
+        model.addAttribute("title", "ALL USERS");
 
         return "user/index";
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     public String singleUser(Model model, @PathVariable long id) {
 
         User user = userDao.findOne(id);
