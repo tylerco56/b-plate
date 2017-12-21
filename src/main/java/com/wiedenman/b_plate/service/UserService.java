@@ -4,7 +4,6 @@ import com.wiedenman.b_plate.exception.EmailExistsException;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
 import java.util.Optional;
 
 /**
