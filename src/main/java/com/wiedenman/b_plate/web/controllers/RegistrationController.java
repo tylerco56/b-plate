@@ -123,7 +123,6 @@ public class RegistrationController {
             redirectAttributes.addFlashAttribute("errorMessage", "Your registration token has expired. Please register again.");
             return new ModelAndView("redirect:/login");
         }
-
         user.setEnabled(true);
         userService.saveRegisteredUser(user);
         redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick! You can login now.");
