@@ -68,6 +68,10 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     line-height: 41px;
 }
 
+.button-collapse {
+
+}
+
 .Lheader-item {
     font-weight: 200;
 }
@@ -176,12 +180,6 @@ footer.page-footer {
         padding-left: 25px;
 
     }
-
-    a.button-collapse {
-        position: relative;
-        top: -3px;
-    }
-
 }
 
 @media only screen and (max-width : 600px) {
