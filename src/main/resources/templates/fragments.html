@@ -59,7 +59,7 @@
                 <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
                 <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
                 <li><a th:href="@{users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
-                <!-- TODO: make this visible to admin and publisher from front end only-->
+                <!-- TODO: make this visible to admin and publisher from front end only -->
                 <!--<li><a href="#">edit this page</a></li>-->
                 <li>
                     <form class="logout inline logout-mobile" th:action="@{/logout}" method="post">
