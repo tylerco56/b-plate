@@ -34,7 +34,7 @@
                 <!-- TODO: make this visible to admin and publisher only-->
                 <li><a href="#">images</a></li>
                 <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{user-index}">users</a></li>
+                <li><a th:href="@{users}">users</a></li>
                 <li>
                     <a sec:authentication="name" class="Lheader-item"></a>
                 </li>
@@ -61,7 +61,7 @@
                 <!-- TODO: make this visible to admin and publisher only-->
                 <li><a href="#">images</a></li>
                 <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{user-index}">users</a></li>
+                <li><a th:href="@{users}">users</a></li>
                 <li>
                     <form class="logout inline logout-mobile" th:action="@{/logout}" method="post">
                         <button type="submit" style="background: none; border: none;">
