@@ -7,7 +7,7 @@
         <div class="small-gap"></div>
             <div class="container">
                 <h3 th:text="${title}">Default Title</h3>
-                <a href="#" class="btn waves-effect waves-light">ADD NEW</a>
+                <a href="/register" class="btn waves-effect waves-light">ADD NEW</a>
                 <div class="small-gap"></div>
                 <p th:unless="${users} and ${users.size()}">
                     No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Add a user now.</a>
@@ -29,6 +29,7 @@
                     </tbody>
                 </table>
             </div>
+        <div class="large-gap"></div>
     </main>
     <footer th:replace="fragments :: footer"></footer>
     <div th:replace="fragments :: scripts"></div>

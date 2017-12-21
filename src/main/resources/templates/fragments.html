@@ -14,6 +14,8 @@
         <div style="display: inline">
             <a id="logo-container" href="/" class="brand-logo">b-plate</a>
         </div>
+
+        <!-- DESKTOP NAV -->
         <div class="right hide-on-med-and-down" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
             <ul th:case="${false}">
                 <!--<li><a href="#" class="thin">link</a></li>-->
@@ -29,12 +31,9 @@
                 <!-- TODO: make this visible to admin and publisher from front end only-->
                 <!--<li><a href="#">edit this page</a></li>-->
                 <li><a th:href="@{/todo}">tasks</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{/pages}">pages</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a href="#">images</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{users}">users</a></li>
+                <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
+                <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
+                <li><a th:href="@{users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
                 <li>
                     <a sec:authentication="name" class="Lheader-item"></a>
                 </li>
@@ -48,6 +47,7 @@
             </ul>
         </div>
 
+        <!-- MOBILE NAV -->
         <div id="nav-mobile" class="side-nav" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
             <ul th:case="${false}">
                 <!--<li><a href="/todo">Tasks</a></li>-->
@@ -56,12 +56,11 @@
             <ul th:case="${true}">
                 <li><a  sec:authentication="name" class="Lheader-item"></a></li>
                 <li><a th:href="@{/todo}">tasks</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{/pages}">pages</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a href="#">images</a></li>
-                <!-- TODO: make this visible to admin and publisher only-->
-                <li><a th:href="@{users}">users</a></li>
+                <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
+                <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
+                <li><a th:href="@{users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
+                <!-- TODO: make this visible to admin and publisher from front end only-->
+                <!--<li><a href="#">edit this page</a></li>-->
                 <li>
                     <form class="logout inline logout-mobile" th:action="@{/logout}" method="post">
                         <button type="submit" style="background: none; border: none;">
