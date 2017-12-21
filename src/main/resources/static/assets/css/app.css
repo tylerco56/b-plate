@@ -135,6 +135,21 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     text-align: center;
 }
 
+.explode {
+    color: #B81E24;
+    padding: 7px 12px 6px 12px;
+    position: relative;
+    right: 6px;
+    margin-left: 5px;
+}
+
+
+.btn-delete {
+    font-size: .75em;
+    padding: 1px 12px 0px 12px;
+    color: darkgray;
+}
+
 
 /* FORM ELEMENTS*/
 
@@ -185,6 +200,10 @@ footer.page-footer {
         position: relative;
         top: -3px;
         right: 22px;
+    }
+
+    table.responsive-table td {
+        text-align: center !important;
     }
 }
 
