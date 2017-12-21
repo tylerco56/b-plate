@@ -1,5 +1,6 @@
 package com.wiedenman.b_plate.web.controllers;
 
+import com.wiedenman.b_plate.web.Comparators.UsernameComparator;
 import com.wiedenman.b_plate.web.model.*;
 import com.wiedenman.b_plate.web.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 /**
  *    888                      888          888
@@ -38,7 +40,11 @@ public class UserController {
 
     @RequestMapping(value = "users")
     public String index(Model model) {
-        model.addAttribute("users", userDao.findAll());
+
+        List<User> users = (List<User>) userDao.findAll();
+        Collections.sort(users, new UsernameComparator());
+
+        model.addAttribute("users", users);
         model.addAttribute("title", "ALL USERS");
 
         return "user/index";
