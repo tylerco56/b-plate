@@ -78,7 +78,6 @@ public class UserServiceImpl implements UserService {
         if (emailExists(newUser.getEmail())) {  // TODO: registration does not pass this point when user does not already exist
             throw new EmailExistsException("There is an account with that email address: " + newUser.getEmail());
         } else {
-            newUser.setEnabled(true);
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
             newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
             return userDao.save(newUser);
@@ -93,12 +92,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public VerificationToken getVerificationToken(String token) {
-        return null;
+        return verificationDao.findByToken(token);
     }
 
     @Override
     public void saveRegisteredUser(User user) {
-
+        userDao.save(user);
     }
 
     private boolean emailExists(String email) {
