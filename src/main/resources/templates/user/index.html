@@ -7,14 +7,27 @@
         <div class="small-gap"></div>
             <div class="container">
                 <h3 th:text="${title}">Default Title</h3>
-                <hr/>
+                <a href="#" class="btn waves-effect waves-light">ADD NEW</a>
+                <div class="small-gap"></div>
                 <p th:unless="${users} and ${users.size()}">
-                    No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/user/add">Add a user now.</a>
+                    No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Add a user now.</a>
                 </p>
-                <ul th:each="user : ${users}">
-                    <a th:href="'/user/' + ${user.id}"><h5 th:text="${user.username}"></h5></a>
-                    <hr/>
-                </ul>
+                <table class="striped bordered responsive-table">
+                    <thead>
+                        <th>username</th>
+                        <th>first name</th>
+                        <th>last name</th>
+                        <th>role</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${users}">
+                            <td><a th:href="'/user/' + ${user.id}"><span th:text="${user.username}"></span></a></td>
+                            <td th:text="${user.firstName}"></td>
+                            <td th:text="${user.lastName}"></td>
+                            <td th:text="${user.role.name}"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
     </main>
     <footer th:replace="fragments :: footer"></footer>
