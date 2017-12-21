@@ -1,7 +1,6 @@
 package com.wiedenman.b_plate.web.controllers;
 
 import com.wiedenman.b_plate.web.model.*;
-import com.wiedenman.b_plate.web.model.data.RoleDao;
 import com.wiedenman.b_plate.web.model.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,9 +35,6 @@ public class UserController {
 
     @Autowired
     UserDao userDao;
-
-    @Autowired
-    RoleDao roleDao;
 
     @RequestMapping(value = "index")
     public String index(Model model) {

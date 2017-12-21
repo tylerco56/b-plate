@@ -1,7 +1,6 @@
 package com.wiedenman.b_plate.service;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
-import com.wiedenman.b_plate.web.model.Role;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
 import com.wiedenman.b_plate.web.model.data.RoleDao;
