@@ -30,7 +30,9 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface RoleDao extends CrudRepository<User, Integer> {
-    Optional<Role> findByRole(String role);  // TODO: this seems odd
+public interface RoleDao extends CrudRepository<Role, Long> {
+//    Optional<Role> findByRole(String role);  // TODO: this seems odd
+    Role findById(Long id);
+    Role findByName(String name);
 }
 
