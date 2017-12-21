@@ -44,5 +44,5 @@ public interface UserService extends UserDetailsService{
 
     void saveRegisteredUser(User user);
 
-//    void save(User user);
+    void save(User user);
 }
