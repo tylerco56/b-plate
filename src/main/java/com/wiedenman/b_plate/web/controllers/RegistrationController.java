@@ -126,7 +126,7 @@ public class RegistrationController {
 
         user.setEnabled(true);
         userService.saveRegisteredUser(user);
-        redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick!");
+        redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick! You can login now.");
         return new ModelAndView("redirect:/login");
     }
 }
