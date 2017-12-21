@@ -110,7 +110,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/verify")
-    public ModelAndView confirmRegistration(final Model model, @RequestParam("token") final String token, final RedirectAttributes redirectAttributes) {
+    public ModelAndView confirmRegistration(final Model model, @RequestParam("verification_token") final String token, final RedirectAttributes redirectAttributes) {
         final VerificationToken verificationToken = userService.getVerificationToken(token);
         if (verificationToken == null) {
             redirectAttributes.addFlashAttribute("errorMessage", "Invalid account confirmation token.");
@@ -126,7 +126,7 @@ public class RegistrationController {
 
         user.setEnabled(true);
         userService.saveRegisteredUser(user);
-        redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick!");
+        redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick! You can login now.");
         return new ModelAndView("redirect:/login");
     }
 }
