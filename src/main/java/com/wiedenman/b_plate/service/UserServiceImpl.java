@@ -1,8 +1,10 @@
 package com.wiedenman.b_plate.service;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.web.model.Role;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
+import com.wiedenman.b_plate.web.model.data.RoleDao;
 import com.wiedenman.b_plate.web.model.data.UserDao;
 import com.wiedenman.b_plate.web.model.data.VerificationDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,9 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
     private VerificationDao verificationDao;
 
     @Override
@@ -75,9 +80,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerNewUser(final User newUser) throws EmailExistsException {
-        if (emailExists(newUser.getEmail())) {  // TODO: registration does not pass this point when user does not already exist
+        if (emailExists(newUser.getEmail())) {
             throw new EmailExistsException("There is an account with that email address: " + newUser.getEmail());
         } else {
+            newUser.setRole(roleDao.findById((long) 1));
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
             newUser.setVerifyPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
             return userDao.save(newUser);
@@ -102,11 +108,11 @@ public class UserServiceImpl implements UserService {
 
     private boolean emailExists(String email) {
         final User user = userDao.findByEmail(email);
-        return user != null;  // TODO: This is the key
+        return user != null;
     }
 
-//    @Override
-//    public void save(User user) {
-//        userDao.save(user);
-//    }
+    @Override
+    public void save(User user) {
+        userDao.save(user);
+    }
 }
