@@ -10,16 +10,16 @@
         <div class="gap"></div>
         <h3>Tasks</h3>
         <ul>
+            <li>
+                <form method="post" th:object="${newTask}" th:action="@{/tasks}" class="inline new-item">
+                    <label><input type="text" th:field="*{description}" placeholder="New task" autocomplete="off"/></label>
+                </form>
+            </li>
             <li th:each="task : ${tasks}">
                 <form method="post" th:action="@{/mark}" class="inline todo-item">
                     <input type="hidden" name="id" th:value="${task.id}"/>
                     <input type="checkbox" th:id="|checked_${task.id}|" th:checked="${task.complete}"/>
-                    <label th:for="|checked_${task.id}|" th:text="${task.description}"></label>
-                </form>
-            </li>
-            <li>
-                <form method="post" th:object="${newTask}" th:action="@{/tasks}" class="inline new-item">
-                    <label><input type="text" th:field="*{description}" placeholder="New task" autocomplete="off"/></label>
+                    <label th:for="|checked_${task.id}|" th:text="${task.description} + ' ' + ${task.creationDate}"><span th:text="${task.creationDate}"></span></label>
                 </form>
             </li>
         </ul>

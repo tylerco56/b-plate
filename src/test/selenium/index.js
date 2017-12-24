@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 // Imports Selenium WebDriver
 const selenium = require("selenium-webdriver");
 const By = selenium.By;
@@ -34,6 +36,10 @@ loginPage.open();
 loginPage.login("user", "password");
 testTasks.forEach(task => todo.createTask(task));
 testTasks.forEach(task => todo.checkOffTask(task));
+driver.takeScreenshot().then((image, err) => {
+    fs.writeFile("images/task-layout.png", image, "base64",
+        err => console.error(err));
+});
 // TODO: Refresh page and look for tasks in menu
 // TODO: Look for absence of admin and publisher level menu items
 // TODO:

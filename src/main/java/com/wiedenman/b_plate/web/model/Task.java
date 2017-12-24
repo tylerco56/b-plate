@@ -1,6 +1,8 @@
 package com.wiedenman.b_plate.web.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *    888                      888          888
@@ -33,11 +35,17 @@ public class Task {
 
     private boolean complete;
 
+    private LocalDateTime creationDate;
+    public static LocalDateTime date = LocalDateTime.now();
+
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Task() {}
+    public Task() {
+        this.creationDate = date;
+    }
 
     public Long getId() {
         return id;
@@ -69,5 +77,21 @@ public class Task {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public static LocalDateTime getDate() {
+        return date;
+    }
+
+    public static void setDate(LocalDateTime date) {
+        Task.date = date;
     }
 }
