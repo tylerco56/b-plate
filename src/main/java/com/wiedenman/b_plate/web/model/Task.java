@@ -1,7 +1,6 @@
 package com.wiedenman.b_plate.web.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -27,6 +26,7 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,15 +36,13 @@ public class Task {
     private boolean complete;
 
     private LocalDateTime creationDate;
-    public static LocalDateTime date = LocalDateTime.now();
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     public Task() {
-        this.creationDate = date;
+        this.creationDate = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -85,13 +83,5 @@ public class Task {
 
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
-    }
-
-    public static LocalDateTime getDate() {
-        return date;
-    }
-
-    public static void setDate(LocalDateTime date) {
-        Task.date = date;
     }
 }
