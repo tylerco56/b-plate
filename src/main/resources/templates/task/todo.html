@@ -15,11 +15,15 @@
                     <label><input type="text" th:field="*{description}" placeholder="New task" autocomplete="off"/></label>
                 </form>
             </li>
-            <li th:each="task : ${tasks}">
+            <li th:each="i : ${#numbers.sequence(tasks.size() -1, 0, -1)}">
                 <form method="post" th:action="@{/mark}" class="inline todo-item">
-                    <input type="hidden" name="id" th:value="${task.id}"/>
-                    <input type="checkbox" th:id="|checked_${task.id}|" th:checked="${task.complete}"/>
-                    <label th:for="|checked_${task.id}|" th:text="${task.description} + ' ' + ${task.creationDate}"><span th:text="${task.creationDate}"></span></label>
+                    <input type="hidden" name="id" th:value="${tasks[i].id}"/>
+                    <input type="checkbox" th:id="|checked_${tasks[i].id}|" th:checked="${tasks[i].complete}"/>
+                    <label th:for="|checked_${tasks[i].id}|" th:text="${tasks[i].description}"></label>
+                    <span th:text="'  ' + ${tasks[i].creationDate.getMonth()}
+                                   + ' ' + ${tasks[i].creationDate.getDayOfMonth()}
+                                   + ', ' + ${tasks[i].creationDate.getYear()}"
+                                   style="font-size: 0.7em; color: lightgrey;"></span>
                 </form>
             </li>
         </ul>
