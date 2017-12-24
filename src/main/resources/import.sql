@@ -11,7 +11,7 @@ insert into user (username, enabled, password, verify_password, email, role_id) 
 
 
 -- Insert home page and contact page
-insert into page (publish, name, author_id, writer_id, body, private_user_id) values (1, 'home', 1, 1, '
+insert into page (publish, name, author_id, writer_id, body) values (1, 'home', 1, 1, '
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -272,8 +272,8 @@ insert into page (publish, name, author_id, writer_id, body, private_user_id) va
             </div>
         </div>
     </div>
-</div>', 1);
-insert into page (publish, name, author_id, writer_id, body, private_user_id) values (1, 'contact', 1, 1, '
+</div>');
+insert into page (publish, name, author_id, writer_id, body) values (1, 'contact', 1, 1, '
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -366,6 +366,6 @@ insert into page (publish, name, author_id, writer_id, body, private_user_id) va
     </div>
     <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background1.jpg" alt="Unsplashed background img 3"></div>
   </div>
-', 1);
+');
 
 -- Insert tasks

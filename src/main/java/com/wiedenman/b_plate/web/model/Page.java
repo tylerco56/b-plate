@@ -3,6 +3,7 @@ package com.wiedenman.b_plate.web.model;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *    888                      888          888
@@ -39,6 +40,9 @@ public class Page {
     @Column(name = "PUBLISH", nullable = false)
     private boolean publish;
 
+    @Column(name = "CREATION_DATE")
+    private LocalDateTime creationDate;
+
     @Column(name = "UPDATED")
     private LocalDate updated; // TODO: add NotNull and auto set
 
@@ -62,15 +66,11 @@ public class Page {
     @JoinColumn(name = "ROLE_ACCESS")
     private Role userAccess; // TODO: deal with individual page role/id access
 
-    @ManyToOne
-    @JoinColumn(name = "PRIVATE_USER_ID")
-    private User privateUser; // The id of the private user who has exclusive member access
+    public Page() {
+        this.creationDate = LocalDateTime.now();
+    }
 
-//    private Set<Category> categories;
-
-    public Page() { }
-
-    public Page(String name, boolean publish, LocalDate updated, LocalDate published, User author, User writer, String url, String body, Role userAccess, long privateUserId) {
+    public Page(String name, boolean publish, LocalDate updated, LocalDate published, User author, User writer, String url, String body, Role userAccess) {
         this.name = name;
         this.publish = publish;
         this.updated = updated;
@@ -80,7 +80,7 @@ public class Page {
         this.url = url;
         this.body = body;
         this.userAccess = userAccess;
-        this.privateUser = privateUser;
+        this.creationDate = LocalDateTime.now();
     }
 
     public long getId() {
@@ -155,20 +155,19 @@ public class Page {
         this.body = body;
     }
 
-//    public Role getUserAccess() {
-//        return userAccess;
-//    }
-//
-//    public void setUserAccess(Role userAccess) {
-//        this.userAccess = userAccess;
-//    }
-
-    public User getPrivateUser() {
-        return privateUser;
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 
-    public void setPrivateUser(long privateUserId) {
-        this.privateUser = privateUser;
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
+    public Role getUserAccess() {
+        return userAccess;
+    }
+
+    public void setUserAccess(Role userAccess) {
+        this.userAccess = userAccess;
+    }
 }
