@@ -5,10 +5,10 @@
 B-plate is full-stack Java web-application boilerplate for the most common use cases. It is meant as a starting point to allow developers to focus their time on unique functionality and speed up development.
 
 The following features are provided by b-plate "out-of-the-box" in a MVC pattern:
-- User authentication with SMS 2-factor
+- User authentication with SMS 2-factor (coming soon)
 - User roles & permissions
 - Account management (registration, password reset, etc.)
-- Private personal user data and page
+- Private personal user data, page, and class
 - Public pages for landing-pages and help content
 - Email server with SendGrid
 - Persistence with MySQL example
