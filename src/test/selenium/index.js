@@ -56,14 +56,15 @@ const testTasks = [
 loginPage.open();
 loginPage.login("user", "password");
 testTasks.forEach(task => todo.createTask(task));
+driver.navigate().refresh();
 testTasks.forEach(task => todo.checkOffTask(task));
 driver.takeScreenshot().then((image, err) => {
     fs.writeFile("images/task-layout.png", image, "base64",
         err => console.error(err));
 });
 // TODO: Refresh page and look for tasks in menu
+driver.navigate().refresh();
 // TODO: Look for absence of admin and publisher level menu items
-// TODO:
 menu.logout();
 // TODO: Look for absence of admin and publisher role level menu items
 
@@ -75,6 +76,7 @@ menu.logout();
 
 loginPage.login("user2", "password");
 testTasks.forEach(task => todo.createTask(task));
+driver.navigate().refresh();
 testTasks.forEach(task => todo.checkOffTask(task));
 menu.clickMenuItem("pages");  // TODO: check for pages menu item and click
 // TODO: Go to each page and look for images and content?
