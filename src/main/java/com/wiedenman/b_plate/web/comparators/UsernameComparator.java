@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.web.Comparators;
+package com.wiedenman.b_plate.web.comparators;
 
 import com.wiedenman.b_plate.web.model.User;
 
