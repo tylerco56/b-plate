@@ -41,7 +41,7 @@ public class PageController {
     public String index(Model model, Principal principal) {
         Iterable<Page> pages = pageService.findAll();
         model.addAttribute("pages", pages);
-        model.addAttribute("title", "pages");
+        model.addAttribute("title", "PAGES");
 
         return "page/index";
     }
