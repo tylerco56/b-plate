@@ -36,4 +36,5 @@ public interface UserDao extends CrudRepository<User, Long> {
     User findByUsername(String username);
     Optional<User> findByResetToken(String resetToken);
 //    Optional<User> save(User user);
+
 }
