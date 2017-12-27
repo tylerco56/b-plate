@@ -29,11 +29,15 @@ import java.util.Optional;
 
 public interface UserService extends UserDetailsService{
 
+    Iterable<User> findAll();
+
+    User findOne(long id);
+
     User findByUsername(String username);
 
     User findUserByEmail(String email);
 
-    Optional<User> findUserByResetToken(String resetToken);
+    Optional<User> findByResetToken(String resetToken);
 
     User registerNewUser(User user) throws EmailExistsException;
 
