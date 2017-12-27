@@ -1,11 +1,11 @@
 package com.wiedenman.b_plate.service;
 
-import com.wiedenman.b_plate.exception.EmailExistsException;
-import com.wiedenman.b_plate.web.model.User;
-import com.wiedenman.b_plate.web.model.VerificationToken;
 import com.wiedenman.b_plate.dao.RoleDao;
 import com.wiedenman.b_plate.dao.UserDao;
 import com.wiedenman.b_plate.dao.VerificationDao;
+import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.web.model.User;
+import com.wiedenman.b_plate.web.model.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -50,6 +50,15 @@ public class UserServiceImpl implements UserService {
     private VerificationDao verificationDao;
 
     @Override
+    public Iterable<User> findAll() {
+        return userDao.findAll();    }
+
+    @Override
+    public User findOne(long id) {
+        return userDao.findOne(id);
+    }
+
+    @Override
     public User findByUsername(String username) {
         return userDao.findByUsername(username);
     }
@@ -73,7 +82,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findUserByResetToken(String resetToken) {
+    public Optional<User> findByResetToken(String resetToken) {
         return userDao.findByResetToken(resetToken);
     }
 
