@@ -4,8 +4,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
+
+import com.wiedenman.b_plate.service.UserService;
 import com.wiedenman.b_plate.web.model.User;
-import com.wiedenman.b_plate.dao.UserDao;
 import com.wiedenman.b_plate.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -44,7 +45,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ForgotController {
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @Autowired
     private EmailService emailService;
@@ -63,19 +64,18 @@ public class ForgotController {
     public ModelAndView processForgotPasswordForm(ModelAndView modelAndView, @RequestParam String userEmail, HttpServletRequest request) {
 
         // Lookup user in database by e-mail
-        Optional<User> optional = userDao.findUserByEmail(userEmail);
+        User user = userService.findUserByEmail(userEmail);
 
-        if (!optional.isPresent()) {
+        if (user == null) {
             // TODO: pass this error to the view
             modelAndView.addObject("errorMessage", "We didn't find an account for that e-mail address.");
         } else {
 
             // Generate random token to reset password
-            User user = optional.get();
             user.setResetToken(UUID.randomUUID().toString());
 
             // Save token to database
-            userDao.save(user);
+            userService.save(user);
 
             String appUrl = request.getScheme() + "://" + request.getServerName();
 
@@ -102,7 +102,7 @@ public class ForgotController {
     @RequestMapping(value = "/reset", method = RequestMethod.GET)
     public ModelAndView displayResetPasswordPage(ModelAndView modelAndView, @RequestParam("token") String token) {
 
-        Optional<User> user = userDao.findByResetToken(token);
+        Optional<User> user = userService.findByResetToken(token);
 
         if (user.isPresent()) { // Token found in DB
             modelAndView.addObject("resetToken", token);
@@ -119,7 +119,7 @@ public class ForgotController {
     public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, @RequestParam String token, RedirectAttributes redir) {
 
         // Find the user associated with the reset token
-        Optional<User> user = userDao.findByResetToken(token);
+        Optional<User> user = userService.findByResetToken(token);
 
         // This should always be non-null but we check just in case
         if (user.isPresent()) {
@@ -133,7 +133,7 @@ public class ForgotController {
             resetUser.setResetToken(null);
 
             // Save user
-            userDao.save(resetUser);
+            userService.save(resetUser);
 
             // TODO: make redirect attribute show up on flash in loginPage.html
             redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");
