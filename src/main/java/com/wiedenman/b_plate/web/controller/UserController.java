@@ -1,8 +1,8 @@
 package com.wiedenman.b_plate.web.controller;
 
+import com.wiedenman.b_plate.service.UserService;
 import com.wiedenman.b_plate.web.comparator.UsernameComparator;
 import com.wiedenman.b_plate.web.model.*;
-import com.wiedenman.b_plate.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,12 +36,12 @@ import java.util.*;
 public class UserController {
 
     @Autowired
-    UserDao userDao;
+    private UserService userService;
 
     @RequestMapping(value = "users")
     public String index(Model model) {
 
-        List<User> users = (List<User>) userDao.findAll();
+        List<User> users = (List<User>) userService.findAll();
         Collections.sort(users, new UsernameComparator());
 
         model.addAttribute("users", users);
@@ -53,7 +53,7 @@ public class UserController {
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     public String singleUser(Model model, @PathVariable long id) {
 
-        User user = userDao.findOne(id);
+        User user = userService.findOne(id);
         String formattedDate = user.getCreationDate().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));
         model.addAttribute("user", user);
         model.addAttribute("formattedDate", formattedDate);
