@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.web.model.User;
 import org.springframework.stereotype.Controller;

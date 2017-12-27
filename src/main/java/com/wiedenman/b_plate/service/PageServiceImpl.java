@@ -1,7 +1,7 @@
 package com.wiedenman.b_plate.service;
 
 import com.wiedenman.b_plate.web.model.Page;
-import com.wiedenman.b_plate.web.model.data.PageDao;
+import com.wiedenman.b_plate.dao.PageDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

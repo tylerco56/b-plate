@@ -1,7 +1,10 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.dao;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.wiedenman.b_plate.web.model.Page;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  *    888                      888          888
@@ -24,11 +27,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Copyright (c) 2017 Landon Wiedenman
  */
 
-@Controller
-public class PathController {
+@Repository
+@Transactional
+public interface PageDao extends CrudRepository<Page, Long> {
 
-    @RequestMapping(value = "/")
-    public String home() {
-        return "redirect:/todo";
-    }
+// TODO: create finders for PageDao
+
+//    @Query("select p from Page p where p.page.id=:#{principal.id}")
+    List<Page> findAll();
 }
+

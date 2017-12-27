@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.service.PageService;

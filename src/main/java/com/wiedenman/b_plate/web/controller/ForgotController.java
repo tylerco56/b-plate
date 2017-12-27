@@ -1,11 +1,11 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.web.controller;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import com.wiedenman.b_plate.web.model.User;
-import com.wiedenman.b_plate.web.model.data.UserDao;
+import com.wiedenman.b_plate.dao.UserDao;
 import com.wiedenman.b_plate.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

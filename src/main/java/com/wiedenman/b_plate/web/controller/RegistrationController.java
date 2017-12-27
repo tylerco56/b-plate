@@ -1,12 +1,12 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
 import com.wiedenman.b_plate.service.EmailService;
 import com.wiedenman.b_plate.service.UserService;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
-import com.wiedenman.b_plate.web.model.data.UserDao;
-import com.wiedenman.b_plate.web.model.data.VerificationDao;
+import com.wiedenman.b_plate.dao.UserDao;
+import com.wiedenman.b_plate.dao.VerificationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;

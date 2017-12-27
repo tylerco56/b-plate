@@ -1,11 +1,7 @@
-package com.wiedenman.b_plate.web.model.data;
+package com.wiedenman.b_plate.web.controller;
 
-import com.wiedenman.b_plate.web.model.Role;
-import com.wiedenman.b_plate.web.model.User;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-import javax.transaction.Transactional;
-import java.util.Optional;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *    888                      888          888
@@ -28,10 +24,11 @@ import java.util.Optional;
  * Copyright (c) 2017 Landon Wiedenman
  */
 
-@Repository
-@Transactional
-public interface RoleDao extends CrudRepository<Role, Long> {
-    Role findById(Long id);
-    Role findByName(String name);
-}
+@Controller
+public class PathController {
 
+    @RequestMapping(value = "/")
+    public String home() {
+        return "redirect:/todo";
+    }
+}

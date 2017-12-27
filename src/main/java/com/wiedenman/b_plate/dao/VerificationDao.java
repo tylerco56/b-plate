@@ -1,4 +1,4 @@
-package com.wiedenman.b_plate.web.model.data;
+package com.wiedenman.b_plate.dao;
 
 import com.wiedenman.b_plate.web.model.VerificationToken;
 import org.springframework.data.repository.CrudRepository;

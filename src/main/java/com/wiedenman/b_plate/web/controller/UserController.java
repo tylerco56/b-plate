@@ -1,8 +1,8 @@
-package com.wiedenman.b_plate.web.controllers;
+package com.wiedenman.b_plate.web.controller;
 
-import com.wiedenman.b_plate.web.comparators.UsernameComparator;
+import com.wiedenman.b_plate.web.comparator.UsernameComparator;
 import com.wiedenman.b_plate.web.model.*;
-import com.wiedenman.b_plate.web.model.data.UserDao;
+import com.wiedenman.b_plate.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
