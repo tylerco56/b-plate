@@ -38,7 +38,7 @@ public class PageController {
     private PageService pageService;
 
     @RequestMapping(value = "pages")
-    public String index(Model model, Principal principal) {
+    public String index(Model model) {
         Iterable<Page> pages = pageService.findAll();
         model.addAttribute("pages", pages);
         model.addAttribute("title", "PAGES");
@@ -47,7 +47,7 @@ public class PageController {
     }
 
     @RequestMapping(value = "page-{id}", method = RequestMethod.GET)
-    public String singlePage(Model model, @PathVariable long id, Principal principal) {
+    public String singlePage(Model model, @PathVariable long id) {
 
         Page page = pageService.findOne(id);
         model.addAttribute("page", page);
