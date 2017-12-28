@@ -21,9 +21,9 @@
                     <input type="checkbox" th:id="|checked_${tasks[i].id}|" th:checked="${tasks[i].complete}"/>
                     <label th:for="|checked_${tasks[i].id}|" th:text="${tasks[i].description}"></label>
                     <span th:text="'  ' + ${tasks[i].creationDate.getMonth()}
-                                   + ' ' + ${tasks[i].creationDate.getDayOfMonth()}
-                                   + ', ' + ${tasks[i].creationDate.getYear()}"
-                                   style="font-size: 0.7em; color: lightgrey;"></span>
+                                       + ' ' + ${tasks[i].creationDate.getDayOfMonth()}
+                                       + ', ' + ${tasks[i].creationDate.getYear()}"
+                                       style="font-size: 0.7em; color: lightgrey;"></span>
                 </form>
             </li>
         </ul>
