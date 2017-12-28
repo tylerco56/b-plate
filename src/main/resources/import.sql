@@ -367,7 +367,6 @@ insert into page (name, publish, author_id, writer_id, url, body, role_access) v
     </div>
     <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
-
 ', 1);
 
 -- Insert tasks
