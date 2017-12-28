@@ -98,3 +98,12 @@ menu.logout();
 // TODO: Open loginPage
 // TODO: Click register link
 // TODO: Register user function
+
+
+
+///////
+/////// Static Pages Test
+///////
+
+// TODO: test /
+// TODO: test /p-contact
