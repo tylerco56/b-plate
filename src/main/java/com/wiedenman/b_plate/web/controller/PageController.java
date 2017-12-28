@@ -2,12 +2,18 @@ package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.service.PageService;
+import com.wiedenman.b_plate.web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 import java.security.Principal;
 
 /**
@@ -54,5 +60,63 @@ public class PageController {
         model.addAttribute("title", page.getName());
 
         return "page/single";
+    }
+
+    @RequestMapping(value = "page-new")
+    public String newPage(Model model) {
+
+        Page page = new Page();
+        model.addAttribute("title", "NEW PAGE");
+        model.addAttribute("page", page);
+
+        return "page/edit";
+    }
+
+    @RequestMapping(path = "/save-new-page", method = RequestMethod.POST)
+    public String saveNewPage(@ModelAttribute @Valid Page newPage,
+                              Errors errors,
+                              Model model,
+                              Principal principal) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "NEW PAGE");
+
+            return "page/edit";
+        }
+        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
+        newPage.setAuthor(user);
+        newPage.setUpdated();
+        pageService.save(newPage);
+
+        return "page/edit";
+    }
+
+    @RequestMapping(value = "page-edit-{id}")
+    public String editPage(Model model, @PathVariable long id) {
+
+        Page page = pageService.findOne(id);
+        model.addAttribute("title", "EDIT PAGE");
+        model.addAttribute("page", page);
+
+        return "page/edit";
+    }
+
+    @RequestMapping(path = "/save-page-{id}", method = RequestMethod.POST)
+    public String savePage(@ModelAttribute @Valid Page page,
+                           Errors errors,
+                           Model model,
+                           Principal principal) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "EDIT PAGE");
+            model.addAttribute("page", page);
+            return "page/edit";
+        }
+        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
+        page.setAuthor(user);
+        page.setUpdated();
+        pageService.save(page);
+
+        return "page/edit";
     }
 }
