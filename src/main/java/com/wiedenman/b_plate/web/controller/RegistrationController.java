@@ -2,13 +2,16 @@ package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
 import com.wiedenman.b_plate.service.EmailService;
+import com.wiedenman.b_plate.service.TaskService;
 import com.wiedenman.b_plate.service.UserService;
+import com.wiedenman.b_plate.web.model.Task;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
 import com.wiedenman.b_plate.dao.UserDao;
 import com.wiedenman.b_plate.dao.VerificationDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -60,6 +63,9 @@ public class RegistrationController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    TaskService taskService;
 
     @RequestMapping(value = "register", method = RequestMethod.GET)  // Displays form
     public String registrationForm(Model model) {
@@ -125,6 +131,11 @@ public class RegistrationController {
         user.setEnabled(true);
         userService.saveRegisteredUser(user);
         redirectAttributes.addFlashAttribute("message", "Your account has been verified! Sick! You can login now.");
+        Task task = new Task();
+        task.setDescription("Create your first task");
+        task.setUser(user);
+        taskService.save(task);
+
         return new ModelAndView("redirect:/login");
     }
 }
