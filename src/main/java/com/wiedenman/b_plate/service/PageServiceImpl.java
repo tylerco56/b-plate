@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PageServiceImpl implements PageService {
+
     @Autowired
     private PageDao pageDao;
 
@@ -43,6 +44,11 @@ public class PageServiceImpl implements PageService {
 
     @Override
     public void save(Page page) {
+        pageDao.save(page);
+    }
 
+    @Override
+    public Page findByUrl(String url) {
+        return pageDao.findByUrl(url);
     }
 }

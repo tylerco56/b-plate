@@ -2,7 +2,6 @@ package com.wiedenman.b_plate.web.model;
 
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -44,10 +43,10 @@ public class Page {
     private LocalDateTime creationDate;
 
     @Column(name = "UPDATED")
-    private LocalDate updated; // TODO: add NotNull and auto set
+    private LocalDateTime updated; // TODO: add NotNull and auto set
 
     @Column(name = "PUBLISHED")
-    private LocalDate published;
+    private LocalDateTime published;
 
     @ManyToOne
     @JoinColumn(name = "AUTHOR_ID")
@@ -57,20 +56,22 @@ public class Page {
     @JoinColumn(name = "WRITER_ID")
     private User writer; // TODO: auto set writer id
 
+    @Column(name = "URL")
     private String url;
 
     @Lob
+    @Column(name = "BODY")
     private String body; // TODO: pick appropriate type for html body
 
     @ManyToOne
     @JoinColumn(name = "ROLE_ACCESS")
-    private Role userAccess; // TODO: deal with individual page role/id access
+    private Role roleAccess; // TODO: deal with individual page role/id access
 
     public Page() {
         this.creationDate = LocalDateTime.now();
     }
 
-    public Page(String name, boolean publish, LocalDate updated, LocalDate published, User author, User writer, String url, String body, Role userAccess) {
+    public Page(String name, boolean publish, LocalDateTime updated, LocalDateTime published, User author, User writer, String url, String body, Role roleAccess) {
         this.name = name;
         this.publish = publish;
         this.updated = updated;
@@ -79,7 +80,7 @@ public class Page {
         this.writer = writer;
         this.url = url;
         this.body = body;
-        this.userAccess = userAccess;
+        this.roleAccess = roleAccess;
         this.creationDate = LocalDateTime.now();
     }
 
@@ -107,20 +108,20 @@ public class Page {
         this.publish = publish;
     }
 
-    public LocalDate getUpdated() {
+    public LocalDateTime getUpdated() {
         return updated;
     }
 
-    public void setUpdated(LocalDate updated) {
-        this.updated = updated;
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = LocalDateTime.now();
     }
 
-    public LocalDate getPublished() {
+    public LocalDateTime getPublished() {
         return published;
     }
 
-    public void setPublished(LocalDate published) {
-        this.published = published;
+    public void setPublished(LocalDateTime published) {
+        this.published = LocalDateTime.now();
     }
 
     public User getAuthor() {
@@ -163,11 +164,11 @@ public class Page {
         this.creationDate = creationDate;
     }
 
-    public Role getUserAccess() {
-        return userAccess;
+    public Role getRoleAccess() {
+        return roleAccess;
     }
 
-    public void setUserAccess(Role userAccess) {
-        this.userAccess = userAccess;
+    public void setRoleAccess(Role roleAccess) {
+        this.roleAccess = roleAccess;
     }
 }

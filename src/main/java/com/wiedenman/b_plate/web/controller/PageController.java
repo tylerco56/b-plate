@@ -46,10 +46,10 @@ public class PageController {
         return "page/index";
     }
 
-    @RequestMapping(value = "page-{id}", method = RequestMethod.GET)
-    public String singlePage(Model model, @PathVariable long id) {
+    @RequestMapping(value = "p-{url}", method = RequestMethod.GET)
+    public String singlePage(Model model, @PathVariable String url) {
 
-        Page page = pageService.findOne(id);
+        Page page = pageService.findByUrl(url);
         model.addAttribute("page", page);
         model.addAttribute("title", page.getName());
 

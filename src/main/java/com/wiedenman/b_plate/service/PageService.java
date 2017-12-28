@@ -29,6 +29,8 @@ public interface PageService {
 
     Page findOne(long id);
 
+    Page findByUrl(String url);
+
     void save(Page page);
 
 }

@@ -35,5 +35,7 @@ public interface PageDao extends CrudRepository<Page, Long> {
 
 //    @Query("select p from Page p where p.page.id=:#{principal.id}")
     List<Page> findAll();
+
+    Page findByUrl(String url);
 }
 
