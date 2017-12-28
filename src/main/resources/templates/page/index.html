@@ -7,22 +7,9 @@
         <div class="small-gap"></div>
         <div class="container row">
                 <h3 th:text="${title}">Default Title</h3>
-                <a href="#" class="btn waves-effect waves-light">ADD NEW</a>
+                <a href="/page-new" class="btn waves-effect waves-light">ADD NEW</a>
                 <div class="large-gap"></div>
-            <div class="col s12 m4"><strong>CATEGORIES</strong>
-                <form>
-                    <input type="text" placeholder="create a new category"/>
-                    <!-- TODO: finish category form-[-->
-                </form>
-                <ul>
-                    <!--TODO: finish adding categories with th-->
-                    <li><a href="#">category one</a></li>
-                    <li><a href="#">category two</a></li>
-                    <li><a href="#">category three</a></li>
-                </ul>
-            </div>
-
-            <div class="col s12 m8"><strong>PUBLISHED</strong>
+            <div><strong>PUBLISHED</strong>
                 <p th:unless="${pages} and ${pages.size()}">
                     No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Add a page now.</a>
                 </p>
@@ -30,48 +17,21 @@
                     <thead>
                         <th>name</th>
                         <th>url</th>
-                        <th>created</th>
-                        <th>published</th>
+                        <th>updated</th>
                         <th>author</th>
-                        <th>category</th>
                     </thead>
                     <tbody>
                     <tr th:each="page : ${pages}">
-                        <td><a th:href="'/page-' + ${page.id}" class="waves-effect waves-light explode" ><span th:text="${page.name}"></span></a></td>
-                        <td th:text="${page.url}"></td>
-                        <td th:text="${page.creationDate}"></td>
-                        <td th:text="${page.published}"></td>
+                        <td><strong><span th:text="${page.name}"></span></strong></td>
+                        <td><a th:href="'/p-' + ${page.url}" class="waves-effect waves-light explode" ><span th:text="'/p-' + ${page.url}"></span></a></td>
+                        <td th:text="${page.updated}"></td>
                         <td th:text="${page.author.getUsername()}"></td>
-                        <!-- TODO: add category -->
                         <td></td>
-                        <td style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></td>
+                        <td style="text-align: right;"><a class="btn waves-effect waves-light" th:href="'page-edit-' + ${page.id}">edit</a>&nbsp;&nbsp;<a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="large-gap"></div>
-                <strong>DRAFTS</strong>
-                <table class="striped responsive-table">
-                    <thead>
-                        <th>name</th>
-                        <th>url</th>
-                        <th>created</th>
-                        <th>published</th>
-                        <th>author</th>
-                        <th>category</th>
-                    </thead>
-                    <tbody>
-                    <tr th:each="page : ${drafts}">
-                        <td><a th:href="'/page-' + ${page.id}" class="waves-effect waves-light explode" ><span th:text="${page.name}"></span></a></td>
-                        <td th:text="${page.url}"></td>
-                        <td th:text="${page.creationDate}"></td>
-                        <td th:text="${page.published}"></td>
-                        <td th:text="${page.author.getUsername()}"></td>
-                        <!-- TODO: add category -->
-                        <td></td>
-                        <td style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
         <div class="large-gap"></div>
