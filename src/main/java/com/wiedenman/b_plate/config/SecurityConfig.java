@@ -73,12 +73,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/verify*").permitAll()
-                .antMatchers("/p-*").permitAll()
-                .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/register").permitAll()
+                .antMatchers("/verify*").permitAll()
                 .antMatchers("/forgot*").permitAll()
                 .antMatchers("/reset*").permitAll()
+                .antMatchers("/p-*").permitAll()
+                .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
+                .antMatchers("/page-edit*").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/users").hasRole("ADMIN")
             .and()
             .authorizeRequests()
@@ -95,12 +96,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf();
     }
 
-    public AuthenticationSuccessHandler loginSuccessHandler() {
+    private AuthenticationSuccessHandler loginSuccessHandler() {
 
         return (request, response, authentication) -> response.sendRedirect("/todo");
     }
 
-    public AuthenticationFailureHandler loginFailureHandler() {
+    private AuthenticationFailureHandler loginFailureHandler() {
         return (request, response, exception) -> {
             request.getSession().setAttribute("flash", new FlashMessage("Incorrect username or password.", FlashMessage.Status.FAILURE));
             response.sendRedirect("/login");
