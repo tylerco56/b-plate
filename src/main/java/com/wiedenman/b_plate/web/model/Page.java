@@ -39,49 +39,29 @@ public class Page {
     @Column(name = "PUBLISH", nullable = false)
     private boolean publish;
 
-    @Column(name = "CREATION_DATE")
-    private LocalDateTime creationDate;
-
     @Column(name = "UPDATED")
-    private LocalDateTime updated; // TODO: add NotNull and auto set
-
-    @Column(name = "PUBLISHED")
-    private LocalDateTime published;
+    private LocalDateTime updated;
 
     @ManyToOne
     @JoinColumn(name = "AUTHOR_ID")
-    private User author; // TODO: maybe get rid of writer id and replace with this - auto set
+    private User author;
 
-    @ManyToOne
-    @JoinColumn(name = "WRITER_ID")
-    private User writer; // TODO: auto set writer id
-
-    @Column(name = "URL")
+    @Column(name = "URL", unique = true) // TODO: make a unique validation
     private String url;
 
     @Lob
     @Column(name = "BODY")
-    private String body; // TODO: pick appropriate type for html body
+    private String body;
 
-    @ManyToOne
-    @JoinColumn(name = "ROLE_ACCESS")
-    private Role roleAccess; // TODO: deal with individual page role/id access
+    public Page() { }
 
-    public Page() {
-        this.creationDate = LocalDateTime.now();
-    }
-
-    public Page(String name, boolean publish, LocalDateTime updated, LocalDateTime published, User author, User writer, String url, String body, Role roleAccess) {
+    public Page(String name, boolean publish, User author, String url, String body) {
         this.name = name;
         this.publish = publish;
-        this.updated = updated;
-        this.published = published;
+        this.updated = LocalDateTime.now();
         this.author = author;
-        this.writer = writer;
         this.url = url;
         this.body = body;
-        this.roleAccess = roleAccess;
-        this.creationDate = LocalDateTime.now();
     }
 
     public long getId() {
@@ -112,16 +92,8 @@ public class Page {
         return updated;
     }
 
-    public void setUpdated(LocalDateTime updated) {
+    public void setUpdated() {
         this.updated = LocalDateTime.now();
-    }
-
-    public LocalDateTime getPublished() {
-        return published;
-    }
-
-    public void setPublished(LocalDateTime published) {
-        this.published = LocalDateTime.now();
     }
 
     public User getAuthor() {
@@ -130,14 +102,6 @@ public class Page {
 
     public void setAuthor(User author) {
         this.author = author;
-    }
-
-    public User getWriter() {
-        return writer;
-    }
-
-    public void setWriter(User writer) {
-        this.writer = writer;
     }
 
     public String getUrl() {
@@ -156,19 +120,4 @@ public class Page {
         this.body = body;
     }
 
-    public LocalDateTime getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Role getRoleAccess() {
-        return roleAccess;
-    }
-
-    public void setRoleAccess(Role roleAccess) {
-        this.roleAccess = roleAccess;
-    }
 }
