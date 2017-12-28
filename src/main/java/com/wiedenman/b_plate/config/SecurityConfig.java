@@ -68,12 +68,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception { // TODO: expose user registration and pages
+    protected void configure(HttpSecurity http) throws Exception {
 
         http
             .authorizeRequests()
+                .antMatchers("/").permitAll()
                 .antMatchers("/verify*").permitAll()
-                .antMatchers("/page-*").permitAll()
+                .antMatchers("/p-*").permitAll()
                 .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/register").permitAll()
                 .antMatchers("/forgot*").permitAll()
@@ -96,7 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public AuthenticationSuccessHandler loginSuccessHandler() {
 
-        return (request, response, authentication) -> response.sendRedirect("/");
+        return (request, response, authentication) -> response.sendRedirect("/todo");
     }
 
     public AuthenticationFailureHandler loginFailureHandler() {
