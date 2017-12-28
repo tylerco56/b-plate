@@ -51,7 +51,7 @@ public class TaskController {
 
     @RequestMapping(path = "/mark", method = RequestMethod.POST)
     public String toggleComplete(@RequestParam Long id) {
-        Task task = taskService.findOne(id);
+//        Task task = taskService.findOne(id);
         taskService.toggleComplete(id);
         return "redirect:/todo";
     }
