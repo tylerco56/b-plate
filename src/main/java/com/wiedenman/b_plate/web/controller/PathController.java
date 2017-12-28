@@ -29,6 +29,6 @@ public class PathController {
 
     @RequestMapping(value = "/")
     public String home() {
-        return "redirect:/todo";
+        return "redirect:p-index";
     }
 }
