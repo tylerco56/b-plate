@@ -7,11 +7,11 @@ insert into role (name) values ('ROLE_ADMIN');
 
 -- Insert two users (passwords are both 'password')
 insert into user (username, enabled, password, verify_password, email, role_id) values ('user', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'landonwiedenman@gmail.com', 1);
-insert into user (username, enabled, password, verify_password, email, role_id) values ('user2', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'someemail@what.com', 3);
+insert into user (username, enabled, password, verify_password, email, role_id) values ('user2', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'landon@wiedenman.com', 3);
 
 
 -- Insert home page and contact page
-insert into page (publish, name, author_id, writer_id, body) values (1, 'home', 1, 1, '
+insert into page (name, publish, author_id, writer_id, url, body, role_access) values ('home', true, 2, 2, 'index','
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -272,8 +272,9 @@ insert into page (publish, name, author_id, writer_id, body) values (1, 'home', 
             </div>
         </div>
     </div>
-</div>');
-insert into page (publish, name, author_id, writer_id, body) values (1, 'contact', 1, 1, '
+</div>', 1);
+insert into page (name, publish, author_id, writer_id, url, body, role_access) values ('contact', true, 1, 1, 'contact', '
+
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -289,7 +290,7 @@ insert into page (publish, name, author_id, writer_id, body) values (1, 'contact
 
       </div>
     </div>
-    <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="/assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -338,7 +339,7 @@ insert into page (publish, name, author_id, writer_id, body) values (1, 'contact
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background1.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="/assets/images/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -364,8 +365,11 @@ insert into page (publish, name, author_id, writer_id, body) values (1, 'contact
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background1.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
-');
+
+', 1);
 
 -- Insert tasks
+insert into task (id, complete, creation_date, description, user_id) values (1, 0, 0xaced00057372000d6a6176612e74696d652e536572955d84ba1b2248b20c00007870770e05000007e10c1b121c1f01406f4078, 'Create your first task', 1);
+insert into task (id, complete, creation_date, description, user_id) values (2, 0, 0xaced00057372000d6a6176612e74696d652e536572955d84ba1b2248b20c00007870770e05000007e10c1b121c1f01406f4078, 'Create your first task', 2);
