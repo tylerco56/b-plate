@@ -11,9 +11,9 @@
 
 <nav th:fragment="navigation" class="dark-grey" role="navigation">
     <div class="nav-wrapper container">
-        <div style="display: inline">
-            <a id="logo-container" href="/" class="brand-logo">b-plate</a>
-        </div>
+        <a id="logo-container" href="/p-index" class="brand-logo">
+            <div style="display: inline; margin: 10px 0;">b-plate</div>
+        </a>
 
         <!-- DESKTOP NAV -->
         <div class="right hide-on-med-and-down" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
