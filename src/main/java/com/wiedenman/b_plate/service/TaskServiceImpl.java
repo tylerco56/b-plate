@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TaskServiceImpl implements TaskService {
+
     @Autowired
     private TaskDao taskDao;
 
@@ -52,4 +53,5 @@ public class TaskServiceImpl implements TaskService {
     public void save(Task task) {
         taskDao.save(task);
     }
+
 }

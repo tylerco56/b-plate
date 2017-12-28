@@ -53,14 +53,14 @@ public class TaskController {
     public String toggleComplete(@RequestParam Long id) {
         Task task = taskService.findOne(id);
         taskService.toggleComplete(id);
-        return "redirect:/";
+        return "redirect:/todo";
     }
 
     @RequestMapping(path = "/tasks", method = RequestMethod.POST)
     public String addTask(@ModelAttribute Task task, Principal principal) {
-        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();  // TODO: move to Dao?
+        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
         task.setUser(user);
         taskService.save(task);
-        return "redirect:/";
+        return "redirect:/todo";
     }
 }
