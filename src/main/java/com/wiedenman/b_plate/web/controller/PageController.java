@@ -69,10 +69,10 @@ public class PageController {
         model.addAttribute("title", "NEW PAGE");
         model.addAttribute("page", page);
 
-        return "page/edit";
+        return "page/new";
     }
 
-    @RequestMapping(path = "/save-new-page", method = RequestMethod.POST)
+    @RequestMapping(value = "page-new", method = RequestMethod.POST)
     public String saveNewPage(@ModelAttribute @Valid Page newPage,
                               Errors errors,
                               Model model,
@@ -81,14 +81,15 @@ public class PageController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "NEW PAGE");
 
-            return "page/edit";
+            return "page/new";
         }
         User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
         newPage.setAuthor(user);
         newPage.setUpdated();
         pageService.save(newPage);
+        long id = newPage.getId();
 
-        return "page/edit";
+        return "redirect:page-edit-" + id;
     }
 
     @RequestMapping(value = "page-edit-{id}")
@@ -101,14 +102,16 @@ public class PageController {
         return "page/edit";
     }
 
-    @RequestMapping(path = "/save-page-{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "page-edit-{id}", method = RequestMethod.POST)
     public String savePage(@ModelAttribute @Valid Page page,
+                           @PathVariable long id,
                            Errors errors,
                            Model model,
                            Principal principal) {
 
+        model.addAttribute("title", "EDIT PAGE");
+
         if (errors.hasErrors()) {
-            model.addAttribute("title", "EDIT PAGE");
             model.addAttribute("page", page);
             return "page/edit";
         }
