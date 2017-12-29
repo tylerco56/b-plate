@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<!--<head th:replace="fragments :: head"></head>-->
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <title>b-plate</title>
+</head>
 <body>
-<main>
-    <nav th:replace="fragments :: navigation"></nav>
-    <div class="small-gap"></div>
-    <div class="container">
-        <h3 th:text="${title}">Default Title</h3>
-        <div style="text-align: right;">
-            <a th:href="'p-' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
-        </div>
+    <main>
+        <nav th:replace="fragments :: navigation"></nav>
         <div class="small-gap"></div>
-        <form method="post" th:action="@{/save-new-page}" th:object="${page}">
-            <div class="input-field">
-                <input type="hidden" name="id" th:value="*{id}"/>
-                <label th:for="name" th:text="'page title'" ></label>
-                <input type="text" th:field="*{name}"/>
+        <div class="container">
+            <h3 th:text="${title}">Default Title</h3>
+            <div style="text-align: right;">
+                <a th:href="'p-' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
             </div>
-            <div class="input-field">
-                <label th:for="url" th:text="'custom url'" ></label>
-                <input type="text" th:field="*{url}"/>
-            </div>
-            <div class="input-field">
-                <label th:for="body" th:text="'body'"></label>
-                <textarea th:field="*{body}" class="materialize-textarea"></textarea>
-            </div>
-            <div class="large-gap"></div>
-            <button type="submit" value="Save Page" class="btn waves-effect">SAVE PAGE</button>
-        </form>
-        <div style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></div>
-    </div>
-    <div class="large-gap"></div>
-</main>
+            <div class="small-gap"></div>
+            <form method="post" th:action="@{/page-edit} + '-' + ${page.id}" th:object="${page}">
+                <div class="input-field">
+                    <input type="hidden" name="id" th:value="*{id}"/>
+                    <label th:for="name" th:text="'page title'" ></label>
+                    <input type="text" th:field="*{name}"/>
+                </div>
+                <div class="input-field">
+                    <label th:for="url" th:text="'custom url'" ></label>
+                    <input type="text" th:field="*{url}"/>
+                </div>
+                <div class="input-field">
+                    <label th:for="editor" th:text="'body'"></label>
+                    <textarea th:field="*{body}" name="editor" id="editor" ></textarea>
+                    <script>
+                        CKEDITOR.replace( 'editor' );
+                    </script>
+                </div>
+                <div class="large-gap"></div>
+                <button type="submit" value="Save Page" class="btn waves-effect">SAVE PAGE</button>
+            </form>
+            <div style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></div>
+        </div>
+        <div class="large-gap"></div>
+    </main>
 <footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>
 </body>
