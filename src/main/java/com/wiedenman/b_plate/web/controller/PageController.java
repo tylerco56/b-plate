@@ -122,4 +122,12 @@ public class PageController {
 
         return "page/edit";
     }
+
+    @RequestMapping(value = "page-delete-{id}")
+    public String deletePage(Model model, @PathVariable long id) {
+
+        Page page = pageService.findOne(id);
+        pageService.delete(page);
+        return "redirect:pages";
+    }
 }
