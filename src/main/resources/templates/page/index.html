@@ -9,10 +9,7 @@
                 <h3 th:text="${title}">Default Title</h3>
                 <a href="/page-new" class="btn waves-effect waves-light">ADD NEW</a>
                 <div class="large-gap"></div>
-            <div><strong>PUBLISHED</strong>
-                <p th:unless="${pages} and ${pages.size()}">
-                    No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Add a page now.</a>
-                </p>
+            <div>
                 <table class="striped responsive-table">
                     <thead>
                         <th>name</th>
@@ -25,12 +22,42 @@
                         <td><strong><span th:text="${page.name}"></span></strong></td>
                         <td><a th:href="'/p-' + ${page.url}" class="waves-effect waves-light explode" ><span th:text="'/p-' + ${page.url}"></span></a></td>
                         <td th:text="${page.updated}"></td>
-                        <td th:text="${page.author.getUsername()}"></td>
-                        <td></td>
-                        <td style="text-align: right;"><a class="btn waves-effect waves-light" th:href="'page-edit-' + ${page.id}">edit</a>&nbsp;&nbsp;<a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></td>
+                        <td th:text="${page.author.username}"></td>
+                        <td style="text-align: right;">
+                            <a class="btn waves-effect waves-light" th:href="'page-edit-' + ${page.id}">edit</a>&nbsp;&nbsp;
+
+                            <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#' + ${page.id} + '\').modal(\'open\');'">delete</a>
+                            <!-- Modal Structure -->
+                            <div th:id="${page.id}" class="modal">
+                                <div class="modal-content center">
+                                    <h4 style="color: darkred">Are you sure?</h4>
+                                    <p th:text="'Confirm that you want to delete this page: ' + ${page.name}" style="color: darkred"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                                    <a th:href="'/page-delete-' + ${page.id}" class=" modal-action modal-close waves-effect waves-red btn-flat">DELETE</a>
+                                </div>
+                            </div>
+
+                            <!-- Modal Trigger -->
+
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+
+                                $(document).ready(function() {
+                                    $(/*[['#' + ${page.id}]]*/).modal();
+                                });
+
+                                /*]]>*/
+                            </script>
+
+                        </td>
                     </tr>
                     </tbody>
                 </table>
+                <p th:unless="${pages} and ${pages.size()}">
+                    No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="page-new">Add a page now.</a>
+                </p>
                 <div class="large-gap"></div>
             </div>
         </div>
