@@ -41,7 +41,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "USERNAME")
+    @Column(name = "USERNAME", unique = true)
     @NotBlank(message= "Username may not be blank ")
     private String username;
 
