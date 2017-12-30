@@ -5,6 +5,8 @@
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
     <title>b-plate</title>
 </head>
 <body>
@@ -21,7 +23,7 @@
                 <!--<li><a href="#" class="thin">link</a></li>-->
                 <li>
                     <form class="logout inline" th:action="@{/logout}" method="post">
-                        <button type="submit" style="background: none; border: none;">
+                        <button type="submit" style="background: none; border: none; position: relative; top: 4px;">
                             <i class="material-icons">power_settings_new</i>
                         </button>
                     </form>
@@ -39,7 +41,7 @@
                 </li>
                 <li>
                     <form class="logout inline" th:action="@{/logout}" method="post">
-                        <button type="submit" style="background: none; border: none;">
+                        <button type="submit" style="background: none; border: none; position: relative; top: 4px;">
                             <i class="material-icons">power_settings_new</i>
                         </button>
                     </form>
@@ -120,7 +122,8 @@
 </div>
 
 <div th:fragment="scripts">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
     <script type="text/javascript" th:src="@{/assets/js/init.js}"></script>
     <script type="text/javascript" th:src="@{assets/js/materialize.js}"></script>
