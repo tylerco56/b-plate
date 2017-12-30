@@ -52,4 +52,8 @@ public class PageServiceImpl implements PageService {
         return pageDao.findByUrl(url);
     }
 
+    @Override
+    public void delete(Page page) {
+        pageDao.delete(page);
+    }
 }

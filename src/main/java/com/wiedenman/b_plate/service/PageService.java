@@ -33,4 +33,6 @@ public interface PageService {
 
     void save(Page page);
 
+    void delete(Page page);
+
 }
