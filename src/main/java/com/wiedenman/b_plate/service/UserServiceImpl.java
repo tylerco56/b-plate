@@ -4,6 +4,7 @@ import com.wiedenman.b_plate.dao.RoleDao;
 import com.wiedenman.b_plate.dao.UserDao;
 import com.wiedenman.b_plate.dao.VerificationDao;
 import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.exception.UsernameExistsException;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.web.model.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,9 +88,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User registerNewUser(final User newUser) throws EmailExistsException {
+    public User registerNewUser(final User newUser) throws EmailExistsException, UsernameExistsException {
         if (emailExists(newUser.getEmail())) {
             throw new EmailExistsException("There is an account with that email address: " + newUser.getEmail());
+        } if(usernameExists(newUser.getUsername())) {
+            throw new UsernameExistsException("An account with that username already exists: " + newUser.getUsername());
         } else {
             newUser.setRole(roleDao.findById((long) 1));
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
@@ -116,6 +119,11 @@ public class UserServiceImpl implements UserService {
 
     private boolean emailExists(String email) {
         final User user = userDao.findByEmail(email);
+        return user != null;
+    }
+
+    private boolean usernameExists(String username) {
+        final User user = userDao.findByUsername(username);
         return user != null;
     }
 
