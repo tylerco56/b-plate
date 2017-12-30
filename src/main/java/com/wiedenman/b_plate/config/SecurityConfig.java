@@ -80,6 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/p-*").permitAll()
                 .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/page-edit*").hasAnyRole("ADMIN", "PUBLISHER")
+                .antMatchers("/page-delete*").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/users").hasRole("ADMIN")
             .and()
             .authorizeRequests()
