@@ -11,7 +11,7 @@ insert into user (username, enabled, password, verify_password, email, role_id) 
 
 
 -- Insert home page and contact page
-insert into page (name, publish, author_id, writer_id, url, body, role_access) values ('home', true, 2, 2, 'index','
+insert into page (name, publish, author_id, url, body) values ('home', true, 2, 'index','
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -272,8 +272,8 @@ insert into page (name, publish, author_id, writer_id, url, body, role_access) v
             </div>
         </div>
     </div>
-</div>', 1);
-insert into page (name, publish, author_id, writer_id, url, body, role_access) values ('contact', true, 1, 1, 'contact', '
+</div>');
+insert into page (name, publish, author_id, url, body) values ('contact', true, 1, 'contact', '
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -367,7 +367,7 @@ insert into page (name, publish, author_id, writer_id, url, body, role_access) v
     </div>
     <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
-', 1);
+');
 
 -- Insert tasks
 insert into task (id, complete, creation_date, description, user_id) values (1, 0, 0xaced00057372000d6a6176612e74696d652e536572955d84ba1b2248b20c00007870770e05000007e10c1b121c1f01406f4078, 'Create your first task', 1);
