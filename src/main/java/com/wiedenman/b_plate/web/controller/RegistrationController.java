@@ -1,6 +1,7 @@
 package com.wiedenman.b_plate.web.controller;
 
 import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.exception.UsernameExistsException;
 import com.wiedenman.b_plate.service.EmailService;
 import com.wiedenman.b_plate.service.TaskService;
 import com.wiedenman.b_plate.service.UserService;
@@ -94,24 +95,29 @@ public class RegistrationController {
             final VerificationToken vToken = new VerificationToken(token, newUser);
             verificationDao.save(vToken);
 
-            final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();  // TODO: update this to https in production
+            // TODO: update this to https for production
+            final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 
             // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-            passwordResetEmail.setFrom("donotreply@b-plate.com");  // TODO: change email message for production
+            // TODO: change email message for production
+            passwordResetEmail.setFrom("donotreply@b-plate.com");
             passwordResetEmail.setTo(newUser.getEmail());
             passwordResetEmail.setSubject("Verify your b-plate account");
             passwordResetEmail.setText("To verify your account click the link and login:\n" + appUrl
                     + "/verify?verification_token=" + vToken.getToken());
             emailService.sendEmail(passwordResetEmail);
-            // TODO: Add success message to view
-//            modelAndView.addObject("successMessage", "A password reset link has been sent to " + userEmail);
+            model.addAttribute("email", newUser.getEmail());
+            return "registrationConfirmationPage";
         } catch (EmailExistsException e) {
             result.addError(new FieldError("user", "email", e.getMessage()));
             model.addAttribute("user", newUser);
             return "registrationPage";
+        } catch (UsernameExistsException e) {
+            result.addError(new FieldError("user", "username", e.getMessage()));
+            model.addAttribute("user", newUser);
+            return "registrationPage";
         }
-        return "redirect:/login";
     }
 
     @RequestMapping(value = "/verify")
