@@ -32,9 +32,7 @@ nav {
   }
 
   .nav-wrapper {
-    position: relative;
     height: 100%;
-    top: 4px;
   }
 
   @media #{$large-and-up} {
@@ -64,7 +62,7 @@ nav {
     display: inline-block;
     font-size: $navbar-brand-font-size;
     letter-spacing: 1px;
-    padding: 0;
+    padding: 4px;
 
     &.center {
       left: 50%;

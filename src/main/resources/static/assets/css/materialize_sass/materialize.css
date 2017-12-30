@@ -3103,9 +3103,7 @@ nav {
     height: 50px;
     line-height: 48px; }
   nav .nav-wrapper {
-    position: relative;
-    height: 100%;
-    top: 4px; }
+    height: 100%; }
   @media only screen and (min-width: 993px) {
     nav a.button-collapse {
       display: none; } }
@@ -3124,7 +3122,7 @@ nav {
     display: inline-block;
     font-size: 1.4rem;
     letter-spacing: 1px;
-    padding: 0; }
+    padding: 4px; }
     nav .brand-logo.center {
       left: 50%;
       transform: translateX(-50%); }
