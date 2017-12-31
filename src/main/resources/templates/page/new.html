@@ -14,22 +14,19 @@
         <div class="small-gap"></div>
         <div class="container">
             <h3 th:text="${title}">Default Title</h3>
-            <div style="text-align: right;">
-                <a th:href="'p-' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
-            </div>
             <div class="small-gap"></div>
             <form method="post" th:action="@{/page-new}" th:object="${page}">
                 <div class="input-field">
                     <input type="hidden" name="id" th:value="*{id}"/>
-                    <label th:for="name" th:text="'page title'" ></label>
+                    <label th:for="name" th:text="'Page Title'" ></label>
                     <input type="text" th:field="*{name}"/>
                 </div>
                 <div class="input-field">
-                    <label th:for="url" th:text="'custom url'" ></label>
+                    <label th:for="url">Custom Url <span th:errors="*{url}" class="error"></span></label>
                     <input type="text" th:field="*{url}"/>
                 </div>
                 <div class="input-field">
-                    <label th:for="editor" th:text="'body'" style="position: relative; top: -10px;"></label>
+                    <label th:for="editor" th:text="'Body'" style="position: relative; top: -10px;"></label>
                     <textarea th:field="*{body}" name="editor" id="editor" ></textarea>
                     <script>
                         CKEDITOR.replace( 'editor' );
@@ -38,7 +35,6 @@
                 <div class="large-gap"></div>
                 <button type="submit" value="Save Page" class="btn waves-effect">SAVE PAGE</button>
             </form>
-            <div style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></div>
         </div>
         <div class="large-gap"></div>
     </main>
