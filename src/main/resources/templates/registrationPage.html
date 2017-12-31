@@ -19,6 +19,16 @@
                     <label th:for="email">Email  <span th:errors="*{email}" class="error"></span></label>
                     <input type="text" th:field="*{email}"/>
                 </div>
+                <div class="row">
+                    <div class="input-field col m6">
+                        <label th:for="firstName">First Name  <span th:errors="*{firstName}" class="error"></span></label>
+                        <input type="text" th:field="*{firstName}"/>
+                    </div>
+                    <div class="input-field col m6">
+                        <label th:for="lastName">Last Name  <span th:errors="*{lastName}" class="error"></span></label>
+                        <input type="text" th:field="*{lastName}"/>
+                    </div>
+                </div>
                 <div class="input-field">
                     <label th:for="password">Password  <span th:text="${passnullerror}" class="error"></span>                    <span th:errors="*{password}" class="error"></span>
                     </label>
