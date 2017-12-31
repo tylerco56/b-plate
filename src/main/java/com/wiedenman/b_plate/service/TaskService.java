@@ -27,9 +27,13 @@ public interface TaskService {
 
     Iterable<Task> findAll();
 
+//    Iterable<Task> findAllByUserId(long id);
+
     Task findOne(Long id);
 
     void toggleComplete(Long id);
+
+    void delete(Task task);
 
     void save(Task task);
 
