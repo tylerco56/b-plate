@@ -12,10 +12,10 @@
             <div>
                 <table class="striped responsive-table">
                     <thead>
-                        <th>name</th>
-                        <th>url</th>
-                        <th>updated</th>
-                        <th>author</th>
+                        <th>Name</th>
+                        <th>Url</th>
+                        <th>Updated</th>
+                        <th>Author</th>
                     </thead>
                     <tbody>
                     <tr th:each="page : ${pages}">
@@ -25,17 +25,21 @@
                         <td th:text="${page.author.username}"></td>
                         <td style="text-align: right;">
                             <a class="btn waves-effect waves-light" th:href="'page-edit-' + ${page.id}">edit</a>&nbsp;&nbsp;
-
-                            <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#' + ${page.id} + '\').modal(\'open\');'">delete</a>
+                            <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${page.id} + '\').modal(\'open\');'">delete</a>
                             <!-- Modal Structure -->
-                            <div th:id="${page.id}" class="modal">
+                            <div th:id="'row-' + ${page.id}" class="modal" style="max-width: 500px;">
                                 <div class="modal-content center">
                                     <h4 style="color: darkred">Are you sure?</h4>
                                     <p th:text="'Confirm that you want to delete this page: ' + ${page.name}" style="color: darkred"></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
-                                    <a th:href="'/page-delete-' + ${page.id}" class=" modal-action modal-close waves-effect waves-red btn-flat">DELETE</a>
+                                    <span style="padding: 10px;">
+                                        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                                    </span>
+                                    <span style="padding: 10px;">
+                                        <form method="post" th:action="@{/page-delete}" style="display: inline;">
+                                            <input type="hidden" name="page_id" th:value="${page.id}"/>
+                                            <button type="submit" value="Delete Page" class="btn waves-effect">DELETE</button>
+                                        </form>
+                                    </span>
                                 </div>
                             </div>
 
@@ -45,7 +49,7 @@
                                 /*<![CDATA[*/
 
                                 $(document).ready(function() {
-                                    $(/*[['#' + ${page.id}]]*/).modal();
+                                    $(/*[['#row-' + ${page.id}]]*/).modal();
                                 });
 
                                 /*]]>*/
