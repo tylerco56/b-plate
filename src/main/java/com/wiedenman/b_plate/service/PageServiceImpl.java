@@ -1,5 +1,6 @@
 package com.wiedenman.b_plate.service;
 
+import com.wiedenman.b_plate.exception.UrlExistsException;
 import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.dao.PageDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,13 +44,29 @@ public class PageServiceImpl implements PageService {
     }
 
     @Override
-    public void save(Page page) {
-        pageDao.save(page);
+    public Page findByUrl(String url) {
+        return pageDao.findByUrl(url);
+    }
+
+    private boolean urlExists(String url) {
+        final Page page = pageDao.findByUrl(url);
+        return page != null;
     }
 
     @Override
-    public Page findByUrl(String url) {
-        return pageDao.findByUrl(url);
+    public void createNewPage(final Page newPage) throws UrlExistsException {
+        if (urlExists(newPage.getUrl())) {
+            throw new UrlExistsException("A page with this url already exists: " + newPage.getUrl());
+        }
+        pageDao.save(newPage);
+    }
+
+    @Override
+    public void save(Page page) throws UrlExistsException {
+        if (urlExists(page.getUrl()) && (page.getId() != (pageDao.findByUrl(page.getUrl()).getId()))) {
+            throw new UrlExistsException("A page with this url already exists: " + page.getUrl());
+        }
+        pageDao.save(page);
     }
 
     @Override
