@@ -50,13 +50,34 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
-    public String singleUser(Model model, @PathVariable long id) {
+    @RequestMapping(value = "user-edit-{id}", method = RequestMethod.GET)
+    public String editUser(Model model, @PathVariable long id) {
 
         User user = userService.findOne(id);
         String formattedDate = user.getCreationDate().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));
         model.addAttribute("user", user);
         model.addAttribute("formattedDate", formattedDate);
-        return "user/single"; // TODO: create html user/single
+
+        return "user/edit"; // TODO: create html user/single
+    }
+
+    @RequestMapping(value = "user-disable", method = RequestMethod.POST)
+    public String disableUser(@RequestParam long user_id) {
+
+        User user = userService.findOne(user_id);
+        user.setEnabled(false);
+        userService.save(user);
+
+        return "redirect:users";
+    }
+
+    @RequestMapping(value = "user-enable", method = RequestMethod.POST)
+    public String enableUser(@RequestParam long user_id) {
+
+        User user = userService.findOne(user_id);
+        user.setEnabled(true);
+        userService.save(user);
+
+        return "redirect:users";
     }
 }
