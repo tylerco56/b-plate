@@ -1,17 +1,18 @@
 package com.wiedenman.b_plate.web.controller;
 
+import com.wiedenman.b_plate.exception.UrlExistsException;
 import com.wiedenman.b_plate.web.model.Page;
 import com.wiedenman.b_plate.service.PageService;
 import com.wiedenman.b_plate.web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -74,6 +75,7 @@ public class PageController {
 
     @RequestMapping(value = "page-new", method = RequestMethod.POST)
     public String saveNewPage(@ModelAttribute @Valid Page newPage,
+                              final BindingResult result,
                               Errors errors,
                               Model model,
                               Principal principal) {
@@ -82,14 +84,18 @@ public class PageController {
             model.addAttribute("title", "NEW PAGE");
 
             return "page/new";
+        } try {
+            User user = (User) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
+            newPage.setAuthor(user);
+            newPage.setUpdated();
+            pageService.createNewPage(newPage);
+            long id = newPage.getId();
+            return "redirect:page-edit-" + id;
+        } catch (UrlExistsException e) {
+            result.addError(new FieldError("page", "url", e.getMessage()));
+            model.addAttribute("page", newPage);
+            return "page/new";
         }
-        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
-        newPage.setAuthor(user);
-        newPage.setUpdated();
-        pageService.save(newPage);
-        long id = newPage.getId();
-
-        return "redirect:page-edit-" + id;
     }
 
     @RequestMapping(value = "page-edit-{id}")
@@ -102,9 +108,9 @@ public class PageController {
         return "page/edit";
     }
 
-    @RequestMapping(value = "page-edit-{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "page-edit", method = RequestMethod.POST)
     public String savePage(@ModelAttribute @Valid Page page,
-                           @PathVariable long id,
+                           final BindingResult result,
                            Errors errors,
                            Model model,
                            Principal principal) {
@@ -114,20 +120,24 @@ public class PageController {
         if (errors.hasErrors()) {
             model.addAttribute("page", page);
             return "page/edit";
-        }
-        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
-        page.setAuthor(user);
-        page.setUpdated();
-        pageService.save(page);
+        } try {
+            User user = (User) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
+            page.setAuthor(user);
+            page.setUpdated();
+            pageService.save(page);
 
-        return "page/edit";
+            return "page/edit";
+        } catch (UrlExistsException e) {
+            result.addError(new FieldError("page", "url", e.getMessage()));
+            model.addAttribute("page", page);
+            return "page/edit";
+        }
     }
 
-    @RequestMapping(value = "page-delete-{id}")
-    public String deletePage(Model model, @PathVariable long id) {
+    @RequestMapping(value = "page-delete", method = RequestMethod.POST)
+    public String deletePage(@RequestParam long page_id) {
 
-        Page page = pageService.findOne(id);
-        pageService.delete(page);
+        pageService.delete(pageService.findOne(page_id));
         return "redirect:pages";
     }
 }
