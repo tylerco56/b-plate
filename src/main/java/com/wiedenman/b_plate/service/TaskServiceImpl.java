@@ -37,6 +37,11 @@ public class TaskServiceImpl implements TaskService {
         return taskDao.findAll();
     }
 
+//    @Override
+//    public Iterable<Task> findAllByUserId(long id) {
+//        return taskDao.findAllByUserId(id);
+//    }
+
     @Override
     public Task findOne(Long id) {
         return taskDao.findOne(id);
@@ -47,6 +52,11 @@ public class TaskServiceImpl implements TaskService {
         Task task = taskDao.findOne(id);
         task.setComplete(!task.isComplete());
         taskDao.save(task);
+    }
+
+    @Override
+    public void delete(Task task) {
+        taskDao.delete(task);
     }
 
     @Override
