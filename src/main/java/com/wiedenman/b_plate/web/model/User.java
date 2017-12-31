@@ -119,10 +119,6 @@ public class User implements UserDetails {
 
     }
 
-    public long getId() {
-        return id;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -225,6 +221,10 @@ public class User implements UserDetails {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public Role getRole() {
