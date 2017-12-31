@@ -1,5 +1,6 @@
 package com.wiedenman.b_plate.service;
 
+import com.wiedenman.b_plate.exception.UrlExistsException;
 import com.wiedenman.b_plate.web.model.Page;
 
 /**
@@ -31,7 +32,9 @@ public interface PageService {
 
     Page findByUrl(String url);
 
-    void save(Page page);
+    void createNewPage(Page page) throws UrlExistsException;
+
+    void save(Page page) throws UrlExistsException;
 
     void delete(Page page);
 
