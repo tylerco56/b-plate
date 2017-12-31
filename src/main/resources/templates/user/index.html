@@ -8,27 +8,109 @@
             <div class="container">
                 <h3 th:text="${title}">Default Title</h3>
                 <a href="/register" class="btn waves-effect waves-light">ADD NEW</a>
-                <div class="small-gap"></div>
+                <div class="large-gap"></div>
                 <p th:unless="${users} and ${users.size()}">
                     No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">Add a user now.</a>
                 </p>
+                <h5>ENABLED</h5>
                 <table class="striped responsive-table">
                     <thead>
-                        <th>username</th>
-                        <th>first name</th>
-                        <th>last name</th>
-                        <th>role</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Role</th>
                     </thead>
                     <tbody>
-                        <tr th:each="user : ${#lists.toList(users)}">
+                        <tr th:each="user : ${users}" th:if="${user.enabled} == true">
                             <td><a th:href="'/user/' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
                             <td th:text="${user.firstName}"></td>
                             <td th:text="${user.lastName}"></td>
                             <td th:text="${user.role.name}"></td>
-                            <td style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></td>
+                            <td style="text-align: right;">
+                                <a class="btn waves-effect waves-light" th:href="'user-edit-' + ${user.id}">edit</a>&nbsp;&nbsp;
+                                <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${user.id} + '\').modal(\'open\');'">disable</a>
+                                <!-- Modal Structure -->
 
+                                <div th:id="'row-' + ${user.id}" class="modal" style="max-width: 500px;">
+                                    <div class="modal-content center">
+                                        <h4 style="color: darkred">Are you sure?</h4>
+                                        <p th:text="'Confirm that you want to disable this user: ' + ${user.username}" style="color: darkred"></p>
+                                        <span style="padding: 10px;">
+                                        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                                    </span>
+                                        <span style="padding: 10px;">
+                                        <form method="post" th:action="@{/user-disable}" style="display: inline;">
+                                            <input type="hidden" name="user_id" th:value="${user.id}"/>
+                                            <button type="submit" value="Disable User" class="btn waves-effect">DISABLE</button>
+                                        </form>
+                                    </span>
+                                    </div>
+                                </div>
 
+                                <!-- Modal Trigger -->
+
+                                <script th:inline="javascript">
+                                    /*<![CDATA[*/
+
+                                    $(document).ready(function() {
+                                        $(/*[['#row-' + ${user.id}]]*/).modal();
+                                    });
+
+                                    /*]]>*/
+                                </script>
+                            </td>
                         </tr>
+                    </tbody>
+                </table>
+                <div class="large-gap"></div>
+                <h5>DISABLED</h5>
+                <table class="striped responsive-table">
+                    <thead>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${users}" th:if="${user.enabled} == false">
+                        <td><a th:href="'/user/' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
+                        <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td th:text="${user.role.name}"></td>
+                        <td style="text-align: right;">
+                            <a class="btn waves-effect waves-light" th:href="'user-edit-' + ${user.id}">edit</a>&nbsp;&nbsp;
+                            <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${user.id} + '\').modal(\'open\');'">enable</a>
+                            <!-- Modal Structure -->
+
+                            <div th:id="'row-' + ${user.id}" class="modal" style="max-width: 500px;">
+                                <div class="modal-content center">
+                                    <h4 style="color: darkred">Are you sure?</h4>
+                                    <p th:text="'Confirm that you want to enable this user: ' + ${user.username}" style="color: darkred"></p>
+                                    <span style="padding: 10px;">
+                                        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                                    </span>
+                                    <span style="padding: 10px;">
+                                        <form method="post" th:action="@{/user-enable}" style="display: inline;">
+                                            <input type="hidden" name="user_id" th:value="${user.id}"/>
+                                            <button type="submit" value="Enable User" class="btn waves-effect">ENABLE</button>
+                                        </form>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Modal Trigger -->
+
+                            <script th:inline="javascript">
+                                /*<![CDATA[*/
+
+                                $(document).ready(function() {
+                                    $(/*[['#row-' + ${user.id}]]*/).modal();
+                                });
+
+                                /*]]>*/
+                            </script>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
