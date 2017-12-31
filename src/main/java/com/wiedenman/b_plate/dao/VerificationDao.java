@@ -1,7 +1,9 @@
 package com.wiedenman.b_plate.dao;
 
 import com.wiedenman.b_plate.web.model.VerificationToken;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *    888                      888          888
@@ -25,5 +27,10 @@ import org.springframework.data.repository.CrudRepository;
  */
 
 public interface VerificationDao extends CrudRepository<VerificationToken, Long> {
+
     VerificationToken findByToken(String token);
+
+//    @Query("select t from VerificationToken t where t.user.id=:user_id")
+//    VerificationToken findVerificationTokenByUserId(@Param("user_id") long user_id);
+
 }
