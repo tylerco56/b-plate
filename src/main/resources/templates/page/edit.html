@@ -6,6 +6,7 @@
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
     <script th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <title>b-plate</title>
 </head>
 <body>
@@ -18,18 +19,18 @@
                 <a th:href="'p-' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
             </div>
             <div class="small-gap"></div>
-            <form method="post" th:action="@{/page-edit} + '-' + ${page.id}" th:object="${page}">
+            <form method="post" th:action="@{/page-edit}" th:object="${page}">
                 <div class="input-field">
                     <input type="hidden" name="id" th:value="*{id}"/>
-                    <label th:for="name" th:text="'page title'" ></label>
+                    <label th:for="name" th:text="'Page Title'" ></label>
                     <input type="text" th:field="*{name}"/>
                 </div>
                 <div class="input-field">
-                    <label th:for="url" th:text="'custom url'" ></label>
+                    <label th:for="url">Custom Url <span th:errors="*{url}" class="error"></span></label>
                     <input type="text" th:field="*{url}"/>
                 </div>
                 <div class="input-field">
-                    <label th:for="editor" th:text="'body'" style="position: relative; top: -5px;"></label>
+                    <label th:for="editor" th:text="'Body'" style="position: relative; top: -5px;"></label>
                     <textarea th:field="*{body}" name="editor" id="editor" ></textarea>
                     <script>
                         CKEDITOR.replace( 'editor' );
@@ -38,7 +39,31 @@
                 <div class="large-gap"></div>
                 <button type="submit" value="Save Page" class="btn waves-effect">SAVE PAGE</button>
             </form>
-            <div style="text-align: right;"><a class="btn waves-effect waves-light btn-flat btn-delete">delete</a></div>
+            <div style="text-align: right;">
+                <a class="waves-effect waves-light btn btn-flat btn-delete view" onclick="$('#modal1').modal('open');">delete</a>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal" style="max-width: 500px;">
+                    <div class="modal-content center">
+                        <h4 style="color: darkred">Are you sure?</h4>
+                        <p th:text="'Confirm that you want to delete this page: ' + ${page.name}" style="color: darkred"></p>
+                        <span style="padding: 10px;">
+                            <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                        </span>
+                        <span style="padding: 10px;">
+                            <form method="post" th:action="@{/page-delete}" style="display: inline;">
+                                <input type="hidden" name="page_id" th:value="${page.id}"/>
+                                <button type="submit" value="Delete Page" class="btn waves-effect">DELETE</button>
+                            </form>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        $('#modal1').modal();
+
+                    });
+                </script>
+            </div>
         </div>
         <div class="large-gap"></div>
     </main>
