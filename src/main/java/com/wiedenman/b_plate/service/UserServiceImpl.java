@@ -90,9 +90,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User registerNewUser(final User newUser) throws EmailExistsException, UsernameExistsException {
         if (emailExists(newUser.getEmail())) {
-            throw new EmailExistsException("There is an account with that email address: " + newUser.getEmail());
-        } if(usernameExists(newUser.getUsername())) {
-            throw new UsernameExistsException("An account with that username already exists: " + newUser.getUsername());
+            throw new EmailExistsException("Account already exists: " + newUser.getEmail());
+        } if (usernameExists(newUser.getUsername())) {
+            throw new UsernameExistsException("Account already exists: " + newUser.getUsername());
         } else {
             newUser.setRole(roleDao.findById((long) 1));
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
@@ -128,7 +128,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
-        userDao.save(user);
+    public void save(User user) throws EmailExistsException, UsernameExistsException {
+        if (emailExists(user.getEmail()) && (userDao.findByEmail(user.getEmail()).getId() != user.getId())) {
+            throw new EmailExistsException("Account already exists: " + user.getEmail());
+        } if (usernameExists(user.getUsername()) && (userDao.findByUsername(user.getUsername()).getId() != user.getId() )) {
+            throw new UsernameExistsException("Account already exists: " + user.getUsername());
+        } else {
+            userDao.save(user);
+        }
     }
 }
