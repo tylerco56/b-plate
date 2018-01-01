@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/reset*").permitAll()
                 .antMatchers("/p-*").permitAll()
                 .antMatchers("/pages").hasAnyRole("ADMIN", "PUBLISHER")
-                .antMatchers("/page-edit*").hasAnyRole("ADMIN", "PUBLISHER")
+                .antMatchers("/page-edit-*").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/page-delete").hasAnyRole("ADMIN", "PUBLISHER")
                 .antMatchers("/users").hasRole("ADMIN")
                 .antMatchers("/user-edit-*").hasRole("ADMIN")
