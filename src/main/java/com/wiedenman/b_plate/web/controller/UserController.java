@@ -11,11 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -54,7 +52,6 @@ public class UserController {
 
         model.addAttribute("users", users);
         model.addAttribute("title", "ALL USERS");
-
         return "user/index";
     }
 
@@ -64,7 +61,6 @@ public class UserController {
         User user = userService.findOne(id);
         model.addAttribute("title", "EDIT USER");
         model.addAttribute("user", user);
-
         return "user/edit";
     }
 
@@ -72,13 +68,23 @@ public class UserController {
     public String processEditUser(@ModelAttribute @Valid User user,
                                   final BindingResult result,
                                   Errors errors,
-                                  Model model,
-                                  final HttpServletRequest request) {
+                                  Model model) {
 
         model.addAttribute("title", "EDIT USER");
-        user.setPassword(userService.findOne(user.getId()).getPassword());
-        user.setVerifyPassword(userService.findOne(user.getId()).getVerifyPassword());
-        if (errors.hasErrors()) {
+
+        List<ObjectError> allErrors = errors.getAllErrors();
+        ArrayList<ObjectError> filteredErrors = new ArrayList<>();
+        for (ObjectError error : allErrors) {
+            if (!error.getDefaultMessage().contains("Password")) {
+                filteredErrors.add(error);
+            }
+        }
+
+        User dbUser = userService.findOne(user.getId());
+        user.setPassword(dbUser.getPassword());
+        user.setVerifyPassword(dbUser.getVerifyPassword());
+
+        if (filteredErrors.size() != 0) {
             return "user/edit";
         } try {
             userService.save(user);
@@ -100,7 +106,6 @@ public class UserController {
         User user = userService.findOne(user_id);
         user.setEnabled(false);
         userService.save(user);
-
         return "redirect:users";
     }
 
@@ -110,7 +115,6 @@ public class UserController {
         User user = userService.findOne(user_id);
         user.setEnabled(true);
         userService.save(user);
-
         return "redirect:users";
     }
 }
