@@ -1,12 +1,20 @@
 package com.wiedenman.b_plate.web.controller;
 
+import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.exception.UsernameExistsException;
 import com.wiedenman.b_plate.service.UserService;
 import com.wiedenman.b_plate.web.comparator.UsernameComparator;
 import com.wiedenman.b_plate.web.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -54,15 +62,40 @@ public class UserController {
     public String editUser(Model model, @PathVariable long id) {
 
         User user = userService.findOne(id);
-        String formattedDate = user.getCreationDate().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));
+        model.addAttribute("title", "EDIT USER");
         model.addAttribute("user", user);
-        model.addAttribute("formattedDate", formattedDate);
 
-        return "user/edit"; // TODO: create html user/single
+        return "user/edit";
+    }
+
+    @RequestMapping(value = "user-edit", method = RequestMethod.POST)
+    public String processEditUser(@ModelAttribute @Valid User user,
+                                  final BindingResult result,
+                                  Errors errors,
+                                  Model model,
+                                  final HttpServletRequest request) {
+
+        model.addAttribute("title", "EDIT USER");
+        user.setPassword(userService.findOne(user.getId()).getPassword());
+        user.setVerifyPassword(userService.findOne(user.getId()).getVerifyPassword());
+        if (errors.hasErrors()) {
+            return "user/edit";
+        } try {
+            userService.save(user);
+        } catch (EmailExistsException e) {
+            result.addError(new FieldError("user", "email", e.getMessage()));
+            model.addAttribute("user", user);
+            return "user/edit";
+        } catch (UsernameExistsException e) {
+            result.addError(new FieldError("user", "username", e.getMessage()));
+            model.addAttribute("user", user);
+            return "user/edit";
+        }
+        return "user/edit";
     }
 
     @RequestMapping(value = "user-disable", method = RequestMethod.POST)
-    public String disableUser(@RequestParam long user_id) {
+    public String disableUser(@RequestParam long user_id) throws EmailExistsException, UsernameExistsException {
 
         User user = userService.findOne(user_id);
         user.setEnabled(false);
@@ -72,7 +105,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "user-enable", method = RequestMethod.POST)
-    public String enableUser(@RequestParam long user_id) {
+    public String enableUser(@RequestParam long user_id) throws EmailExistsException, UsernameExistsException {
 
         User user = userService.findOne(user_id);
         user.setEnabled(true);
