@@ -113,8 +113,7 @@
 
 <div th:fragment="flash" th:if="${flash != null}" class="container">
     <div class="message">
-        <i class="right material-icons" data-close="">close</i>
-        <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+        <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash center"></div>
         <!-- TODO: make success message from reset form show here -->
         <!--<div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.successMessage}" class="flash"></div>-->
     </div>
