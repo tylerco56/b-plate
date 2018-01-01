@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -46,11 +47,11 @@ public class User implements UserDetails {
     private String username;
 
     @Column(name = "FIRST_NAME")
-//    @NotBlank(message = "First Name may not be blank ")
+    @NotBlank(message = "First Name may not be blank ")
     private String firstName;
 
     @Column(name = "LAST_NAME")
-//    @NotBlank(message = "Last Name may not be blank ")
+    @NotBlank(message = "Last Name may not be blank ")
     private String lastName;
 
     @Column(name = "EMAIL", unique = true)
@@ -63,12 +64,12 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name = "VERIFY_PASSWORD", length = 100)
-    @NotNull(message="Verify may not be blank. ")
-    @Size(min=6, message="Passwords do not match. ")
+    @NotBlank(message="Verify Password may not be blank. ")
     private String verifyPassword;
 
     @Column(name = "PHONE_NUMBER")
-//    @NotBlank(message = "Phone Number may not be blank ")
+    @NotBlank(message = "Mobile may not be blank ")
+    @Pattern(regexp="(^$|[0-9]{10})", message = "Invalid. Use format: 1234567890")
     private String phoneNumber;
 
     @JoinColumn(name = "ROLE_ID")
