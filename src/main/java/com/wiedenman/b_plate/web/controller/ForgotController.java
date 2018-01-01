@@ -162,4 +162,45 @@ public class ForgotController {
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
         return new ModelAndView("redirect:login");
     }
+
+    @RequestMapping(value = "/triggerPasswordReset", method = RequestMethod.POST)
+    public ModelAndView triggerPasswordReset(@RequestParam String userEmail,
+                                             ModelAndView modelAndView,
+                                             HttpServletRequest request) throws EmailExistsException, UsernameExistsException {
+
+        // Lookup user in database by e-mail
+        User user = userService.findUserByEmail(userEmail);
+
+        if (user == null) {
+            // TODO: pass this error to the view
+            modelAndView.addObject("errorMessage", "We didn't find an account for that e-mail address.");
+        } else {
+
+            // Generate random token to reset password
+            user.setResetToken(UUID.randomUUID().toString());
+
+            // Save token to database
+            userService.save(user);
+
+            String appUrl = request.getScheme() + "://" + request.getServerName();
+
+            // Email message
+            SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
+            passwordResetEmail.setFrom("donotreply@b-plate.com");
+            passwordResetEmail.setTo(user.getEmail());
+            passwordResetEmail.setSubject("Password Reset Request");
+            passwordResetEmail.setText("To reset your password, click the link:\n" + appUrl
+                    + ":8080/reset?token=" + user.getResetToken());
+
+            emailService.sendEmail(passwordResetEmail);
+
+            // Pass user and title back to view
+            modelAndView.addObject("user", user);
+            modelAndView.addObject("title", "EDIT USER");
+        }
+
+        modelAndView.setViewName("user/edit");
+        return modelAndView;
+
+    }
 }
