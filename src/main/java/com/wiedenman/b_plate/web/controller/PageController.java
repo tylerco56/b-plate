@@ -49,7 +49,6 @@ public class PageController {
         Iterable<Page> pages = pageService.findAll();
         model.addAttribute("pages", pages);
         model.addAttribute("title", "PAGES");
-
         return "page/index";
     }
 
@@ -59,7 +58,6 @@ public class PageController {
         Page page = pageService.findByUrl(url);
         model.addAttribute("page", page);
         model.addAttribute("title", page.getName());
-
         return "page/single";
     }
 
@@ -69,7 +67,6 @@ public class PageController {
         Page page = new Page();
         model.addAttribute("title", "NEW PAGE");
         model.addAttribute("page", page);
-
         return "page/new";
     }
 
@@ -82,7 +79,6 @@ public class PageController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "NEW PAGE");
-
             return "page/new";
         } try {
             User user = (User) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
@@ -109,7 +105,7 @@ public class PageController {
     }
 
     @RequestMapping(value = "page-edit", method = RequestMethod.POST)
-    public String savePage(@ModelAttribute @Valid Page page,
+    public String processSavePage(@ModelAttribute @Valid Page page,
                            final BindingResult result,
                            Errors errors,
                            Model model,
