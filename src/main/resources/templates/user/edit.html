@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<main>
+    <div class="small-gap"></div>
+    <section class="container">
+        <div class="gap">
+        </div>
+        <h3 th:text="${title}">Default Title</h3>
+        <div class="small-gap"></div>
+        <form method="POST" th:action="@{/user-edit}" th:object="${user}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="hidden" name="id" th:value="*{id}"/>
+            <!-- TODO: fix this so it can't be edited by hacker -->
+            <input type="hidden" name="role" th:value="*{role.getId()}"/>
+
+            <div class="input-field">
+                <label th:for="username">Username  <span th:errors="*{username}" class="error"></span></label>
+                <input type="text" th:field="*{username}" class="validate"/>
+            </div>
+            <div class="row">
+                <div class="input-field col m6">
+                    <label th:for="email" data-error="wrong">Email  <span th:errors="*{email}" class="error"></span></label>
+                    <input type="email" th:field="*{email}" class="validate"/>
+                </div>
+                <div class="input-field col m6">
+                    <label th:for="phone">Mobile Phone (for SMS authentication)  <span th:errors="*{phoneNumber}" class="error"></span></label>
+                    <input type="tel" th:field="*{phoneNumber}" class="validate"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col m6">
+                    <label th:for="firstName">First Name  <span th:errors="*{firstName}" class="error"></span></label>
+                    <input type="text" th:field="*{firstName}" class="validate"/>
+                </div>
+                <div class="input-field col m6">
+                    <label th:for="lastName">Last Name  <span th:errors="*{lastName}" class="error"></span></label>
+                    <input type="text" th:field="*{lastName}" class="validate"/>
+                </div>
+            </div>
+            <div class="input-field">
+                <!--<label th:for="password">Password-->
+                    <!--<span th:text="${passnullerror}" class="error"></span>-->
+                    <!--<span th:errors="*{password}" class="error"></span>-->
+                    <!--<span th:text="${verifyError}" class="error"></span>-->
+                <!--</label>-->
+                <input th:type="hidden" th:field="*{password}" class="validate"/>
+            </div>
+            <div class="input-field">
+                <!--<label th:for="verify">Verify Password  <span th:errors="*{verifyPassword}" class="error"></span></label>-->
+                <input th:type="hidden" th:field="*{verifyPassword}" class="validate"/>
+            </div>
+            <br />
+            <br />
+            <button type="submit" value="Add User" class="btn-large waves-effect">SAVE</button>
+        </form>
+        <div style="height: 50px;"></div>
+    </section>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
