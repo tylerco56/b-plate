@@ -86,6 +86,10 @@ public class RegistrationController {
 
         if (errors.hasErrors()) {
             return "registrationPage";
+        } else if (!newUser.getPassword().equals(newUser.getVerifyPassword())) {
+            String verifyError = "Passwords do not match";
+            model.addAttribute("verifyError", verifyError);
+            return "registrationPage";
         }
         try {
             newUser.setEnabled(false);
