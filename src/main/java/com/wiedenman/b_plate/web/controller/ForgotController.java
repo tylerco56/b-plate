@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
+import com.wiedenman.b_plate.exception.EmailExistsException;
+import com.wiedenman.b_plate.exception.UsernameExistsException;
 import com.wiedenman.b_plate.service.UserService;
 import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.service.EmailService;
@@ -61,7 +63,9 @@ public class ForgotController {
 
     // Process form submission from forgotPassword page
     @RequestMapping(value = "/forgot", method = RequestMethod.POST)
-    public ModelAndView processForgotPasswordForm(ModelAndView modelAndView, @RequestParam String userEmail, HttpServletRequest request) {
+    public ModelAndView processForgotPasswordForm(ModelAndView modelAndView,
+                                                  @RequestParam String userEmail,
+                                                  HttpServletRequest request) throws EmailExistsException, UsernameExistsException {
 
         // Lookup user in database by e-mail
         User user = userService.findUserByEmail(userEmail);
@@ -116,7 +120,11 @@ public class ForgotController {
 
     // Process reset password form
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
-    public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, @RequestParam String token, RedirectAttributes redir) {
+    public ModelAndView setNewPassword(ModelAndView modelAndView,
+                                       @RequestParam Map<String,
+                                       String> requestParams,
+                                       @RequestParam String token,
+                                       RedirectAttributes redir) throws EmailExistsException, UsernameExistsException {
 
         // Find the user associated with the reset token
         Optional<User> user = userService.findByResetToken(token);
