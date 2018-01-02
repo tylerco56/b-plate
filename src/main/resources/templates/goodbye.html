@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<main class="valign-wrapper" style="position: relative; top: -25px;">
+    <div class="container">
+        <div class="row vert-center page-body">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-image" style="text-align: center; padding: 50px 50px 0px 50px;">
+                        <!--<img th:src="@{/assets/images/lighter.png}" alt="lighter with flame" id="login-image"/>-->
+                        <h4>ACCOUNT DEACTIVATED</h4>
+                    </div>
+                    <div class="card-content center">
+                        <p>Your account has been closed and you will no longer have access after your session expires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
