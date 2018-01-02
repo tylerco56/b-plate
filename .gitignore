@@ -1,5 +1,5 @@
 .gradle
-/build/
+build
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -28,6 +28,6 @@ nbdist/
 # /src/main/resources/static/assets/images*
 
 ### Secret ###
-src/main/java/com/wiedenman/foundry_0_1/secret/
 /src/main/resources/application.properties
-
+.env
+/src/main/resources/application-default.properties
