@@ -44,7 +44,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 
 @Controller
-public class ForgotController {
+public class PasswordController {
 
     @Autowired
     private UserService userService;
