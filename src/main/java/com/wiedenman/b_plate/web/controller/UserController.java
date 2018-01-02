@@ -178,8 +178,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "close-my-account", method = RequestMethod.POST)
-    public String closeMyAccount(@RequestParam long user_id,
-                                 Principal principal) throws EmailExistsException, UsernameExistsException {
+    public String closeMyAccount(Principal principal) throws EmailExistsException, UsernameExistsException {
 
         User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
         user.setEnabled(false);
