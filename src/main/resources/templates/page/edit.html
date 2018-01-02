@@ -36,11 +36,12 @@
                         CKEDITOR.replace( 'editor' );
                     </script>
                 </div>
-                <div class="large-gap"></div>
-                <button type="submit" value="Save Page" class="btn waves-effect">SAVE PAGE</button>
+                <div class="small-gap"></div>
+                <button type="submit" value="Save Page" class="btn-large waves-effect" style="width: 100%;">SAVE PAGE</button>
             </form>
+            <div class="large-gap"></div>
             <div style="text-align: right;">
-                <a class="waves-effect waves-light btn btn-flat btn-delete view" onclick="$('#modal1').modal('open');">delete</a>
+                <a class="waves-effect waves-light btn btn-flat btn-delete view" onclick="$('#modal1').modal('open');">delete page</a>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal" style="max-width: 500px;">
                     <div class="modal-content center">
@@ -65,7 +66,7 @@
                 </script>
             </div>
         </div>
-        <div class="large-gap"></div>
+        <div class="small-gap"></div>
     </main>
 <footer th:replace="fragments :: footer"></footer>
 <div th:replace="fragments :: scripts"></div>
