@@ -145,7 +145,7 @@ public class UserController {
             dbUser.setPhoneNumber(user.getPhoneNumber());
             dbUser.setFirstName(user.getFirstName());
             dbUser.setLastName(user.getLastName());
-            dbUser.setEnabled(user.isEnabled());
+            dbUser.setEnabled(true);
             userService.save(dbUser);
         } catch (EmailExistsException e) {
             result.addError(new FieldError("user", "email", e.getMessage()));
