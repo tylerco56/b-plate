@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<main>
+    <div class="small-gap"></div>
+    <section class="container">
+        <div class="gap">
+        </div>
+        <h3 th:text="${title}">Default Title</h3>
+        <div class="small-gap"></div>
+        <form method="POST" th:action="@{/update-profile}" th:object="${user}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="hidden" name="id" th:value="*{id}"/>
+            <div class="input-field">
+                <input disabled="true" type="hidden" name="id" th:value="*{id}"/>
+            </div>
+            <div class="input-field">
+                <label th:for="username">Username  <span th:errors="*{username}" class="error"></span></label>
+                <input type="text" th:field="*{username}" class="validate" style="font-size: 2rem;"/>
+            </div>
+            <div class="row">
+                <div class="input-field col m6 s12">
+                    <label th:for="email" data-error="wrong">Email  <span th:errors="*{email}" class="error"></span></label>
+                    <input type="email" th:field="*{email}" class="validate"/>
+                </div>
+                <div class="input-field col m6 s12">
+                    <label th:for="phone">Mobile Phone (for SMS authentication)  <span th:errors="*{phoneNumber}" class="error"></span></label>
+                    <input type="tel" th:field="*{phoneNumber}" class="validate"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col m6 s12">
+                    <label th:for="firstName">First Name  <span th:errors="*{firstName}" class="error"></span></label>
+                    <input type="text" th:field="*{firstName}" class="validate"/>
+                </div>
+                <div class="input-field col m6 s12">
+                    <label th:for="lastName">Last Name  <span th:errors="*{lastName}" class="error"></span></label>
+                    <input type="text" th:field="*{lastName}" class="validate"/>
+                </div>
+            </div>
+            <div class="large-gap"></div>
+            <div class="large-gap"></div>
+            <button type="submit" value="Save User" class="btn-large waves-effect" style="width: 100%;">SAVE</button>
+        </form>
+        <form th:action="@{/triggerPasswordReset}" th:method="post" style="position: relative; top: -180px;">
+            <div class="row">
+                <div class="col s12 input-field">
+                    <input type="hidden" th:name="userEmail" th:value="${user.email}"/>
+                </div>
+            </div>
+            <button type="submit" class="btn waves-effect" style="background-color: #e2e2e2; color: #555555;">Trigger Password Reset</button>
+        </form>
+        <div style="text-align: right;">
+            <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${user.id} + '\').modal(\'open\');'">close my account</a>
+            <!-- Modal Structure -->
+            <div th:id="'row-' + ${user.id}" class="modal" style="max-width: 500px;">
+                <div class="modal-content center">
+                    <h4 style="color: darkred">Are you sure?</h4>
+                    <p th:text="'Confirm that you want to close your account: ' + ${user.username}" style="color: darkred"></p>
+                    <span style="padding: 10px;">
+                        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                    </span>
+                    <span style="padding: 10px;">
+                        <form method="post" th:action="@{/close-my-account}" style="display: inline;">
+                            <input type="hidden" name="user_id" th:value="${user.id}"/>
+                            <button type="submit" value="Disable User" class="btn waves-effect">CLOSE ACCOUNT</button>
+                        </form>
+                    </span>
+                </div>
+            </div>
+            <!-- Modal Trigger -->
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+
+                $(document).ready(function() {
+                    $(/*[['#row-' + ${user.id}]]*/).modal();
+                });
+
+                /*]]>*/
+            </script>
+        </div>
+        <div class="small-gap"></div>
+    </section>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>
