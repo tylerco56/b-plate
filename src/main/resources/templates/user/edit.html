@@ -8,41 +8,43 @@
     <section class="container">
         <div class="gap">
         </div>
-        <h3 th:text="${title} + ': ' + ${user.username}">Default Title</h3>
+        <h3 th:text="${title}">Default Title</h3>
         <div class="small-gap"></div>
         <form method="POST" th:action="@{/user-edit}" th:object="${user}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <input type="hidden" name="id" th:value="*{id}"/>
-            <div class="input-field">
-                <label th:for="id">User ID</label>
-                <input disabled="true" type="text" name="id" th:value="*{id}"/>
-            </div>
-            <div class="input-field">
-                <label th:for="username">Username  <span th:errors="*{username}" class="error"></span></label>
-                <input type="text" th:field="*{username}" class="validate"/>
+            <div class="row">
+                <div class="input-field col m9 s12">
+                    <label th:for="username">Username  <span th:errors="*{username}" class="error"></span></label>
+                    <input type="text" th:field="*{username}" class="validate" style="font-size: 2rem;"/>
+                </div>
+                <div class="input-field col m3 s12">
+                    <label th:for="id">User ID</label>
+                    <input disabled="true" type="text" name="id" th:value="*{id}"/>
+                </div>
             </div>
             <div class="row">
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <label th:for="email" data-error="wrong">Email  <span th:errors="*{email}" class="error"></span></label>
                     <input type="email" th:field="*{email}" class="validate"/>
                 </div>
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <label th:for="phone">Mobile Phone (for SMS authentication)  <span th:errors="*{phoneNumber}" class="error"></span></label>
                     <input type="tel" th:field="*{phoneNumber}" class="validate"/>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <label th:for="firstName">First Name  <span th:errors="*{firstName}" class="error"></span></label>
                     <input type="text" th:field="*{firstName}" class="validate"/>
                 </div>
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <label th:for="lastName">Last Name  <span th:errors="*{lastName}" class="error"></span></label>
                     <input type="text" th:field="*{lastName}" class="validate"/>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <select th:field="*{role}">
                         <option value="1" name="ROLE_USER" id="ROLE_USER">User</option>
                         <option value="2" name="ROLE_PUBLISHER" id="ROLE_PUBLISHER">Publisher</option>
@@ -50,7 +52,7 @@
                     </select>
                     <label>Role</label>
                 </div>
-                <div class="input-field col m6">
+                <div class="input-field col m6 s12">
                     <select th:field="*{enabled}">
                         <option value="1">Enabled</option>
                         <option value="0">Disabled</option>
@@ -64,11 +66,11 @@
                 </script>
             </div>
             <div class="large-gap"></div>
-            <div class="small-gap"></div>
-            <div class="small-gap"></div>
-            <button type="submit" value="Save User" class="btn-large waves-effect">SAVE USER</button>
+            <div class="large-gap"></div>
+            <!--<div class="small-gap"></div>-->
+            <button type="submit" value="Save User" class="btn-large waves-effect" style="width: 100%;">SAVE USER</button>
         </form>
-        <form th:action="@{/triggerPasswordReset}" th:method="post" style="position: relative; top: -170px;">
+        <form th:action="@{/triggerPasswordReset}" th:method="post" style="position: relative; top: -180px;">
             <div class="row">
                 <div class="col s12 input-field">
                     <input type="hidden" th:name="userEmail" th:value="${user.email}"/>
