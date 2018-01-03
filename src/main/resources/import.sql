@@ -6,8 +6,8 @@ insert into role (name) values ('ROLE_ADMIN');
 
 
 -- Insert two users (passwords are both 'password')
-insert into user (username, enabled, password, verify_password, email, role_id) values ('user', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'landonwiedenman@gmail.com', 1);
-insert into user (username, enabled, password, verify_password, email, role_id) values ('user2', true, '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', '$2a$10$wg5if66bNvWR9BGu.d6qqOhBj.QhzQ049BrsWjzejuvzn6kveVZlC', 'landon@wiedenman.com', 3);
+insert into user (first_name, last_name, phone_number, username, enabled, password, verify_password, email, role_id) values ('First', 'Last', 1234567890, 'user', true, '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', 'landonwiedenman@gmail.com', 1);
+insert into user (first_name, last_name, phone_number, username, enabled, password, verify_password, email, role_id) values ('First', 'Last', 1234567890, 'user2', true, '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', 'landon@wiedenman.com', 3);
 
 
 -- Insert home page and contact page
