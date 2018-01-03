@@ -12,7 +12,7 @@ import com.wiedenman.b_plate.web.model.User;
 import com.wiedenman.b_plate.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -53,7 +53,7 @@ public class PasswordController {
     private EmailService emailService;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     // Display forgotPassword page
     @RequestMapping(value = "/forgot", method = RequestMethod.GET)
@@ -135,7 +135,7 @@ public class PasswordController {
             User resetUser = user.get();
 
             // Set new password
-            resetUser.setPassword(bCryptPasswordEncoder.encode(requestParams.get("password")));
+            resetUser.setPassword(passwordEncoder.encode(requestParams.get("password")));
 
             // Set the reset token to null so it cannot be used again
             resetUser.setResetToken(null);
