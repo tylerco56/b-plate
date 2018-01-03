@@ -15,7 +15,7 @@
         <div class="container">
             <h3 th:text="${title}">Default Title</h3>
             <div class="small-gap"></div>
-            <form method="post" th:action="@{/page-new}" th:object="${page}">
+            <form method="post" th:action="@{/page/new}" th:object="${page}">
                 <div class="input-field">
                     <input type="hidden" name="id" th:value="*{id}"/>
                     <label th:for="name" th:text="'Page Title'" ></label>

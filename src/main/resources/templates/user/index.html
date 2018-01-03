@@ -22,12 +22,12 @@
                     </thead>
                     <tbody>
                         <tr th:each="user : ${users}" th:if="${user.enabled} == true">
-                            <td><a th:href="'user-edit-' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
+                            <td><a th:href="'user/edit/' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
                             <td th:text="${user.firstName}"></td>
                             <td th:text="${user.lastName}"></td>
                             <td th:text="${user.role.name}"></td>
                             <td style="text-align: right;">
-                                <a class="btn waves-effect waves-light" th:href="'user-edit-' + ${user.id}">edit</a>&nbsp;&nbsp;
+                                <a class="btn waves-effect waves-light" th:href="'user/edit/' + ${user.id}">edit</a>&nbsp;&nbsp;
                                 <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${user.id} + '\').modal(\'open\');'">disable</a>
                                 <!-- Modal Structure -->
 
@@ -39,7 +39,7 @@
                                         <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                                     </span>
                                         <span style="padding: 10px;">
-                                        <form method="post" th:action="@{/user-disable}" style="display: inline;">
+                                        <form method="post" th:action="@{/user/disable}" style="display: inline;">
                                             <input type="hidden" name="user_id" th:value="${user.id}"/>
                                             <button type="submit" value="Disable User" class="btn waves-effect">DISABLE</button>
                                         </form>
@@ -73,12 +73,12 @@
                     </thead>
                     <tbody>
                     <tr th:each="user : ${users}" th:if="${user.enabled} == false">
-                        <td><a th:href="'user-edit-' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
+                        <td><a th:href="'user/edit/' + ${user.id}" class="waves-effect waves-light explode" ><span th:text="${user.username}"></span></a></td>
                         <td th:text="${user.firstName}"></td>
                         <td th:text="${user.lastName}"></td>
                         <td th:text="${user.role.name}"></td>
                         <td style="text-align: right;">
-                            <a class="btn waves-effect waves-light" th:href="'user-edit-' + ${user.id}">edit</a>&nbsp;&nbsp;
+                            <a class="btn waves-effect waves-light" th:href="'user/edit/' + ${user.id}">edit</a>&nbsp;&nbsp;
                             <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${user.id} + '\').modal(\'open\');'">enable</a>
                             <!-- Modal Structure -->
 
@@ -90,7 +90,7 @@
                                         <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                                     </span>
                                     <span style="padding: 10px;">
-                                        <form method="post" th:action="@{/user-enable}" style="display: inline;">
+                                        <form method="post" th:action="@{/user/enable}" style="display: inline;">
                                             <input type="hidden" name="user_id" th:value="${user.id}"/>
                                             <button type="submit" value="Enable User" class="btn waves-effect">ENABLE</button>
                                         </form>

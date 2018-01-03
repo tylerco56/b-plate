@@ -16,10 +16,10 @@
         <div class="container">
             <h3 th:text="${title}">Default Title</h3>
             <div style="text-align: right;">
-                <a th:href="'p-' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
+                <a th:href="'../../page/' + ${page.url}" class="btn waves-effect waves-light btn-flat" target="_blank">VIEW PAGE</a>
             </div>
             <div class="small-gap"></div>
-            <form method="post" th:action="@{/page-edit}" th:object="${page}">
+            <form method="post" th:action="@{/page/edit} + '/' + ${page.id}" th:object="${page}">
                 <div class="input-field">
                     <input type="hidden" name="id" th:value="*{id}"/>
                     <label th:for="name" th:text="'Page Title'" ></label>
@@ -51,7 +51,7 @@
                             <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                         </span>
                         <span style="padding: 10px;">
-                            <form method="post" th:action="@{/page-delete}" style="display: inline;">
+                            <form method="post" th:action="@{/page/delete}" style="display: inline;">
                                 <input type="hidden" name="page_id" th:value="${page.id}"/>
                                 <button type="submit" value="Delete Page" class="btn waves-effect">DELETE</button>
                             </form>

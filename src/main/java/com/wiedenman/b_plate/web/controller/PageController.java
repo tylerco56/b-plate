@@ -52,7 +52,7 @@ public class PageController {
         return "page/index";
     }
 
-    @RequestMapping(value = "p-{url}", method = RequestMethod.GET)
+    @RequestMapping(value = "page/{url}", method = RequestMethod.GET)
     public String singlePage(Model model, @PathVariable String url) {
 
         Page page = pageService.findByUrl(url);
@@ -61,7 +61,7 @@ public class PageController {
         return "page/single";
     }
 
-    @RequestMapping(value = "page-new")
+    @RequestMapping(value = "page/new")
     public String newPage(Model model) {
 
         Page page = new Page();
@@ -70,7 +70,7 @@ public class PageController {
         return "page/new";
     }
 
-    @RequestMapping(value = "page-new", method = RequestMethod.POST)
+    @RequestMapping(value = "page/new", method = RequestMethod.POST)
     public String saveNewPage(@ModelAttribute @Valid Page newPage,
                               final BindingResult result,
                               Errors errors,
@@ -86,7 +86,7 @@ public class PageController {
             newPage.setUpdated();
             pageService.createNewPage(newPage);
             long id = newPage.getId();
-            return "redirect:page-edit-" + id;
+            return "redirect:../page/edit/" + id;
         } catch (UrlExistsException e) {
             result.addError(new FieldError("page", "url", e.getMessage()));
             model.addAttribute("page", newPage);
@@ -94,7 +94,7 @@ public class PageController {
         }
     }
 
-    @RequestMapping(value = "page-edit-{id}")
+    @RequestMapping(value = "page/edit/{id}")
     public String editPage(Model model, @PathVariable long id) {
 
         Page page = pageService.findOne(id);
@@ -104,11 +104,12 @@ public class PageController {
         return "page/edit";
     }
 
-    @RequestMapping(value = "page-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "page/edit/{id}", method = RequestMethod.POST)
     public String processSavePage(@ModelAttribute @Valid Page page,
                            final BindingResult result,
                            Errors errors,
                            Model model,
+                           @RequestParam long id,
                            Principal principal) {
 
         model.addAttribute("title", "EDIT PAGE");
@@ -130,10 +131,10 @@ public class PageController {
         }
     }
 
-    @RequestMapping(value = "page-delete", method = RequestMethod.POST)
+    @RequestMapping(value = "page/delete", method = RequestMethod.POST)
     public String deletePage(@RequestParam long page_id) {
 
         pageService.delete(pageService.findOne(page_id));
-        return "redirect:pages";
+        return "redirect:../pages";
     }
 }

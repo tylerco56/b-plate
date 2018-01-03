@@ -61,7 +61,7 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping(value = "user-edit-{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/edit/{id}", method = RequestMethod.GET)
     public String editUser(Model model, @PathVariable long id) {
 
         User user = userService.findOne(id);
@@ -70,11 +70,12 @@ public class UserController {
         return "user/edit";
     }
 
-    @RequestMapping(value = "user-edit", method = RequestMethod.POST)
+    @RequestMapping(value = "user/edit/{id}", method = RequestMethod.POST)
     public String processEditUser(@ModelAttribute @Valid User user,
                                   final BindingResult result,
                                   Errors errors,
-                                  Model model) {
+                                  Model model,
+                                  @RequestParam long id) {
 
         model.addAttribute("title", "EDIT USER");
 
@@ -159,22 +160,22 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    @RequestMapping(value = "user-disable", method = RequestMethod.POST)
+    @RequestMapping(value = "user/disable", method = RequestMethod.POST)
     public String disableUser(@RequestParam long user_id) throws EmailExistsException, UsernameExistsException {
 
         User user = userService.findOne(user_id);
         user.setEnabled(false);
         userService.save(user);
-        return "redirect:users";
+        return "redirect:../users";
     }
 
-    @RequestMapping(value = "user-enable", method = RequestMethod.POST)
+    @RequestMapping(value = "user/enable", method = RequestMethod.POST)
     public String enableUser(@RequestParam long user_id) throws EmailExistsException, UsernameExistsException {
 
         User user = userService.findOne(user_id);
         user.setEnabled(true);
         userService.save(user);
-        return "redirect:users";
+        return "redirect:../users";
     }
 
     @RequestMapping(value = "close-my-account", method = RequestMethod.POST)

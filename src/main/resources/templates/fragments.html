@@ -4,7 +4,7 @@
 <head th:fragment="head" lang="en">
     <meta charset="UTF-8"/>
     <meta description="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <link rel="stylesheet" th:href="@{../assets/css/app.css}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <title>b-plate</title>
 </head>
@@ -12,7 +12,7 @@
 
 <nav th:fragment="navigation" class="dark-grey" role="navigation">
     <div class="nav-wrapper container">
-        <a id="logo-container" href="/p-index" class="brand-logo">
+        <a id="logo-container" href="/page/index" class="brand-logo">
             <div style="display: inline; margin: 10px 0;">b-plate</div>
         </a>
 
@@ -34,7 +34,7 @@
                 <li><a th:href="@{/todo}">tasks</a></li>
                 <li><a th:href="@{/pages}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">pages</a></li>
                 <li><a href="#" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_PUBLISHER')">images</a></li>
-                <li><a th:href="@{users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
+                <li><a th:href="@{/users}" sec:authorize="hasRole('ROLE_ADMIN')">users</a></li>
                 <li>
                     <a sec:authentication="name" class="Lheader-item" th:href="@{/profile}" style="font-weight: 400;"></a>
                 </li>
@@ -125,7 +125,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
     <script type="text/javascript" th:src="@{/assets/js/init.js}"></script>
-    <script type="text/javascript" th:src="@{assets/js/materialize.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/materialize.js}"></script>
     <script type="text/javascript" th:src="@{/assets/js/app.js}"></script>
     <script src="https://use.fontawesome.com/63da30cce9.js"></script>
 </div>

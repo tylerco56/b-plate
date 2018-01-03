@@ -7,7 +7,7 @@
         <div class="small-gap"></div>
         <div class="container row">
                 <h3 th:text="${title}">Default Title</h3>
-                <a href="/page-new" class="btn waves-effect waves-light">ADD NEW</a>
+                <a th:href="@{/page/new}" class="btn waves-effect waves-light">ADD NEW</a>
                 <div class="large-gap"></div>
             <div>
                 <table class="striped responsive-table">
@@ -20,11 +20,11 @@
                     <tbody>
                     <tr th:each="page : ${pages}">
                         <td><strong><span th:text="${page.name}"></span></strong></td>
-                        <td><a th:href="'/p-' + ${page.url}" class="waves-effect waves-light explode" ><span th:text="'/p-' + ${page.url}"></span></a></td>
+                        <td><a th:href="'/page/' + ${page.url}" class="waves-effect waves-light explode" ><span th:text="'/page/' + ${page.url}"></span></a></td>
                         <td th:text="${page.updated}"></td>
                         <td th:text="${page.author.username}"></td>
                         <td style="text-align: right;">
-                            <a class="btn waves-effect waves-light" th:href="'page-edit-' + ${page.id}">edit</a>&nbsp;&nbsp;
+                            <a class="btn waves-effect waves-light" th:href="'page/edit/' + ${page.id}">edit</a>&nbsp;&nbsp;
                             <a class="waves-effect waves-light btn btn-flat btn-delete view" th:onclick="'$(\'#row-' + ${page.id} + '\').modal(\'open\');'">delete</a>
                             <!-- Modal Structure -->
                             <div th:id="'row-' + ${page.id}" class="modal" style="max-width: 500px;">
@@ -35,7 +35,7 @@
                                         <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                                     </span>
                                     <span style="padding: 10px;">
-                                        <form method="post" th:action="@{/page-delete}" style="display: inline;">
+                                        <form method="post" th:action="@{/page/delete}" style="display: inline;">
                                             <input type="hidden" name="page_id" th:value="${page.id}"/>
                                             <button type="submit" value="Delete Page" class="btn waves-effect">DELETE</button>
                                         </form>
@@ -60,7 +60,7 @@
                     </tbody>
                 </table>
                 <p th:unless="${pages} and ${pages.size()}">
-                    No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="page-new">Add a page now.</a>
+                    No pages found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{page/new}">Add a page now.</a>
                 </p>
                 <div class="large-gap"></div>
             </div>
