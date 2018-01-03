@@ -284,7 +284,7 @@ insert into page (name, publish, author_id, url, body) values ('contact', true, 
           <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+          <a href="https://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
         </div>
         <br><br>
 
@@ -365,7 +365,7 @@ insert into page (name, publish, author_id, url, body) values ('contact', true, 
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="https://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 ');
 
