@@ -46,7 +46,7 @@ public class TaskController {
         Iterable<Task> tasks = taskService.findAll();
         model.addAttribute("tasks", tasks);
         model.addAttribute("newTask", new Task());
-        return "/task/todo";
+        return "task/todo";
     }
 
     @RequestMapping(path = "/mark", method = RequestMethod.POST)
