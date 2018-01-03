@@ -46,6 +46,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class PasswordController {
 
+    private String portNumber = ""; // TODO: Set this to ":8080" or your port for testing
+    private String supportEmail = "donotreply@b-plate.com";
+
     @Autowired
     private UserService userService;
 
@@ -82,11 +85,10 @@ public class PasswordController {
             userService.save(user);
 
             String appUrl = request.getScheme() + "://" + request.getServerName();
-            String portNumber = ""; // TODO: Set this to :8080 or your port for testing
 
             // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-            passwordResetEmail.setFrom("donotreply@b-plate.com");
+            passwordResetEmail.setFrom(supportEmail);
             passwordResetEmail.setTo(user.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link:\n" + appUrl
@@ -187,11 +189,11 @@ public class PasswordController {
 
             // Email message
             SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-            passwordResetEmail.setFrom("donotreply@b-plate.com");
+            passwordResetEmail.setFrom(supportEmail);
             passwordResetEmail.setTo(user.getEmail());
             passwordResetEmail.setSubject("Password Reset Request");
             passwordResetEmail.setText("To reset your password, click the link:\n" + appUrl
-                    + ":8080/reset?token=" + user.getResetToken());
+                    + portNumber + "/reset?token=" + user.getResetToken());
 
             emailService.sendEmail(passwordResetEmail);
 
