@@ -365,7 +365,7 @@ insert into page (name, publish, author_id, url, body) values ('contact', true, 
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="https://materializecss.com/templates/parallax-template/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="/assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 ');
 
