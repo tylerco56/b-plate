@@ -3,444 +3,455 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="638.0" y="1563.0">com.wiedenman.b_plate.exception.MessageSenderException</node>
-    <node x="1563.1730306939921" y="1246.0">com.wiedenman.b_plate.web.controller.RegistrationController</node>
-    <node x="2889.770164711534" y="1002.5">com.wiedenman.b_plate.exception.UrlExistsException</node>
-    <node x="294.0" y="1563.0">com.wiedenman.b_plate.exception.WrongVerificationCodeException</node>
-    <node x="1592.1506410256407" y="0.0">com.wiedenman.b_plate.web.model.Role</node>
-    <node x="2076.154464837638" y="1013.5">com.wiedenman.b_plate.service.EmailService</node>
-    <node x="403.1961315043045" y="1279.0">com.wiedenman.b_plate.web.controller.UserController</node>
-    <node x="1003.5165980957329" y="1268.0">com.wiedenman.b_plate.service.UserServiceImpl</node>
-    <node x="3379.7836315043046" y="781.5">com.wiedenman.b_plate.web.controller.LoginController</node>
-    <node x="705.9166666666665" y="1002.5">com.wiedenman.b_plate.exception.EmailExistsException</node>
-    <node x="2388.727564102564" y="715.0">com.wiedenman.b_plate.web.model.Task</node>
-    <node x="3303.165064102564" y="1013.5">com.wiedenman.b_plate.dao.PageDao</node>
-    <node x="1230.0" y="1430.0">com.wiedenman.b_plate.config.TemplateConfig</node>
-    <node x="65.0" y="1278.5">com.wiedenman.b_plate.config.SecurityConfig</node>
-    <node x="3178.6336315043045" y="1290.0">com.wiedenman.b_plate.service.PageServiceImpl</node>
-    <node x="1420.0" y="1430.0">com.wiedenman.b_plate.web.controller.PathController</node>
-    <node x="975.9166666666665" y="1002.5">com.wiedenman.b_plate.exception.UsernameExistsException</node>
-    <node x="3026.7836315043046" y="682.0">com.wiedenman.b_plate.web.model.Page</node>
-    <node x="1531.6506410256407" y="168.0">com.wiedenman.b_plate.web.model.User</node>
-    <node x="1841.1730306939921" y="1268.0">com.wiedenman.b_plate.web.controller.PasswordController</node>
-    <node x="2409.173030693992" y="1290.0">com.wiedenman.b_plate.service.TaskServiceImpl</node>
-    <node x="3144.770164711534" y="1013.5">com.wiedenman.b_plate.service.PageService</node>
-    <node x="1407.057330820096" y="1013.5">com.wiedenman.b_plate.dao.VerificationDao</node>
-    <node x="564.9166666666665" y="1013.5">com.wiedenman.b_plate.service.UserService</node>
-    <node x="1029.0" y="1430.0">com.wiedenman.b_plate.BPlateApplication</node>
-    <node x="300.5" y="781.5">com.wiedenman.b_plate.web.comparator.UsernameComparator</node>
-    <node x="2534.7040980957327" y="1013.5">com.wiedenman.b_plate.dao.TaskDao</node>
-    <node x="446.9166666666665" y="1013.5">com.wiedenman.b_plate.dao.RoleDao</node>
-    <node x="2345.339697360659" y="1013.5">com.wiedenman.b_plate.service.TaskService</node>
-    <node x="2604.173030693992" y="1290.0">com.wiedenman.b_plate.web.controller.TaskController</node>
-    <node x="2839.173030693992" y="1290.0">com.wiedenman.b_plate.web.controller.PageController</node>
-    <node x="1070.807330820096" y="693.0">com.wiedenman.b_plate.web.model.VerificationToken</node>
-    <node x="0.0" y="1563.0">com.wiedenman.b_plate.exception.WrongUserPasswordException</node>
-    <node x="0.0" y="980.0">com.wiedenman.b_plate.web.FlashMessage</node>
-    <node x="308.5" y="1430.0">com.wiedenman.b_plate.exception.DomainException</node>
-    <node x="2155.173030693992" y="1290.0">com.wiedenman.b_plate.service.EmailServiceImpl</node>
-    <node x="1569.057330820096" y="1013.5">com.wiedenman.b_plate.dao.UserDao</node>
+    <node x="294.0" y="3030.0">com.wiedenman.b_plate.exception.MessageSenderException</node>
+    <node x="2984.4996397928644" y="2558.0">com.wiedenman.b_plate.web.controller.RegistrationController</node>
+    <node x="4600.336134453782" y="2170.0">com.wiedenman.b_plate.exception.UrlExistsException</node>
+    <node x="660.0" y="3030.0">com.wiedenman.b_plate.exception.WrongVerificationCodeException</node>
+    <node x="3160.7662912706046" y="0.0">com.wiedenman.b_plate.web.model.Role</node>
+    <node x="364.67036278571913" y="2170.0">com.wiedenman.b_plate.service.EmailService</node>
+    <node x="2392.2647058823527" y="2470.0">com.wiedenman.b_plate.service.UserServiceImpl</node>
+    <node x="1484.2230392156862" y="2536.0">com.wiedenman.b_plate.web.controller.UserController</node>
+    <node x="2063.9671459714596" y="2170.0">com.wiedenman.b_plate.exception.EmailExistsException</node>
+    <node x="3223.1495294523857" y="1686.0">com.wiedenman.b_plate.web.controller.LoginController</node>
+    <node x="3689.381467700572" y="1531.0">com.wiedenman.b_plate.web.model.Task</node>
+    <node x="5108.336134453782" y="2159.0">com.wiedenman.b_plate.dao.PageDao</node>
+    <node x="1029.0" y="2897.0">com.wiedenman.b_plate.config.TemplateConfig</node>
+    <node x="1018.5625" y="2546.5">com.wiedenman.b_plate.config.SecurityConfig</node>
+    <node x="4977.151562869787" y="2558.0">com.wiedenman.b_plate.service.PageServiceImpl</node>
+    <node x="2332.9671459714596" y="2170.0">com.wiedenman.b_plate.exception.UsernameExistsException</node>
+    <node x="1695.0" y="2897.0">com.wiedenman.b_plate.web.controller.PathController</node>
+    <node x="4789.978791270604" y="1454.0">com.wiedenman.b_plate.web.model.Page</node>
+    <node x="3127.2662912706046" y="257.0">com.wiedenman.b_plate.web.model.User</node>
+    <node x="4031.2662912706046" y="2580.0">com.wiedenman.b_plate.service.TaskServiceImpl</node>
+    <node x="308.0" y="2525.0">com.wiedenman.b_plate.web.controller.PasswordController</node>
+    <node x="4855.336134453782" y="2115.0">com.wiedenman.b_plate.service.PageService</node>
+    <node x="2704.2171459714596" y="2170.0">com.wiedenman.b_plate.dao.VerificationDao</node>
+    <node x="1401.1129793047928" y="2071.0">com.wiedenman.b_plate.service.UserService</node>
+    <node x="1466.0" y="2897.0">com.wiedenman.b_plate.BPlateApplication</node>
+    <node x="4208.399529452386" y="2170.0">com.wiedenman.b_plate.dao.TaskDao</node>
+    <node x="1250.213449852407" y="1697.0">com.wiedenman.b_plate.web.comparator.UsernameComparator</node>
+    <node x="1823.9671459714596" y="2159.0">com.wiedenman.b_plate.dao.RoleDao</node>
+    <node x="3622.1495294523857" y="2126.0">com.wiedenman.b_plate.service.TaskService</node>
+    <node x="3751.2662912706046" y="2602.0">com.wiedenman.b_plate.web.controller.TaskController</node>
+    <node x="4295.966291270604" y="2558.0">com.wiedenman.b_plate.web.controller.PageController</node>
+    <node x="2691.0823224014266" y="1498.0">com.wiedenman.b_plate.web.model.VerificationToken</node>
+    <node x="0.0" y="3030.0">com.wiedenman.b_plate.exception.WrongUserPasswordException</node>
+    <node x="890.4254793047926" y="2103.0">com.wiedenman.b_plate.web.FlashMessage</node>
+    <node x="319.5" y="2897.0">com.wiedenman.b_plate.exception.DomainException</node>
+    <node x="0.0" y="2624.0">com.wiedenman.b_plate.service.EmailServiceImpl</node>
+    <node x="3029.2171459714596" y="2126.0">com.wiedenman.b_plate.dao.UserDao</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.web.model.VerificationToken">
-      <point x="-28.666666666666742" y="-47.5" />
-      <point x="1103.8499314290661" y="1146.0" />
-      <point x="965.4166666666665" y="1146.0" />
-      <point x="965.4166666666665" y="960.0" />
-      <point x="1136.807330820096" y="960.0" />
-      <point x="-66.0" y="103.0" />
+      <point x="41.888888888888914" y="-191.0" />
+      <point x="2622.653594771242" y="2450.0" />
+      <point x="2633.4671459714596" y="2450.0" />
+      <point x="2633.4671459714596" y="2041.0" />
+      <point x="2757.0823224014266" y="2041.0" />
+      <point x="-66.0" y="224.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.PageServiceImpl" target="com.wiedenman.b_plate.web.model.Page">
-      <point x="22.5" y="-25.5" />
-      <point x="3291.1336315043045" y="1226.0" />
-      <point x="3292.665064102564" y="1226.0" />
-      <point x="3292.665064102564" y="960.0" />
-      <point x="3259.8836315043045" y="960.0" />
-      <point x="66.59999999999991" y="114.0" />
+      <point x="87.375" y="-103.0" />
+      <point x="5181.026562869787" y="2450.0" />
+      <point x="5325.836134453782" y="2450.0" />
+      <point x="5325.836134453782" y="2041.0" />
+      <point x="5089.678791270604" y="2041.0" />
+      <point x="133.20000000000005" y="268.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.TaskController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="80.625" y="-25.5" />
-      <point x="2792.298030693992" y="1226.0" />
-      <point x="2781.9739974867625" y="1226.0" />
-      <point x="2781.9739974867625" y="632.0" />
-      <point x="1922.8271116138762" y="632.0" />
-      <point x="125.17647058823536" y="202.0" />
+      <point x="97.5" y="-59.0" />
+      <point x="3978.7662912706046" y="2450.0" />
+      <point x="4033.025862854599" y="2450.0" />
+      <point x="4033.025862854599" y="1394.0" />
+      <point x="3549.736879505899" y="1394.0" />
+      <point x="156.47058823529414" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.PasswordController" target="com.wiedenman.b_plate.service.UserService">
-      <point x="-98.0" y="-47.5" />
-      <point x="1890.1730306939921" y="1096.0" />
-      <point x="675.833333333333" y="1096.0" />
-      <point x="50.416666666666515" y="14.5" />
+      <point x="222.33333333333348" y="-136.0" />
+      <point x="863.8333333333335" y="2430.0" />
+      <point x="1432.5296459714596" y="2430.0" />
+      <point x="-157.08333333333337" y="124.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.EmailServiceImpl" target="com.wiedenman.b_plate.service.EmailService">
-      <point x="0.0" y="-25.5" />
-      <point x="2272.173030693992" y="1216.0" />
-      <point x="2179.487798170971" y="1216.0" />
-      <point x="41.33333333333326" y="14.5" />
+      <point x="0.0" y="-37.0" />
+      <point x="144.0" y="2450.0" />
+      <point x="412.67036278571913" y="2450.0" />
+      <point x="-96.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.TaskServiceImpl" target="com.wiedenman.b_plate.service.TaskService">
-      <point x="-58.33333333333326" y="-25.5" />
-      <point x="2438.339697360659" y="1226.0" />
-      <point x="2405.839697360659" y="1226.0" />
-      <point x="0.0" y="14.5" />
+      <point x="-78.66666666666652" y="-81.0" />
+      <point x="4070.5996246039385" y="2440.0" />
+      <point x="3818.816196119052" y="2440.0" />
+      <point x="78.66666666666652" y="69.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserService" target="com.wiedenman.b_plate.web.model.User">
-      <point x="-30.25" y="-14.5" />
-      <point x="595.1666666666665" y="622.0" />
-      <point x="1609.885935143288" y="622.0" />
-      <point x="-187.76470588235293" y="202.0" />
-    </edge>
-    <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.exception.UsernameExistsException">
-      <point x="-79.38461538461547" y="-69.5" />
-      <point x="1612.7884153093767" y="1116.0" />
-      <point x="1208.4166666666665" y="1116.0" />
-      <point x="93.0" y="25.5" />
+      <point x="-94.25" y="-124.5" />
+      <point x="1495.3629793047928" y="2021.0" />
+      <point x="1783.57943428317" y="2021.0" />
+      <point x="1783.57943428317" y="1394.0" />
+      <point x="3236.795703035311" y="1394.0" />
+      <point x="-156.47058823529414" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.PageController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="-88.0" y="-25.5" />
-      <point x="2861.173030693992" y="1226.0" />
-      <point x="2838.790064102564" y="1226.0" />
-      <point x="2838.790064102564" y="622.0" />
-      <point x="1954.1212292609348" y="622.0" />
-      <point x="156.47058823529414" y="202.0" />
+      <point x="-214.39999999999964" y="-103.0" />
+      <point x="4349.566291270605" y="2450.0" />
+      <point x="4450.901562869787" y="2450.0" />
+      <point x="4450.901562869787" y="1384.0" />
+      <point x="3581.0309971529578" y="1384.0" />
+      <point x="187.76470588235316" y="543.5" />
+    </edge>
+    <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.exception.UsernameExistsException">
+      <point x="-123.69230769230762" y="-103.0" />
+      <point x="3128.807332100557" y="2350.0" />
+      <point x="2565.4671459714596" y="2350.0" />
+      <point x="93.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.dao.RoleDao" target="com.wiedenman.b_plate.web.model.Role">
-      <point x="0.0" y="-14.5" />
-      <point x="495.9166666666665" y="143.0" />
-      <point x="1616.3173076923076" y="143.0" />
-      <point x="-48.33333333333326" y="59.0" />
+      <point x="0.0" y="-36.5" />
+      <point x="1933.9671459714596" y="2011.0" />
+      <point x="1625.875" y="2011.0" />
+      <point x="1625.875" y="232.0" />
+      <point x="3193.9329579372716" y="232.0" />
+      <point x="-66.33333333333348" y="103.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.dao.RoleDao">
-      <point x="-114.66666666666674" y="-47.5" />
-      <point x="1017.8499314290661" y="1176.0" />
-      <point x="520.4166666666665" y="1176.0" />
-      <point x="24.5" y="14.5" />
+      <point x="-125.66666666666652" y="-191.0" />
+      <point x="2455.098039215686" y="2410.0" />
+      <point x="1988.9671459714596" y="2410.0" />
+      <point x="55.0" y="36.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.web.model.Task">
-      <point x="79.38461538461547" y="-69.5" />
-      <point x="1771.5576460786076" y="1196.0" />
-      <point x="1819.6506410256407" y="1196.0" />
-      <point x="1819.6506410256407" y="950.0" />
-      <point x="2439.9418498168498" y="950.0" />
-      <point x="-68.28571428571433" y="81.0" />
+      <point x="164.92307692307713" y="-103.0" />
+      <point x="3417.4227167159415" y="2430.0" />
+      <point x="3600.6495294523857" y="2430.0" />
+      <point x="3600.6495294523857" y="2031.0" />
+      <point x="3710.524324843429" y="2031.0" />
+      <point x="-126.85714285714266" y="191.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.dao.UserDao">
-      <point x="114.66666666666674" y="-47.5" />
-      <point x="1247.1832647623996" y="1226.0" />
-      <point x="1594.307330820096" y="1226.0" />
-      <point x="-25.25" y="14.5" />
+      <point x="167.55555555555566" y="-191.0" />
+      <point x="2748.3202614379084" y="2450.0" />
+      <point x="3111.2171459714596" y="2450.0" />
+      <point x="-82.0" y="69.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.exception.UsernameExistsException">
-      <point x="0.0" y="-47.5" />
-      <point x="1132.516598095733" y="1226.0" />
-      <point x="1115.4166666666665" y="1226.0" />
+      <point x="-41.888888888888914" y="-191.0" />
+      <point x="2538.875816993464" y="2390.0" />
+      <point x="2472.4671459714596" y="2390.0" />
       <point x="0.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.dao.PageDao" target="com.wiedenman.b_plate.web.model.Page">
-      <point x="0.0" y="-14.5" />
-      <point x="3354.165064102564" y="960.0" />
-      <point x="3326.483631504305" y="960.0" />
-      <point x="133.20000000000005" y="114.0" />
+      <point x="0.0" y="-36.5" />
+      <point x="5211.836134453782" y="2051.0" />
+      <point x="5023.078791270605" y="2051.0" />
+      <point x="66.60000000000036" y="268.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.model.Page" target="com.wiedenman.b_plate.web.model.User">
-      <point x="-83.25" y="-114.0" />
-      <point x="3110.0336315043046" y="612.0" />
-      <point x="1985.4153469079938" y="612.0" />
-      <point x="187.76470588235316" y="202.0" />
+      <point x="-83.25" y="-268.5" />
+      <point x="4873.228791270604" y="1374.0" />
+      <point x="3612.3251148000163" y="1374.0" />
+      <point x="219.0588235294117" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.service.UserService">
-      <point x="18.0" y="-36.5" />
-      <point x="529.1961315043045" y="1206.0" />
-      <point x="615.333333333333" y="1206.0" />
-      <point x="-10.083333333333485" y="14.5" />
+      <point x="-39.5" y="-125.0" />
+      <point x="1681.7230392156862" y="2450.0" />
+      <point x="1621.0296459714596" y="2450.0" />
+      <point x="31.416666666666742" y="124.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.PageServiceImpl" target="com.wiedenman.b_plate.exception.UrlExistsException">
-      <point x="-67.5" y="-25.5" />
-      <point x="3201.1336315043045" y="1216.0" />
-      <point x="3066.020164711534" y="1216.0" />
+      <point x="-87.375" y="-103.0" />
+      <point x="5006.276562869787" y="2440.0" />
+      <point x="4776.586134453782" y="2440.0" />
       <point x="58.75" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.TaskServiceImpl" target="com.wiedenman.b_plate.dao.TaskDao">
-      <point x="58.33333333333337" y="-25.5" />
-      <point x="2555.0063640273256" y="1226.0" />
-      <point x="2585.2040980957327" y="1226.0" />
-      <point x="0.0" y="14.5" />
+      <point x="78.66666666666652" y="-81.0" />
+      <point x="4227.932957937272" y="2450.0" />
+      <point x="4302.399529452386" y="2450.0" />
+      <point x="0.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.PageService" target="com.wiedenman.b_plate.web.model.Page">
-      <point x="0.0" y="-14.5" />
-      <point x="3205.770164711534" y="960.0" />
-      <point x="3193.2836315043046" y="960.0" />
-      <point x="0.0" y="114.0" />
+      <point x="0.0" y="-80.5" />
+      <point x="4971.836134453782" y="2051.0" />
+      <point x="4956.478791270604" y="2051.0" />
+      <point x="0.0" y="268.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.exception.EmailExistsException">
-      <point x="-99.23076923076928" y="-69.5" />
-      <point x="1592.9422614632228" y="1126.0" />
-      <point x="913.4166666666665" y="1126.0" />
+      <point x="-164.92307692307713" y="-103.0" />
+      <point x="3087.5765628697873" y="2360.0" />
+      <point x="2271.4671459714596" y="2360.0" />
       <point x="83.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.TaskController" target="com.wiedenman.b_plate.service.TaskService">
-      <point x="-80.625" y="-25.5" />
-      <point x="2631.048030693992" y="1216.0" />
-      <point x="2446.1730306939926" y="1216.0" />
-      <point x="40.33333333333337" y="14.5" />
+      <point x="-97.5" y="-59.0" />
+      <point x="3783.7662912706046" y="2450.0" />
+      <point x="3740.1495294523857" y="2450.0" />
+      <point x="0.0" y="69.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.PageServiceImpl" target="com.wiedenman.b_plate.service.PageService">
-      <point x="-22.5" y="-25.5" />
-      <point x="3246.1336315043045" y="1226.0" />
-      <point x="3236.270164711534" y="1226.0" />
-      <point x="30.5" y="14.5" />
+      <point x="-29.125" y="-103.0" />
+      <point x="5064.526562869787" y="2450.0" />
+      <point x="5030.086134453782" y="2450.0" />
+      <point x="58.25" y="80.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.web.model.User">
-      <point x="57.33333333333326" y="-47.5" />
-      <point x="1189.8499314290661" y="1206.0" />
-      <point x="1396.557330820096" y="1206.0" />
-      <point x="1396.557330820096" y="652.0" />
-      <point x="1703.7682880844643" y="652.0" />
-      <point x="-93.88235294117646" y="202.0" />
+      <point x="0.0" y="-191.0" />
+      <point x="2580.7647058823527" y="2440.0" />
+      <point x="2622.4671459714596" y="2440.0" />
+      <point x="2622.4671459714596" y="1404.0" />
+      <point x="3268.0898206823695" y="1404.0" />
+      <point x="-125.17647058823513" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.exception.WrongVerificationCodeException" target="com.wiedenman.b_plate.exception.DomainException">
-      <point x="-81.0" y="-25.5" />
-      <point x="375.0" y="1543.0" />
-      <point x="431.41666666666663" y="1543.0" />
-      <point x="-24.58333333333337" y="36.5" />
+      <point x="81.0" y="-25.5" />
+      <point x="903.0" y="2990.0" />
+      <point x="589.9166666666666" y="2990.0" />
+      <point x="122.91666666666663" y="36.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.dao.UserDao">
-      <point x="-39.69230769230762" y="-69.5" />
-      <point x="1652.4807230016845" y="1226.0" />
-      <point x="1644.807330820096" y="1226.0" />
-      <point x="25.25" y="14.5" />
+      <point x="-41.230769230769056" y="-103.0" />
+      <point x="3211.2688705620953" y="2380.0" />
+      <point x="3275.2171459714596" y="2380.0" />
+      <point x="82.0" y="69.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="-90.0" y="-36.5" />
-      <point x="421.1961315043045" y="1176.0" />
-      <point x="290.0" y="1176.0" />
-      <point x="290.0" y="602.0" />
-      <point x="1547.2976998491702" y="602.0" />
-      <point x="-250.3529411764706" y="202.0" />
+      <point x="-197.5" y="-125.0" />
+      <point x="1523.7230392156862" y="2420.0" />
+      <point x="1239.713449852407" y="2420.0" />
+      <point x="1239.713449852407" y="1374.0" />
+      <point x="3174.207467741193" y="1374.0" />
+      <point x="-219.0588235294117" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.model.Task" target="com.wiedenman.b_plate.web.model.User">
-      <point x="59.75" y="-81.0" />
-      <point x="2567.977564102564" y="642.0" />
-      <point x="1891.5329939668172" y="642.0" />
-      <point x="93.88235294117658" y="202.0" />
+      <point x="-74.0" y="-191.5" />
+      <point x="3763.381467700572" y="1414.0" />
+      <point x="3487.148644211781" y="1414.0" />
+      <point x="93.88235294117658" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.dao.VerificationDao">
-      <point x="86.0" y="-47.5" />
-      <point x="1218.516598095733" y="1216.0" />
-      <point x="1442.557330820096" y="1216.0" />
-      <point x="-35.5" y="14.5" />
+      <point x="125.66666666666674" y="-191.0" />
+      <point x="2706.4313725490197" y="2440.0" />
+      <point x="2780.4671459714596" y="2440.0" />
+      <point x="-76.25" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.TaskController" target="com.wiedenman.b_plate.web.model.Task">
-      <point x="-26.875" y="-25.5" />
-      <point x="2684.798030693992" y="950.0" />
-      <point x="2576.513278388278" y="950.0" />
-      <point x="68.28571428571422" y="81.0" />
+      <point x="-32.5" y="-59.0" />
+      <point x="3848.7662912706046" y="2450.0" />
+      <point x="3868.6495294523857" y="2450.0" />
+      <point x="3868.6495294523857" y="2051.0" />
+      <point x="3837.381467700572" y="2051.0" />
+      <point x="0.0" y="191.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.exception.WrongUserPasswordException" target="com.wiedenman.b_plate.exception.DomainException">
       <point x="-68.5" y="-25.5" />
-      <point x="68.5" y="1523.0" />
-      <point x="333.08333333333337" y="1523.0" />
+      <point x="68.5" y="2990.0" />
+      <point x="344.08333333333337" y="2990.0" />
       <point x="-122.91666666666663" y="36.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.service.UserService">
-      <point x="-119.0769230769231" y="-69.5" />
-      <point x="1573.096107617069" y="1136.0" />
-      <point x="655.6666666666665" y="1136.0" />
-      <point x="30.25" y="14.5" />
+      <point x="-206.1538461538462" y="-103.0" />
+      <point x="3046.345793639018" y="2370.0" />
+      <point x="1746.6963126381263" y="2370.0" />
+      <point x="157.08333333333348" y="124.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.service.TaskService">
-      <point x="119.0769230769231" y="-69.5" />
-      <point x="1811.2499537709152" y="1226.0" />
-      <point x="2365.5063640273256" y="1226.0" />
-      <point x="-40.33333333333337" y="14.5" />
-    </edge>
-    <edge source="com.wiedenman.b_plate.web.controller.PageController" target="com.wiedenman.b_plate.web.model.Page">
-      <point x="-44.0" y="-25.5" />
-      <point x="2905.173030693992" y="1216.0" />
-      <point x="2849.790064102564" y="1216.0" />
-      <point x="2849.790064102564" y="950.0" />
-      <point x="3060.0836315043043" y="950.0" />
-      <point x="-133.20000000000005" y="114.0" />
+      <point x="247.38461538461524" y="-103.0" />
+      <point x="3499.8842551774796" y="2450.0" />
+      <point x="3661.482862785719" y="2450.0" />
+      <point x="-78.66666666666652" y="69.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.dao.VerificationDao" target="com.wiedenman.b_plate.web.model.VerificationToken">
-      <point x="0.0" y="-14.5" />
-      <point x="1478.057330820096" y="950.0" />
-      <point x="1224.807330820096" y="950.0" />
-      <point x="22.0" y="103.0" />
+      <point x="0.0" y="-25.5" />
+      <point x="2856.7171459714596" y="2051.0" />
+      <point x="2845.0823224014266" y="2051.0" />
+      <point x="22.0" y="224.5" />
+    </edge>
+    <edge source="com.wiedenman.b_plate.web.controller.PageController" target="com.wiedenman.b_plate.web.model.Page">
+      <point x="-107.19999999999982" y="-103.0" />
+      <point x="4456.766291270605" y="2450.0" />
+      <point x="4461.901562869787" y="2450.0" />
+      <point x="4461.901562869787" y="2041.0" />
+      <point x="4823.278791270604" y="2041.0" />
+      <point x="-133.19999999999982" y="268.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.exception.EmailExistsException">
-      <point x="-57.333333333333485" y="-47.5" />
-      <point x="1075.1832647623994" y="1156.0" />
-      <point x="830.4166666666665" y="1156.0" />
+      <point x="-83.77777777777783" y="-191.0" />
+      <point x="2496.986928104575" y="2400.0" />
+      <point x="2188.4671459714596" y="2400.0" />
       <point x="0.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.PageController" target="com.wiedenman.b_plate.service.PageService">
-      <point x="88.0" y="-25.5" />
-      <point x="3037.173030693992" y="1226.0" />
-      <point x="3175.270164711534" y="1226.0" />
-      <point x="-30.5" y="14.5" />
+      <point x="214.39999999999964" y="-103.0" />
+      <point x="4778.366291270604" y="2450.0" />
+      <point x="4913.586134453782" y="2450.0" />
+      <point x="-58.25" y="80.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.config.SecurityConfig" target="com.wiedenman.b_plate.service.UserService">
-      <point x="92.25" y="-37.0" />
-      <point x="280.25" y="1196.0" />
-      <point x="595.1666666666665" y="1196.0" />
-      <point x="-30.25" y="14.5" />
+      <point x="150.375" y="-114.5" />
+      <point x="1369.4375" y="2450.0" />
+      <point x="1558.196312638126" y="2450.0" />
+      <point x="-31.41666666666663" y="124.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.exception.MessageSenderException" target="com.wiedenman.b_plate.exception.DomainException">
-      <point x="86.5" y="-25.5" />
-      <point x="897.5" y="1523.0" />
-      <point x="578.9166666666666" y="1523.0" />
-      <point x="122.91666666666663" y="36.5" />
+      <point x="-86.5" y="-25.5" />
+      <point x="380.5" y="3010.0" />
+      <point x="442.41666666666663" y="3010.0" />
+      <point x="-24.58333333333337" y="36.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.comparator.UsernameComparator" target="com.wiedenman.b_plate.web.model.User">
-      <point x="0.0" y="-14.5" />
-      <point x="392.0" y="612.0" />
-      <point x="1578.591817496229" y="612.0" />
-      <point x="-219.0588235294117" y="202.0" />
+      <point x="0.0" y="-25.5" />
+      <point x="1358.713449852407" y="1384.0" />
+      <point x="3205.5015853882514" y="1384.0" />
+      <point x="-187.76470588235316" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.web.comparator.UsernameComparator">
-      <point x="-54.0" y="-36.5" />
-      <point x="457.1961315043045" y="1166.0" />
-      <point x="392.0" y="1166.0" />
-      <point x="0.0" y="14.5" />
+      <point x="-118.5" y="-125.0" />
+      <point x="1602.7230392156862" y="2410.0" />
+      <point x="1358.713449852407" y="2410.0" />
+      <point x="0.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.LoginController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="0.0" y="-14.5" />
-      <point x="3451.2836315043046" y="592.0" />
-      <point x="2048.0035822021114" y="592.0" />
-      <point x="250.35294117647072" y="202.0" />
+      <point x="0.0" y="-36.5" />
+      <point x="3395.6495294523857" y="1434.0" />
+      <point x="3393.2662912706046" y="1434.0" />
+      <point x="0.0" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="19.84615384615381" y="-69.5" />
-      <point x="1712.019184540146" y="1166.0" />
-      <point x="1786.6506410256407" y="1166.0" />
-      <point x="1786.6506410256407" y="662.0" />
-      <point x="1766.356523378582" y="662.0" />
-      <point x="-31.294117647058783" y="202.0" />
-    </edge>
-    <edge source="com.wiedenman.b_plate.service.TaskService" target="com.wiedenman.b_plate.web.model.Task">
-      <point x="-1.1368683772161603E-13" y="-14.5" />
-      <point x="2405.839697360659" y="960.0" />
-      <point x="2474.0847069597066" y="960.0" />
-      <point x="-34.14285714285711" y="81.0" />
+      <point x="82.46153846153857" y="-103.0" />
+      <point x="3334.961178254403" y="2410.0" />
+      <point x="3578.6495294523857" y="2410.0" />
+      <point x="3578.6495294523857" y="1434.0" />
+      <point x="3424.560408917664" y="1434.0" />
+      <point x="31.29411764705901" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.TaskServiceImpl" target="com.wiedenman.b_plate.web.model.Task">
-      <point x="1.1368683772161603E-13" y="-25.5" />
-      <point x="2496.6730306939926" y="1226.0" />
-      <point x="2503.0063640273256" y="1226.0" />
-      <point x="2503.0063640273256" y="960.0" />
-      <point x="2508.227564102564" y="960.0" />
-      <point x="0.0" y="81.0" />
+      <point x="0.0" y="-81.0" />
+      <point x="4149.266291270605" y="2450.0" />
+      <point x="4136.349624603938" y="2450.0" />
+      <point x="4136.349624603938" y="2041.0" />
+      <point x="3921.9528962720005" y="2041.0" />
+      <point x="84.57142857142844" y="191.5" />
+    </edge>
+    <edge source="com.wiedenman.b_plate.service.TaskService" target="com.wiedenman.b_plate.web.model.Task">
+      <point x="0.0" y="-69.5" />
+      <point x="3740.1495294523857" y="2051.0" />
+      <point x="3795.0957534148574" y="2051.0" />
+      <point x="-42.28571428571422" y="191.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.PasswordController" target="com.wiedenman.b_plate.service.EmailService">
-      <point x="98.0" y="-47.5" />
-      <point x="2086.173030693992" y="1216.0" />
-      <point x="2138.154464837638" y="1216.0" />
-      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-136.0" />
+      <point x="641.5" y="2450.0" />
+      <point x="508.67036278571913" y="2450.0" />
+      <point x="0.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.exception.UsernameExistsException">
-      <point x="90.0" y="-36.5" />
-      <point x="601.1961315043045" y="1226.0" />
-      <point x="1022.4166666666665" y="1226.0" />
+      <point x="197.5" y="-125.0" />
+      <point x="1918.7230392156862" y="2450.0" />
+      <point x="2379.4671459714596" y="2450.0" />
       <point x="-93.0" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.dao.UserDao" target="com.wiedenman.b_plate.web.model.User">
-      <point x="0.0" y="-14.5" />
-      <point x="1619.557330820096" y="662.0" />
-      <point x="1735.062405731523" y="662.0" />
-      <point x="-62.58823529411757" y="202.0" />
+      <point x="0.0" y="-69.5" />
+      <point x="3193.2171459714596" y="2051.0" />
+      <point x="3212.6495294523857" y="2051.0" />
+      <point x="3212.6495294523857" y="1434.0" />
+      <point x="3361.972173623546" y="1434.0" />
+      <point x="-31.294117647058556" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.dao.VerificationDao">
-      <point x="-59.53846153846143" y="-69.5" />
-      <point x="1632.6345691555307" y="1106.0" />
-      <point x="1513.557330820096" y="1106.0" />
-      <point x="35.5" y="14.5" />
+      <point x="-82.46153846153857" y="-103.0" />
+      <point x="3170.038101331326" y="2340.0" />
+      <point x="2932.9671459714596" y="2340.0" />
+      <point x="76.25" y="25.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.PageController" target="com.wiedenman.b_plate.exception.UrlExistsException">
-      <point x="44.0" y="-25.5" />
-      <point x="2993.173030693992" y="1196.0" />
-      <point x="2948.520164711534" y="1196.0" />
+      <point x="107.19999999999982" y="-103.0" />
+      <point x="4671.166291270604" y="2450.0" />
+      <point x="4659.086134453782" y="2450.0" />
       <point x="-58.75" y="25.5" />
     </edge>
+    <edge source="com.wiedenman.b_plate.web.controller.PasswordController" target="com.wiedenman.b_plate.web.model.User">
+      <point x="-222.33333333333348" y="-136.0" />
+      <point x="419.1666666666665" y="2440.0" />
+      <point x="354.17036278571913" y="2440.0" />
+      <point x="354.17036278571913" y="1364.0" />
+      <point x="3142.9133500941343" y="1364.0" />
+      <point x="-250.35294117647072" y="543.5" />
+    </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.exception.EmailExistsException">
-      <point x="54.0" y="-36.5" />
-      <point x="565.1961315043045" y="1216.0" />
-      <point x="747.4166666666665" y="1216.0" />
+      <point x="118.5" y="-125.0" />
+      <point x="1839.7230392156862" y="2440.0" />
+      <point x="2105.4671459714596" y="2440.0" />
       <point x="-83.0" y="25.5" />
     </edge>
-    <edge source="com.wiedenman.b_plate.web.controller.PasswordController" target="com.wiedenman.b_plate.web.model.User">
-      <point x="0.0" y="-47.5" />
-      <point x="1988.1730306939921" y="662.0" />
-      <point x="1828.9447586726997" y="662.0" />
-      <point x="31.29411764705901" y="202.0" />
-    </edge>
     <edge source="com.wiedenman.b_plate.dao.TaskDao" target="com.wiedenman.b_plate.web.model.Task">
-      <point x="0.0" y="-14.5" />
-      <point x="2585.2040980957327" y="960.0" />
-      <point x="2542.3704212454213" y="960.0" />
-      <point x="34.14285714285711" y="81.0" />
-    </edge>
-    <edge source="com.wiedenman.b_plate.web.model.User" target="com.wiedenman.b_plate.web.model.Role">
-      <point x="-133.0" y="-202.0" />
-      <point x="0.0" y="59.0" />
+      <point x="0.0" y="-25.5" />
+      <point x="4302.399529452386" y="2031.0" />
+      <point x="3964.2386105577143" y="2031.0" />
+      <point x="126.85714285714266" y="191.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserService" target="com.wiedenman.b_plate.web.model.VerificationToken">
-      <point x="30.25" y="-14.5" />
-      <point x="655.6666666666665" y="950.0" />
-      <point x="1092.807330820096" y="950.0" />
-      <point x="-110.0" y="103.0" />
+      <point x="94.25" y="-124.5" />
+      <point x="1683.8629793047928" y="2031.0" />
+      <point x="2713.0823224014266" y="2031.0" />
+      <point x="-110.0" y="224.5" />
+    </edge>
+    <edge source="com.wiedenman.b_plate.web.model.User" target="com.wiedenman.b_plate.web.model.Role">
+      <point x="-133.0" y="-543.5" />
+      <point x="0.0" y="103.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.UserController" target="com.wiedenman.b_plate.dao.RoleDao">
-      <point x="-18.0" y="-36.5" />
-      <point x="493.1961315043045" y="1176.0" />
-      <point x="471.4166666666665" y="1176.0" />
-      <point x="-24.5" y="14.5" />
+      <point x="39.5" y="-125.0" />
+      <point x="1760.7230392156862" y="2430.0" />
+      <point x="1878.9671459714596" y="2430.0" />
+      <point x="-55.0" y="36.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.web.model.VerificationToken">
-      <point x="0.0" y="-69.5" />
-      <point x="1692.1730306939921" y="1156.0" />
-      <point x="1742.2913051790702" y="1156.0" />
-      <point x="1742.2913051790702" y="930.0" />
-      <point x="1312.807330820096" y="930.0" />
-      <point x="110.0" y="103.0" />
-    </edge>
-    <edge source="com.wiedenman.b_plate.web.model.VerificationToken" target="com.wiedenman.b_plate.web.model.User">
-      <point x="-66.0" y="-103.0" />
-      <point x="1136.807330820096" y="632.0" />
-      <point x="1641.1800527903465" y="632.0" />
-      <point x="-156.47058823529414" y="202.0" />
+      <point x="41.230769230769056" y="-103.0" />
+      <point x="3293.7304090236335" y="2400.0" />
+      <point x="3461.95443428317" y="2400.0" />
+      <point x="3461.95443428317" y="2031.0" />
+      <point x="2933.0823224014266" y="2031.0" />
+      <point x="110.0" y="224.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.web.controller.RegistrationController" target="com.wiedenman.b_plate.service.EmailService">
-      <point x="99.23076923076928" y="-69.5" />
-      <point x="1791.4037999247614" y="1206.0" />
-      <point x="2096.8211315043045" y="1206.0" />
-      <point x="-41.33333333333326" y="14.5" />
+      <point x="-247.38461538461524" y="-103.0" />
+      <point x="3005.115024408249" y="2380.0" />
+      <point x="604.6703627857191" y="2380.0" />
+      <point x="96.0" y="25.5" />
+    </edge>
+    <edge source="com.wiedenman.b_plate.web.model.VerificationToken" target="com.wiedenman.b_plate.web.model.User">
+      <point x="-66.0" y="-224.5" />
+      <point x="2757.0823224014266" y="1414.0" />
+      <point x="3299.383938329428" y="1414.0" />
+      <point x="-93.88235294117658" y="543.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.UserServiceImpl" target="com.wiedenman.b_plate.service.UserService">
-      <point x="-86.0" y="-47.5" />
-      <point x="1046.516598095733" y="1166.0" />
-      <point x="635.5" y="1166.0" />
-      <point x="10.083333333333485" y="14.5" />
+      <point x="-167.55555555555566" y="-191.0" />
+      <point x="2413.209150326797" y="2420.0" />
+      <point x="1683.8629793047928" y="2420.0" />
+      <point x="94.25" y="124.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.config.SecurityConfig" target="com.wiedenman.b_plate.web.FlashMessage">
-      <point x="-92.25" y="-37.0" />
-      <point x="95.75" y="1226.0" />
-      <point x="63.25" y="1226.0" />
-      <point x="-63.25" y="48.0" />
+      <point x="-150.375" y="-114.5" />
+      <point x="1068.6875" y="2420.0" />
+      <point x="953.6754793047926" y="2420.0" />
+      <point x="-63.25" y="92.5" />
     </edge>
     <edge source="com.wiedenman.b_plate.service.PageServiceImpl" target="com.wiedenman.b_plate.dao.PageDao">
-      <point x="67.5" y="-25.5" />
-      <point x="3336.1336315043045" y="1226.0" />
-      <point x="3354.165064102564" y="1226.0" />
-      <point x="0.0" y="14.5" />
+      <point x="29.125" y="-103.0" />
+      <point x="5122.776562869787" y="2440.0" />
+      <point x="5211.836134453782" y="2440.0" />
+      <point x="0.0" y="36.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.35636213543089734" x="2676.868770133783" y="114.85793286005469" />
+  <settings layout="Hierarchic Group" zoom="0.4777979817052374" x="2231.233415786609" y="1533.9398935810664" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
