@@ -9,4 +9,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
     config.allowedContent = true;
     config.fillEmptyBlocks = true;
+    // allow i tags to be empty (for font awesome)
+    CKEDITOR.dtd.$removeEmpty['i'] = false;
 };
