@@ -1962,7 +1962,8 @@ html {
   box-sizing: border-box; }
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  outline: none; }
 
 ul:not(.browser-default) {
   padding-left: 0;
