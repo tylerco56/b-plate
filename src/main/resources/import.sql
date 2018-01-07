@@ -3,12 +3,9 @@ insert into role (name) values ('ROLE_USER');
 insert into role (name) values ('ROLE_PUBLISHER');
 insert into role (name) values ('ROLE_ADMIN');
 
-
-
 -- Insert two users (passwords are both 'password')
 insert into user (first_name, last_name, phone_number, username, enabled, password, verify_password, email, role_id) values ('First', 'Last', 1234567890, 'user', true, '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', 'you@youremail.com', 1);
 insert into user (first_name, last_name, phone_number, username, enabled, password, verify_password, email, role_id) values ('First', 'Last', 1234567890, 'user2', true, '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', '$2a$10$j49FuG2CNUQg1N65FPYamOKTjaOTqG5Je38U3UKUI37borwVNcVDS', 'yous@youremail.com', 3);
-
 
 -- Insert home page and contact page
 insert into page (name, publish, author_id, url, body) values ('home', true, 2, 'index','
@@ -273,8 +270,8 @@ insert into page (name, publish, author_id, url, body) values ('home', true, 2, 
         </div>
     </div>
 </div>');
-insert into page (name, publish, author_id, url, body) values ('contact', true, 1, 'contact', '
 
+insert into page (name, publish, author_id, url, body) values ('contact', true, 1, 'contact', '
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
