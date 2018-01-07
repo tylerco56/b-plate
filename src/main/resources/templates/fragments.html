@@ -19,7 +19,7 @@
         <!-- DESKTOP NAV -->
         <div class="right hide-on-med-and-down" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
             <ul th:case="${false}">
-                <li><a href="/page/about" class="thin">about</a></li>
+                <li><a href="/page/contact" class="thin">contact</a></li>
                 <li>
                     <form class="logout inline" th:action="@{/logout}" method="post">
                         <button type="submit" style="background: none; border: none; position: relative; top: 4px;">
@@ -51,7 +51,7 @@
         <!-- MOBILE NAV -->
         <div id="nav-mobile" class="side-nav" th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
             <ul th:case="${false}">
-                <li><a href="/page/about" class="thin">About</a></li>
+                <li><a href="/page/contact" class="thin">Contact</a></li>
                 <li><a href="/login">Login</a></li>
             </ul>
             <ul th:case="${true}">
@@ -96,10 +96,8 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/page/index">home</a></li>
+                    <li><a class="grey-text text-lighten-3" href="/page/contact">contact</a></li>
                 </ul>
             </div>
         </div>
@@ -107,7 +105,7 @@
     <div class="footer-copyright">
         <div class="container">
             © 2014 Copyright Landon Wiedenman
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/landon-wiedenman/">meet the maker</a>
         </div>
     </div>
 </footer>
