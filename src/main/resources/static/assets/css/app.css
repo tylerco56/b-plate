@@ -175,6 +175,13 @@ footer.page-footer {
 }
 
 
+/* MAPBOX */
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    position: relative;
+    top: 20px;
+}
+
 /* MEDIA QUERIES */
 
 @media only screen and (max-width : 992px) {
