@@ -4,6 +4,8 @@
 
 B-plate is full-stack Java web-application boilerplate for the most common use cases. It is meant as a starting point to allow developers to focus their time on unique functionality and speed up development.
 
+See b-plate in action: https://www.b-plate.herokuapp.com
+
 The following features are provided by b-plate "out-of-the-box" in a MVC pattern:
 - User authentication
 - SMS 2-factor (coming soon)
