@@ -17,21 +17,21 @@
                     <input type="text" th:field="*{username}" class="validate"/>
                 </div>
                 <div class="row">
-                    <div class="input-field col m6">
+                    <div class="input-field col m6 s12">
                         <label th:for="email" data-error="wrong">Email  <span th:errors="*{email}" class="error"></span></label>
                         <input type="email" th:field="*{email}" class="validate"/>
                     </div>
-                    <div class="input-field col m6">
+                    <div class="input-field col m6 s12">
                         <label th:for="phone">Mobile Phone (for SMS authentication)  <span th:errors="*{phoneNumber}" class="error"></span></label>
                         <input type="tel" th:field="*{phoneNumber}" class="validate"/>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col m6">
+                    <div class="input-field col m6 s12">
                         <label th:for="firstName">First Name  <span th:errors="*{firstName}" class="error"></span></label>
                         <input type="text" th:field="*{firstName}" class="validate"/>
                     </div>
-                    <div class="input-field col m6">
+                    <div class="input-field col m6 s12">
                         <label th:for="lastName">Last Name  <span th:errors="*{lastName}" class="error"></span></label>
                         <input type="text" th:field="*{lastName}" class="validate"/>
                     </div>

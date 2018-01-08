@@ -12,7 +12,7 @@ The following features are provided by b-plate "out-of-the-box" in a MVC pattern
 - User roles & permissions
 - Account management (registration, password reset, etc.)
 - Private personal user data, page, and class
-- Public pages for landing-pages and help content
+- Content management system
 - Email server with SendGrid
 - Persistence with MySQL example
 - Front-end HTML and CSS
