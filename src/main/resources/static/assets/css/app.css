@@ -148,6 +148,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     font-size: .75em;
     padding: 1px 12px 0px 12px;
     color: darkgray;
+    margin: 7px;
 }
 
 
